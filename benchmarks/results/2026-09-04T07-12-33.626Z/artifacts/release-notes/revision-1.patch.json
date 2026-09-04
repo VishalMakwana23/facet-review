@@ -1,0 +1,12 @@
+{
+  "artifactId": "release-notes",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "release-notes.section.1",
+      "value": "Section content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: add a breaking-change warning."
+    }
+  ]
+}

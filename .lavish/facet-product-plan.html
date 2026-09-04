@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Facet — Product & Technical Plan</title>
+  <style>
+    :root {
+      --bg:#070812; --panel:#101222; --panel2:#15182b; --line:#292d49;
+      --text:#f5f7ff; --muted:#a7aec9; --cyan:#64e8ff; --violet:#a78bfa;
+      --lime:#9df58c; --amber:#ffc76b; --red:#ff7f91; --blue:#6aa8ff;
+      --shadow:0 22px 70px rgba(0,0,0,.32); --radius:24px;
+    }
+    :root[data-theme="light"]{--bg:#f3f5fb;--panel:#ffffff;--panel2:#edf1fa;--line:#d6dced;--text:#101426;--muted:#59627a;--cyan:#007f98;--violet:#7158d9;--lime:#378a37;--amber:#a75a00;--red:#c73d55;--blue:#2f68c5;--shadow:0 22px 70px rgba(37,45,77,.12);color-scheme:light}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 12% 0%,rgba(103,232,249,.12),transparent 28rem),radial-gradient(circle at 90% 10%,rgba(167,139,250,.14),transparent 32rem),var(--bg);line-height:1.55}
+    :where(.grid,.flex)>*{min-width:0}:where(p,h1,h2,h3,h4,li,td,th,code,.pill){overflow-wrap:anywhere} svg{display:block;width:100%;height:auto} button,input,select,textarea{font:inherit}
+    a{color:inherit}.wrap{max-width:1240px;margin:auto;padding:0 22px}.nav{position:sticky;top:0;z-index:20;background:rgba(7,8,18,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .navin{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.03em}.brandmark{width:32px;height:32px;border-radius:11px;background:conic-gradient(from 200deg,var(--cyan),var(--violet),var(--lime),var(--cyan));box-shadow:0 0 28px rgba(100,232,255,.3)}
+    .navlinks{display:flex;gap:6px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted);font-size:13px;padding:8px 10px;border-radius:10px}.navlinks a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+    .themebtn{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--text);width:36px;height:36px;border-radius:12px;cursor:pointer}.themebtn:focus-visible{outline:3px solid rgba(100,232,255,.3);outline-offset:2px}
+    main{padding:34px 0 72px}.hero{position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,rgba(21,24,43,.95),rgba(10,12,25,.9));border-radius:34px;padding:58px;box-shadow:var(--shadow)}
+    .hero:after{content:"";position:absolute;right:-120px;top:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(100,232,255,.19),transparent 66%);pointer-events:none}.kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--cyan)}
+    h1{font-size:clamp(44px,7vw,82px);line-height:.98;letter-spacing:-.065em;margin:18px 0;max-width:960px}.gradient{background:linear-gradient(90deg,var(--cyan),#d0bcff 54%,var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(18px,2vw,22px);color:var(--muted);max-width:850px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.045);padding:8px 12px;border-radius:999px;color:#dce2ff;font-size:13px}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px currentColor}
+    .section{margin-top:28px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(16,18,34,.96),rgba(10,12,24,.96));border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}.sectionhead p{max-width:650px}.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:850;color:var(--violet)}
+    h2{font-size:clamp(28px,4vw,44px);line-height:1.05;letter-spacing:-.045em;margin:8px 0}h3{font-size:20px;letter-spacing:-.025em;margin:0 0 9px}p{margin:0;color:var(--muted)}.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035);padding:22px}.card.emphasis{background:linear-gradient(145deg,rgba(100,232,255,.1),rgba(167,139,250,.08));border-color:rgba(100,232,255,.3)}.tag{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--cyan);margin-bottom:12px}.num{font-size:34px;font-weight:900;letter-spacing:-.06em;color:var(--text)}.caption{font-size:12px;color:#7f88a8}.callout{display:flex;gap:12px;border:1px solid rgba(255,199,107,.25);background:rgba(255,199,107,.07);padding:16px 18px;border-radius:16px;color:#ffe7b7}.callout strong{color:var(--amber)}
+    .split{display:grid;grid-template-columns:.88fr 1.12fr;gap:22px}.list{display:grid;gap:12px;margin:16px 0 0;padding:0;list-style:none}.list li{display:grid;grid-template-columns:28px 1fr;gap:10px;color:var(--muted)}.check{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;background:rgba(157,245,140,.12);color:var(--lime);font-weight:900;font-size:12px}.warn{background:rgba(255,199,107,.12);color:var(--amber)}
+    .compare{overflow-x:auto;border:1px solid var(--line);border-radius:18px}.compare table{width:100%;border-collapse:collapse;min-width:760px;background:rgba(255,255,255,.025)}th,td{text-align:left;padding:15px 17px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#838cab;background:rgba(255,255,255,.03)}td{color:var(--muted)}tr:last-child td{border-bottom:none}td:first-child{color:var(--text);font-weight:750}.status{display:inline-flex;align-items:center;border-radius:99px;padding:4px 8px;font-size:11px;font-weight:800}.observed{background:rgba(255,199,107,.12);color:var(--amber)}.target{background:rgba(157,245,140,.12);color:var(--lime)}
+    .arch{border:1px solid var(--line);border-radius:20px;background:radial-gradient(circle at 50% 50%,rgba(100,232,255,.07),transparent 55%),#0b0d19;padding:14px}.node{fill:#15182b;stroke:#3a4264;stroke-width:2}.node-core{fill:#172335;stroke:#64e8ff;stroke-width:2}.node-text{fill:#f5f7ff;font:700 15px Inter,system-ui,sans-serif;text-anchor:middle}.node-sub{fill:#a7aec9;font:12px Inter,system-ui,sans-serif;text-anchor:middle}.edge{fill:none;stroke:#596485;stroke-width:2.5;marker-end:url(#arr)}.edge-hot{stroke:#64e8ff}.lane{fill:rgba(255,255,255,.025);stroke:#252a43;stroke-width:1}.lane-title{fill:#7f88a8;font:700 11px Inter,system-ui,sans-serif;letter-spacing:1.2px}
+    .metric{padding:20px;border-top:2px solid var(--cyan);background:rgba(255,255,255,.03);border-radius:0 0 16px 16px}.metric:nth-child(2){border-color:var(--violet)}.metric:nth-child(3){border-color:var(--lime)}.metric:nth-child(4){border-color:var(--amber)}.metric .num{font-size:30px}.metric p{font-size:13px}.metric small{display:block;color:#727b9b;margin-top:8px}
+    .stack{display:grid;gap:11px}.stackrow{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:15px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}.stackrow strong{color:var(--cyan)}.stackrow span{color:var(--muted)}
+    .phase{position:relative;padding-left:30px;padding-bottom:25px}.phase:before{content:"";position:absolute;left:8px;top:10px;bottom:-10px;width:2px;background:var(--line)}.phase:last-child:before{display:none}.phase:after{content:"";position:absolute;left:1px;top:6px;width:16px;height:16px;border:3px solid var(--bg);border-radius:50%;background:var(--cyan);box-shadow:0 0 0 2px var(--cyan)}.phase h3{display:flex;align-items:center;gap:10px}.week{font-size:11px;color:var(--cyan);border:1px solid rgba(100,232,255,.25);padding:4px 7px;border-radius:99px}.phase p{margin-bottom:10px}.deliverables{display:flex;flex-wrap:wrap;gap:7px}.deliverables span{font-size:12px;color:#c2c9e5;background:rgba(255,255,255,.05);padding:6px 8px;border-radius:8px}
+    .risk{border-left:3px solid var(--amber)}.risk.high{border-left-color:var(--red)}.risk.low{border-left-color:var(--blue)}.risk strong{color:var(--text)}
+    .choice{display:block;position:relative;cursor:pointer}.choice input{position:absolute;opacity:0;pointer-events:none}.choicebody{height:100%;border:1px solid var(--line);border-radius:17px;padding:18px;background:rgba(255,255,255,.025);transition:.18s ease}.choice input:checked+.choicebody{border-color:var(--cyan);background:rgba(100,232,255,.09);box-shadow:0 0 0 3px rgba(100,232,255,.08)}.choicebody b{display:block;margin-bottom:6px}.choicebody span{font-size:13px;color:var(--muted)}.recommended{font-size:10px;font-weight:850;color:var(--lime);text-transform:uppercase;letter-spacing:.1em}
+    .formfooter{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px}.queue{border:0;border-radius:13px;padding:12px 16px;font-weight:850;color:#071018;background:linear-gradient(90deg,var(--cyan),var(--lime));cursor:pointer}.queue:hover{filter:brightness(1.08)}.queue:focus-visible{outline:3px solid rgba(100,232,255,.3);outline-offset:3px}.queued{font-size:13px;color:var(--lime);min-height:20px}
+    .mvp{counter-reset:mvp}.mvp li{counter-increment:mvp;display:grid;grid-template-columns:38px 1fr;gap:12px;color:var(--muted);padding:11px 0;border-bottom:1px solid var(--line)}.mvp li:before{content:counter(mvp);width:30px;height:30px;border-radius:10px;background:rgba(167,139,250,.13);display:grid;place-items:center;color:#d8ccff;font-weight:900}.mvp li:last-child{border-bottom:0}.footer{padding:26px 0 10px;text-align:center;color:#68718f;font-size:12px}
+    :root[data-theme="light"] body{background:radial-gradient(circle at 12% 0%,rgba(0,127,152,.09),transparent 28rem),radial-gradient(circle at 90% 10%,rgba(113,88,217,.10),transparent 32rem),var(--bg)}
+    :root[data-theme="light"] .nav{background:rgba(243,245,251,.84)}
+    :root[data-theme="light"] .hero,:root[data-theme="light"] .section{background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(246,248,253,.98))}
+    :root[data-theme="light"] .card,:root[data-theme="light"] .metric,:root[data-theme="light"] .stackrow,:root[data-theme="light"] .choicebody,:root[data-theme="light"] .compare table{background:rgba(255,255,255,.82)}
+    :root[data-theme="light"] .card.emphasis{background:linear-gradient(145deg,rgba(0,127,152,.09),rgba(113,88,217,.08))}
+    :root[data-theme="light"] th{background:#edf1fa;color:#59627a}
+    :root[data-theme="light"] .arch{background:radial-gradient(circle at 50% 50%,rgba(0,127,152,.06),transparent 55%),#f8faff}
+    :root[data-theme="light"] .lane{fill:#f3f5fb;stroke:#d6dced}:root[data-theme="light"] .lane-title{fill:#65708b}
+    :root[data-theme="light"] .node{fill:#fff;stroke:#b7c1d9}:root[data-theme="light"] .node-core{fill:#e7f8fb;stroke:#007f98}
+    :root[data-theme="light"] .node-text{fill:#101426}:root[data-theme="light"] .node-sub{fill:#59627a}:root[data-theme="light"] .edge{stroke:#8390aa}:root[data-theme="light"] .edge-hot{stroke:#007f98}
+    :root[data-theme="light"] .pill,:root[data-theme="light"] .themebtn{background:rgba(16,20,38,.04);color:var(--text)}
+    :root[data-theme="light"] .callout{color:#654000;background:rgba(167,90,0,.08);border-color:rgba(167,90,0,.24)}
+    :root[data-theme="light"] .deliverables span{color:var(--muted);background:rgba(16,20,38,.05)}
+    :root[data-theme="light"] .mvp li:before{color:var(--violet);background:rgba(113,88,217,.11)}
+    @media(max-width:900px){.navlinks{display:none}.hero{padding:38px 28px}.section{padding:26px}.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))}.split,.g2{grid-template-columns:1fr}.sectionhead{align-items:start;flex-direction:column}.stackrow{grid-template-columns:1fr}.formfooter{align-items:stretch;flex-direction:column}}
+    @media(max-width:560px){.wrap{padding:0 14px}main{padding-top:18px}.hero{padding:30px 22px;border-radius:24px}h1{font-size:45px}.section{padding:21px;border-radius:20px}.g4,.g3{grid-template-columns:1fr}.chips{gap:7px}.pill{font-size:12px}.arch{padding:4px;overflow-x:auto}.arch svg{min-width:820px}.choicebody{padding:15px}}
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="wrap navin"><div class="brand"><span class="brandmark" aria-hidden="true"></span><span>Facet</span><span class="pill">product plan · v0.1</span></div><div style="display:flex;align-items:center;gap:8px"><div class="navlinks"><a href="#thesis">Thesis</a><a href="#gap">Gap</a><a href="#architecture">Architecture</a><a href="#roadmap">Roadmap</a><a href="#decisions">Decisions</a></div><button class="themebtn" type="button" aria-label="Toggle light and dark theme" onclick="toggleTheme()">◐</button></div></div></nav>
+  <main class="wrap">
+    <header class="hero">
+      <div class="kicker">Working codename · proposal, not implementation</div>
+      <h1>A <span class="gradient">token-efficient canvas</span> for human–agent collaboration.</h1>
+      <p class="lead">Facet is a proposed local-first alternative to Lavish: agents emit a compact semantic artifact, a deterministic renderer creates the modern interface, and humans review, decide, annotate, and iterate without regenerating an entire HTML page.</p>
+      <div class="chips"><span class="pill"><span class="dot"></span>70%+ token reduction target</span><span class="pill"><span class="dot" style="background:var(--violet)"></span>schema-first rendering</span><span class="pill"><span class="dot" style="background:var(--lime)"></span>local & private by default</span><span class="pill"><span class="dot" style="background:var(--amber)"></span>incremental patches</span></div>
+    </header>
+
+    <section id="thesis" class="section">
+      <div class="sectionhead"><div><div class="eyebrow">01 · Product thesis</div><h2>Keep the creativity. Remove the repeated markup.</h2></div><p>HTML is a powerful final format, but it is an expensive language for an agent to author repeatedly. Facet makes the model describe intent while software handles pixels, layout, accessibility, and responsive behavior.</p></div>
+      <div class="grid g4">
+        <article class="card emphasis"><div class="tag">Core user</div><h3>AI-assisted builders</h3><p>Developers, product teams, researchers, and operators reviewing complex agent output.</p></article>
+        <article class="card"><div class="tag">Job to be done</div><h3>Understand and decide</h3><p>Turn complex reasoning into a surface where a person can inspect, compare, and act.</p></article>
+        <article class="card"><div class="tag">Unique advantage</div><h3>Semantic protocol</h3><p>A small artifact spec renders into consistent, polished, interactive components.</p></article>
+        <article class="card"><div class="tag">North star</div><h3>Decision time</h3><p>Reduce time from agent output to an accepted, clearly recorded human decision.</p></article>
+      </div>
+      <div class="callout" style="margin-top:16px"><span>◈</span><div><strong>Scope assumption:</strong> start as an open, developer-first local CLI and web UI. Hosted collaboration is an optional later layer, not an MVP dependency.</div></div>
+    </section>
+
+    <section id="gap" class="section">
+      <div class="sectionhead"><div><div class="eyebrow">02 · Opportunity</div><h2>Fill workflow gaps without copying Lavish.</h2></div><p>The Lavish column below is based on its installed CLI guidance and observed workflow—not a source-code audit. These are design tradeoffs to improve, not claims that the product is defective.</p></div>
+      <div class="compare"><table><thead><tr><th>Dimension</th><th>Observed Lavish workflow</th><th>Facet target behavior</th><th>Why it matters</th></tr></thead><tbody>
+        <tr id="gap-tokens"><td>Agent output</td><td><span class="status observed">Observed</span><br>Agent authors full HTML/CSS and often inline SVG.</td><td><span class="status target">Target</span><br>Agent emits compact semantic nodes and content references.</td><td>Lower output tokens and fewer layout defects.</td></tr>
+        <tr id="gap-revisions"><td>Revision model</td><td>Update the HTML artifact and reopen/resume review.</td><td>Patch only changed nodes via stable IDs and JSON Patch operations.</td><td>Small follow-ups instead of full-page regeneration.</td></tr>
+        <tr id="gap-design"><td>Design consistency</td><td>Artifact must select or author its own design system.</td><td>Built-in token sets, component registry, and optional project-theme adapter.</td><td>Modern UI without repeated styling instructions.</td></tr>
+        <tr id="gap-feedback"><td>Agent connection</td><td>Long-poll CLI process returns queued feedback.</td><td>Event stream plus durable local inbox; reconnect without losing state.</td><td>More resilient sessions and multi-client support.</td></tr>
+        <tr id="gap-export"><td>Portability</td><td>Standalone HTML export; remote CDN references stay remote.</td><td>Offline-first single bundle with all runtime assets embedded.</td><td>Predictable rendering and private archival.</td></tr>
+        <tr id="gap-sharing"><td>Sharing</td><td>Optional third-party share; public unless private/password mode chosen.</td><td>Local by default; explicit encrypted share, self-host, or file export.</td><td>Safer default posture for sensitive work.</td></tr>
+        <tr id="gap-structure"><td>Machine readability</td><td>Flexible HTML is the artifact source.</td><td>Typed artifact graph with schemas, provenance, decisions, and history.</td><td>Search, diff, migration, accessibility, and automation become reliable.</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><div class="eyebrow">03 · Token strategy</div><h2>Reduce tokens at the protocol layer.</h2></div><p>The targets are hypotheses until benchmarked. The plan begins with a reproducible corpus so “token efficient” is measured at equal content and visual quality.</p></div>
+      <div class="split">
+        <div class="grid g2">
+          <div class="metric"><div class="num">≥70%</div><p>fewer agent output tokens than authored HTML baseline</p><small>Target · median across benchmark corpus</small></div>
+          <div class="metric"><div class="num">≤15%</div><p>of full artifact tokens for a typical revision</p><small>Target · patch payload</small></div>
+          <div class="metric"><div class="num">0</div><p>external runtime requests for exported bundles</p><small>Requirement · offline mode</small></div>
+          <div class="metric"><div class="num">&lt;1s</div><p>local first meaningful render at p95</p><small>Target · standard laptop, 100-node artifact</small></div>
+        </div>
+        <div class="stack">
+          <div class="stackrow"><strong>Component IDs</strong><span><code>hero</code>, <code>comparison</code>, <code>timeline</code>, and <code>decision</code> replace repeated markup and styling.</span></div>
+          <div class="stackrow"><strong>Theme tokens</strong><span>One theme name and a few overrides replace CSS declarations across every component.</span></div>
+          <div class="stackrow"><strong>Content refs</strong><span>Large code, logs, images, and documents stay as local assets referenced by digest.</span></div>
+          <div class="stackrow"><strong>Patch protocol</strong><span>Stable node IDs allow add, replace, move, and remove operations without resending unchanged content.</span></div>
+          <div class="stackrow"><strong>Deterministic layout</strong><span>The renderer owns responsive rules and accessibility; the model chooses intent and emphasis.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section">
+      <div class="sectionhead"><div><div class="eyebrow">04 · Architecture</div><h2>Compact input, deterministic output, durable feedback.</h2></div><p>A local daemon coordinates a typed artifact graph, a sandboxed renderer, and an append-only event store. Hosted services remain replaceable adapters.</p></div>
+      <figure class="arch" aria-labelledby="arch-cap">
+        <svg viewBox="0 0 1120 500" role="img" aria-labelledby="arch-title arch-desc">
+          <title id="arch-title">Facet high-level system architecture</title><desc id="arch-desc">Agents and project sources feed a local Facet daemon. The daemon validates a compact artifact protocol, stores artifacts and events, renders a secure review canvas, and exports or optionally shares results.</desc>
+          <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#596485"/></marker></defs>
+          <rect class="lane" x="18" y="38" width="230" height="420" rx="22"/><text class="lane-title" x="40" y="68">INPUTS</text>
+          <rect class="lane" x="270" y="38" width="580" height="420" rx="22"/><text class="lane-title" x="292" y="68">LOCAL TRUST BOUNDARY</text>
+          <rect class="lane" x="872" y="38" width="230" height="420" rx="22"/><text class="lane-title" x="894" y="68">OUTPUTS</text>
+          <g id="arch-agent"><title>Agent adapter</title><rect class="node" x="48" y="104" width="170" height="76" rx="16"/><text class="node-text" x="133" y="134">Agent adapter</text><text class="node-sub" x="133" y="157">CLI · MCP · SDK</text></g>
+          <g id="arch-sources"><title>Project and local asset sources</title><rect class="node" x="48" y="282" width="170" height="76" rx="16"/><text class="node-text" x="133" y="312">Project sources</text><text class="node-sub" x="133" y="335">files · images · data</text></g>
+          <g id="arch-daemon"><title>Local coordination daemon</title><rect class="node-core" x="312" y="104" width="200" height="92" rx="18"/><text class="node-text" x="412" y="140">Facet daemon</text><text class="node-sub" x="412" y="164">sessions · auth · events</text></g>
+          <g id="arch-protocol"><title>Compact Artifact Protocol validator and patch engine</title><rect class="node-core" x="574" y="104" width="224" height="92" rx="18"/><text class="node-text" x="686" y="138">Artifact protocol</text><text class="node-sub" x="686" y="161">schema · patches · migration</text></g>
+          <g id="arch-store"><title>Local content-addressed artifact and event store</title><rect class="node" x="312" y="282" width="200" height="92" rx="18"/><text class="node-text" x="412" y="318">Local store</text><text class="node-sub" x="412" y="341">SQLite · blobs · history</text></g>
+          <g id="arch-renderer"><title>Sandboxed deterministic renderer</title><rect class="node-core" x="574" y="282" width="224" height="92" rx="18"/><text class="node-text" x="686" y="316">Review renderer</text><text class="node-sub" x="686" y="339">components · canvas · a11y</text></g>
+          <g id="arch-review"><title>Human review canvas</title><rect class="node" x="902" y="104" width="170" height="76" rx="16"/><text class="node-text" x="987" y="134">Review canvas</text><text class="node-sub" x="987" y="157">annotate · decide</text></g>
+          <g id="arch-export"><title>Offline export and optional sharing adapters</title><rect class="node" x="902" y="282" width="170" height="76" rx="16"/><text class="node-text" x="987" y="312">Export / share</text><text class="node-sub" x="987" y="335">bundle · PDF · adapter</text></g>
+          <path id="edge-agent-daemon" class="edge edge-hot" d="M218 142 H312"><title>Compact specs and patches</title></path><path id="edge-source-store" class="edge" d="M218 320 H312"><title>Content-addressed local assets</title></path>
+          <path id="edge-daemon-protocol" class="edge edge-hot" d="M512 150 H574"><title>Validated artifact operations</title></path><path id="edge-daemon-store" class="edge" d="M412 196 V282"><title>Persist sessions and events</title></path>
+          <path id="edge-protocol-renderer" class="edge edge-hot" d="M686 196 V282"><title>Typed render graph</title></path><path id="edge-store-renderer" class="edge" d="M512 328 H574"><title>Read content and history</title></path>
+          <path id="edge-render-review" class="edge edge-hot" d="M798 312 C850 312 850 142 902 142"><title>Interactive review UI and feedback events</title></path><path id="edge-render-export" class="edge" d="M798 328 H902"><title>Portable output adapters</title></path>
+        </svg>
+        <figcaption id="arch-cap" class="caption" style="padding:10px 10px 4px">Trust boundary: artifact rendering, assets, history, and feedback work offline. A remote collaboration service is opt-in and talks through a documented adapter.</figcaption>
+      </figure>
+      <div class="grid g3" style="margin-top:16px">
+        <article class="card"><div class="tag">Protocol package</div><h3>Typed artifact graph</h3><p>Versioned schema, stable IDs, reusable definitions, provenance, capability negotiation, and patch operations.</p></article>
+        <article class="card"><div class="tag">Renderer package</div><h3>Accessible components</h3><p>Modern responsive layouts, theme tokens, virtualized dense views, keyboard navigation, print and offline modes.</p></article>
+        <article class="card"><div class="tag">Runtime package</div><h3>Event-driven sessions</h3><p>Durable event inbox, WebSocket/SSE transport, comments, decisions, attachments, presence, and reconnect.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><div class="eyebrow">05 · Product experience</div><h2>A full review workspace, not a decorative page.</h2></div><p>The canvas should feel like a modern design-review tool while preserving the simplicity of opening one local artifact.</p></div>
+      <div class="grid g3">
+        <article class="card emphasis"><div class="tag">Canvas</div><h3>Adaptive artifact view</h3><p>Document, board, comparison, timeline, data table, diagram, code diff, slide, and dashboard compositions.</p></article>
+        <article class="card"><div class="tag">Review</div><h3>Anchored conversations</h3><p>Element, region, text-range, code-line, data-cell, and freeform pin comments with resolved state.</p></article>
+        <article class="card"><div class="tag">Decisions</div><h3>Structured input</h3><p>Choice, ranking, approval, scope, risk acceptance, form, and checklist blocks that emit typed feedback.</p></article>
+        <article class="card"><div class="tag">History</div><h3>Semantic diffs</h3><p>See which nodes, claims, metrics, and decisions changed—not a wall of raw HTML differences.</p></article>
+        <article class="card"><div class="tag">Trust</div><h3>Provenance & citations</h3><p>Attach source references and confidence to any node, then inspect evidence without leaving the review.</p></article>
+        <article class="card"><div class="tag">Extend</div><h3>Capability plugins</h3><p>Register safe renderer components, exporters, data sources, and agent adapters through versioned manifests.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><div class="eyebrow">06 · MVP boundary</div><h2>Ship the smallest product that proves the thesis.</h2></div><p>“Full functionality” is the destination. The MVP must first prove token savings, review quality, and reliable agent feedback without hiding behind hosted collaboration.</p></div>
+      <div class="split">
+        <div class="card"><div class="tag">MVP must include</div><ol class="mvp" style="padding:0;margin:0;list-style:none"><li>Versioned compact artifact schema with 12–15 high-value components.</li><li>Local CLI/daemon and responsive browser review canvas.</li><li>Stable element and text-range annotations.</li><li>Typed choice/approval forms and durable feedback inbox.</li><li>JSON Patch revisions with visual semantic diff.</li><li>Self-contained offline HTML export.</li><li>Threat model, sandbox, CSP, asset size limits, and audit log.</li><li>Benchmark harness comparing tokens, latency, defects, and review completion.</li></ol></div>
+        <div class="card"><div class="tag">Explicitly defer</div><ul class="list"><li><span class="check warn">→</span><span>Real-time multi-user presence and simultaneous editing.</span></li><li><span class="check warn">→</span><span>Public cloud hosting, billing, organizations, and enterprise SSO.</span></li><li><span class="check warn">→</span><span>Unrestricted third-party JavaScript components.</span></li><li><span class="check warn">→</span><span>Native mobile apps; responsive web is sufficient first.</span></li><li><span class="check warn">→</span><span>AI-generated themes on every artifact; curated tokens come first.</span></li></ul><div class="callout" style="margin-top:18px"><span>!</span><div><strong>Guardrail:</strong> do not chase every Lavish feature at launch. Win decisively on token cost, patchability, reliable feedback, and privacy defaults.</div></div></div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="sectionhead"><div><div class="eyebrow">07 · Delivery roadmap</div><h2>Six phases, each with a kill-or-continue gate.</h2></div><p>Estimated for a focused 3–4 person product engineering team. A solo build should keep the phase order but expect a longer calendar.</p></div>
+      <div>
+        <article class="phase"><h3>Benchmark & protocol spike <span class="week">Weeks 1–2</span></h3><p>Build a 20-artifact corpus from plans, diagrams, tables, diffs, and dashboards. Compare authored HTML with three schema shapes. Select only if median savings reach 60% without material quality loss.</p><div class="deliverables"><span>benchmark corpus</span><span>token calculator</span><span>schema RFC</span><span>renderer spike</span><span>threat model v0</span></div></article>
+        <article class="phase"><h3>Vertical-slice local MVP <span class="week">Weeks 3–6</span></h3><p>Open one artifact, render core components, annotate stable nodes, submit typed feedback, persist events, and apply patches end to end.</p><div class="deliverables"><span>CLI daemon</span><span>12 components</span><span>artifact store</span><span>comments</span><span>patch engine</span></div></article>
+        <article class="phase"><h3>Review-quality release <span class="week">Weeks 7–9</span></h3><p>Add text/code anchors, semantic diff, keyboard review, mobile behavior, failure recovery, and offline export. Dogfood with real agent tasks.</p><div class="deliverables"><span>semantic diff</span><span>a11y audit</span><span>responsive QA</span><span>offline bundle</span><span>crash recovery</span></div></article>
+        <article class="phase"><h3>Developer preview <span class="week">Weeks 10–12</span></h3><p>Publish SDK, MCP/CLI adapters, schema documentation, examples, migration rules, telemetry opt-in, and a plugin capability model.</p><div class="deliverables"><span>SDK</span><span>MCP adapter</span><span>docs</span><span>examples</span><span>compat tests</span></div></article>
+        <article class="phase"><h3>Collaboration beta <span class="week">Post-MVP</span></h3><p>Add encrypted sharing, self-host option, team roles, presence, review requests, and organization policy—behind the same local protocol.</p><div class="deliverables"><span>E2EE share</span><span>self-host</span><span>roles</span><span>presence</span><span>policy</span></div></article>
+        <article class="phase"><h3>Ecosystem & scale <span class="week">Later</span></h3><p>Grow component and exporter registries, large-data virtualization, provenance integrations, organization templates, and cross-artifact search.</p><div class="deliverables"><span>registry</span><span>large data</span><span>search</span><span>templates</span><span>integrations</span></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><div class="eyebrow">08 · Engineering plan</div><h2>Recommended implementation shape.</h2></div><p>Keep protocol and renderer framework-neutral at the boundaries. The implementation may use TypeScript internally, but the wire format and test fixtures must be language-agnostic.</p></div>
+      <div class="grid g2">
+        <div class="stack"><div class="stackrow"><strong>Monorepo</strong><span><code>protocol</code>, <code>renderer</code>, <code>runtime</code>, <code>cli</code>, <code>sdk</code>, <code>exporters</code>, <code>benchmarks</code>, and <code>examples</code>.</span></div><div class="stackrow"><strong>Protocol</strong><span>JSON Schema-compatible definitions, semantic IDs, capability negotiation, and RFC 6902-style patch operations.</span></div><div class="stackrow"><strong>Local data</strong><span>SQLite for metadata/events, content-addressed files for blobs, append-only audit stream, explicit migrations.</span></div><div class="stackrow"><strong>Transport</strong><span>HTTP for commands and assets; WebSocket or SSE for feedback/events; durable inbox for disconnected agents.</span></div></div>
+        <div class="stack"><div class="stackrow"><strong>Frontend</strong><span>Component-based TypeScript UI, accessible primitives, design tokens, virtualization, responsive layouts, and no CDN runtime.</span></div><div class="stackrow"><strong>Security</strong><span>Loopback binding by default, random session secrets, strict CSP, sandboxed custom content, no arbitrary scripts, size/rate limits.</span></div><div class="stackrow"><strong>Testing</strong><span>Golden render snapshots, schema fuzzing, patch property tests, accessibility checks, mobile widths, offline export verification.</span></div><div class="stackrow"><strong>Compatibility</strong><span>Versioned migrations, capability fallback, unknown-node placeholders, and conformance fixtures for third-party SDKs.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><div class="eyebrow">09 · Risk register</div><h2>What can break the thesis.</h2></div><p>Risks are ordered by impact, not likelihood. Each requires evidence before expanding scope.</p></div>
+      <div class="grid g2">
+        <article class="card risk high"><h3>Schema becomes creatively restrictive</h3><p><strong>Mitigation:</strong> escape-hatch “rich block” with sandboxed markup, plugin capabilities, and benchmark quality scoring. Do not make freeform HTML the default.</p></article>
+        <article class="card risk high"><h3>Token savings are benchmark theater</h3><p><strong>Mitigation:</strong> compare equal content, interactions, accessibility, and visual fidelity; publish corpus and tokenizer settings.</p></article>
+        <article class="card risk"><h3>Stable anchors break across patches</h3><p><strong>Mitigation:</strong> immutable semantic IDs, range context hashes, relocation heuristics, and explicit orphan state instead of silent loss.</p></article>
+        <article class="card risk"><h3>Plugins recreate browser security problems</h3><p><strong>Mitigation:</strong> declarative component manifests first; permissioned sandbox workers later; signed capabilities and deny-by-default APIs.</p></article>
+        <article class="card risk low"><h3>Renderer versions change appearance</h3><p><strong>Mitigation:</strong> pin renderer version in each artifact, provide migration preview, and embed runtime for archival exports.</p></article>
+        <article class="card risk low"><h3>“Full functionality” delays release</h3><p><strong>Mitigation:</strong> hard MVP boundary and phase gates. Collaboration, cloud, and marketplace work start only after the local loop wins.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><div class="eyebrow">10 · Success criteria</div><h2>Definition of a credible MVP.</h2></div><p>All six gates must pass before claiming Facet is a better alternative for its chosen users.</p></div>
+      <div class="grid g3">
+        <article class="card"><div class="tag">Efficiency</div><h3>Token benchmark</h3><p>Median ≥70% reduction and p10 ≥40% across the fixed corpus, including initial artifact and two revisions.</p></article>
+        <article class="card"><div class="tag">Quality</div><h3>Blind review</h3><p>Users rate comprehension and visual quality non-inferior to handcrafted HTML at the same content depth.</p></article>
+        <article class="card"><div class="tag">Reliability</div><h3>Feedback delivery</h3><p>No lost submitted feedback across process restart, browser refresh, or agent reconnect in recovery tests.</p></article>
+        <article class="card"><div class="tag">Accessibility</div><h3>Keyboard & screen reader</h3><p>Core review, comment, and decision paths meet WCAG 2.2 AA expectations and pass manual keyboard tests.</p></article>
+        <article class="card"><div class="tag">Security</div><h3>Local trust</h3><p>No network egress in offline mode; hostile artifact fixtures cannot execute arbitrary code or read local files.</p></article>
+        <article class="card"><div class="tag">Adoption</div><h3>Repeat usage</h3><p>Pilot users choose Facet for a second real task and complete a decision without developer assistance.</p></article>
+      </div>
+    </section>
+
+    <section id="decisions" class="section">
+      <div class="sectionhead"><div><div class="eyebrow">11 · Decisions for you</div><h2>Choose the product boundary before coding.</h2></div><p>Select one option in each group, queue the choices, then use Lavish’s “Send to Agent” button. The recommended defaults preserve speed and differentiation.</p></div>
+      <form data-lavish-question="facet-product-decisions" onsubmit="queueDecisions(event)">
+        <h3>Primary launch audience</h3>
+        <div class="grid g3" style="margin:12px 0 24px">
+          <label class="choice"><input type="radio" name="audience" value="developer-first local tool" checked><span class="choicebody"><span class="recommended">Recommended</span><b>Developers & agent builders</b><span>Fastest route to protocol validation, CLI adoption, and technical feedback.</span></span></label>
+          <label class="choice"><input type="radio" name="audience" value="product and design teams"><span class="choicebody"><b>Product & design teams</b><span>Stronger visual demand, but collaboration and account features arrive earlier.</span></span></label>
+          <label class="choice"><input type="radio" name="audience" value="general knowledge workers"><span class="choicebody"><b>General knowledge work</b><span>Largest market, least focused MVP, highest onboarding and integration cost.</span></span></label>
+        </div>
+        <h3>Deployment boundary</h3>
+        <div class="grid g3" style="margin:12px 0 24px">
+          <label class="choice"><input type="radio" name="deployment" value="local-first with optional adapters" checked><span class="choicebody"><span class="recommended">Recommended</span><b>Local-first + adapters</b><span>Privacy, reliability, and offline use are foundational; cloud stays optional.</span></span></label>
+          <label class="choice"><input type="radio" name="deployment" value="hosted SaaS first"><span class="choicebody"><b>Hosted SaaS first</b><span>Easy team sharing, but adds auth, billing, compliance, and infrastructure early.</span></span></label>
+          <label class="choice"><input type="radio" name="deployment" value="desktop application first"><span class="choicebody"><b>Desktop app first</b><span>Strong local UX, but packaging and updates distract from protocol validation.</span></span></label>
+        </div>
+        <h3>Compatibility stance</h3>
+        <div class="grid g3" style="margin:12px 0 20px">
+          <label class="choice"><input type="radio" name="compatibility" value="schema-first with sandboxed rich-block escape hatch" checked><span class="choicebody"><span class="recommended">Recommended</span><b>Schema-first + escape hatch</b><span>Maximum token savings with a controlled path for novel visuals.</span></span></label>
+          <label class="choice"><input type="radio" name="compatibility" value="HTML-compatible import and enhancement"><span class="choicebody"><b>HTML compatibility</b><span>Easier migration, but weaker structure and smaller token advantage.</span></span></label>
+          <label class="choice"><input type="radio" name="compatibility" value="templates only"><span class="choicebody"><b>Curated templates only</b><span>Very predictable and efficient, but creatively restrictive and harder to extend.</span></span></label>
+        </div>
+        <div class="formfooter"><div id="queue-status" class="queued" role="status" aria-live="polite"></div><button class="queue" type="submit">Queue these product decisions →</button></div>
+      </form>
+    </section>
+
+    <section class="section">
+      <div class="sectionhead"><div><div class="eyebrow">12 · Immediate next sprint</div><h2>The first 10 working days.</h2></div><p>No production UI yet. First prove the protocol can beat HTML on tokens without making the artifacts worse.</p></div>
+      <div class="grid g2">
+        <div class="card"><div class="tag">Days 1–5</div><ul class="list"><li><span class="check">1</span><span>Freeze 20 representative artifact briefs and expected interactions.</span></li><li><span class="check">2</span><span>Capture Lavish-style HTML baselines and tokenizer counts.</span></li><li><span class="check">3</span><span>Draft three competing schemas: component tree, normalized graph, compact tuple form.</span></li><li><span class="check">4</span><span>Build one renderer spike for hero, prose, cards, comparison, diagram, code, and decision.</span></li></ul></div>
+        <div class="card"><div class="tag">Days 6–10</div><ul class="list"><li><span class="check">5</span><span>Run initial token, fidelity, accessibility, and revision-patch benchmarks.</span></li><li><span class="check">6</span><span>Threat-model local server, artifact input, assets, plugins, and export.</span></li><li><span class="check">7</span><span>Select protocol shape and publish schema RFC v0 with rejected alternatives.</span></li><li><span class="check">8</span><span>Demo one end-to-end annotation → durable event → agent patch loop.</span></li></ul></div>
+      </div>
+    </section>
+    <footer class="footer">Facet is a working codename. Targets in this document are proposals until measured. Annotate any claim, component, phase, or risk to revise the plan.</footer>
+  </main>
+  <script>
+    function toggleTheme(){document.documentElement.dataset.theme=document.documentElement.dataset.theme==='light'?'dark':'light'}
+    function queueDecisions(event){
+      event.preventDefault();
+      const data=new FormData(event.currentTarget);
+      const answer={audience:data.get('audience'),deployment:data.get('deployment'),compatibility:data.get('compatibility')};
+      const text=`Use these Facet product decisions: audience = ${answer.audience}; deployment = ${answer.deployment}; compatibility = ${answer.compatibility}. Update the plan to resolve these choices and remove them from open decisions.`;
+      if(window.lavish?.queuePrompt){
+        window.lavish.queuePrompt(text,{tag:'product-decisions',text:'Facet direction selected',element:event.currentTarget,queueKey:'facet-product-decisions',data:{question:'Facet product boundary',answer}});
+        document.getElementById('queue-status').textContent='✓ Choices queued. Press “Send to Agent” in the Lavish panel.';
+      }else{
+        document.getElementById('queue-status').textContent='Selections saved locally. Open this page through Lavish to queue them.';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "research-report",
+  "title": "Evidence-backed research report",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "filter evidence",
+    "open citation",
+    "annotate claim"
+  ],
+  "nodes": [
+    {
+      "id": "research-report.section.1",
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a contradictory source"
+      }
+    },
+    {
+      "id": "research-report.citation.2",
+      "type": "citation",
+      "title": "Citation",
+      "text": "Citation content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "source": "Benchmark evidence source"
+      }
+    },
+    {
+      "id": "research-report.table.3",
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "research-report.callout.4",
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a contradictory source"
+      }
+    }
+  ]
+}

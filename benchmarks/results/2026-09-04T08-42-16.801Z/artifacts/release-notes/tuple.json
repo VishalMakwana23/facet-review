@@ -1,0 +1,49 @@
+[
+  "ft1",
+  "release-notes",
+  0,
+  "Versioned release notes",
+  "p",
+  [
+    "filter change type",
+    "copy upgrade command"
+  ],
+  [
+    [
+      "release-notes.section.1",
+      0,
+      "Section",
+      "Section content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add a breaking-change warning"
+      }
+    ],
+    [
+      "release-notes.status.2",
+      6,
+      "Status",
+      "Status content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "Ready for review"
+      }
+    ],
+    [
+      "release-notes.code.3",
+      12,
+      "Code",
+      "Code content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "release-notes.callout.4",
+      1,
+      "Callout",
+      "Callout content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add a breaking-change warning"
+      }
+    ]
+  ]
+]

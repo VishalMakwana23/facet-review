@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "corpusId": "facet-foundation-20",
+  "frozen": true,
+  "purpose": "Protocol selection and token-efficiency comparison against equal-quality self-contained HTML.",
+  "artifacts": [
+    {
+      "id": "product-plan",
+      "title": "Product implementation plan",
+      "category": "plan",
+      "requiredNodes": ["section", "callout", "metric", "timeline", "checklist", "decision"],
+      "interactions": ["navigate sections", "annotate phase", "approve scope"],
+      "revision1": "change one success threshold and add a risk",
+      "revision2": "reorder two phases without losing comments"
+    },
+    {
+      "id": "release-roadmap",
+      "title": "Release roadmap with dependencies",
+      "category": "plan",
+      "requiredNodes": ["timeline", "status", "dependency", "callout"],
+      "interactions": ["filter by status", "open phase details"],
+      "revision1": "mark one phase blocked",
+      "revision2": "insert a dependency and move a milestone"
+    },
+    {
+      "id": "system-architecture",
+      "title": "System architecture review",
+      "category": "diagram",
+      "requiredNodes": ["diagram", "legend", "section", "callout"],
+      "interactions": ["focus diagram node", "read equivalent node list", "annotate edge"],
+      "revision1": "add an optional storage adapter",
+      "revision2": "replace one data flow and preserve node comments"
+    },
+    {
+      "id": "vendor-comparison",
+      "title": "Vendor comparison matrix",
+      "category": "comparison",
+      "requiredNodes": ["comparison", "table", "metric", "decision"],
+      "interactions": ["sort criteria", "select recommendation", "comment on cell"],
+      "revision1": "update two vendor scores",
+      "revision2": "add a vendor and recompute recommendation"
+    },
+    {
+      "id": "code-review",
+      "title": "Code review explainer",
+      "category": "code",
+      "requiredNodes": ["code", "diff", "callout", "checklist"],
+      "interactions": ["copy code", "toggle wrapping", "comment on line"],
+      "revision1": "apply one suggested patch",
+      "revision2": "resolve a thread after line numbers shift"
+    },
+    {
+      "id": "schema-migration-diff",
+      "title": "Schema migration diff",
+      "category": "diff",
+      "requiredNodes": ["diff", "code", "table", "timeline"],
+      "interactions": ["switch split and unified view", "annotate changed field"],
+      "revision1": "change a field from optional to required",
+      "revision2": "add rollback mapping"
+    },
+    {
+      "id": "incident-report",
+      "title": "Production incident report",
+      "category": "operations",
+      "requiredNodes": ["metric", "timeline", "callout", "checklist"],
+      "interactions": ["filter events", "assign action", "resolve action"],
+      "revision1": "add root-cause evidence",
+      "revision2": "change one remediation owner and status"
+    },
+    {
+      "id": "research-report",
+      "title": "Evidence-backed research report",
+      "category": "report",
+      "requiredNodes": ["section", "citation", "table", "callout"],
+      "interactions": ["filter evidence", "open citation", "annotate claim"],
+      "revision1": "add a contradictory source",
+      "revision2": "revise conclusion while preserving claim anchors"
+    },
+    {
+      "id": "responsive-design-review",
+      "title": "Responsive interface design review",
+      "category": "design",
+      "requiredNodes": ["image", "comparison", "checklist", "decision"],
+      "interactions": ["switch viewport", "comment on component", "approve state"],
+      "revision1": "replace mobile state image",
+      "revision2": "resolve one component and retain another comment"
+    },
+    {
+      "id": "decision-memo",
+      "title": "Architecture decision memo",
+      "category": "decision",
+      "requiredNodes": ["section", "comparison", "risk", "decision"],
+      "interactions": ["rank options", "record approval", "request change"],
+      "revision1": "change recommendation after new evidence",
+      "revision2": "record final decision with dissent"
+    },
+    {
+      "id": "analytics-dashboard",
+      "title": "Product analytics dashboard",
+      "category": "data",
+      "requiredNodes": ["metric", "chart", "table", "filter"],
+      "interactions": ["change segment", "inspect data point", "sort table"],
+      "revision1": "append a reporting period",
+      "revision2": "change target and anomaly annotation"
+    },
+    {
+      "id": "release-notes",
+      "title": "Versioned release notes",
+      "category": "documentation",
+      "requiredNodes": ["section", "status", "code", "callout"],
+      "interactions": ["filter change type", "copy upgrade command"],
+      "revision1": "add a breaking-change warning",
+      "revision2": "mark one issue fixed in a patch"
+    },
+    {
+      "id": "api-reference",
+      "title": "Interactive API reference",
+      "category": "documentation",
+      "requiredNodes": ["navigation", "code", "table", "callout"],
+      "interactions": ["navigate endpoint", "copy request", "switch response"],
+      "revision1": "add an error response",
+      "revision2": "deprecate one parameter with migration note"
+    },
+    {
+      "id": "migration-guide",
+      "title": "Framework migration guide",
+      "category": "documentation",
+      "requiredNodes": ["timeline", "code", "diff", "checklist"],
+      "interactions": ["mark task complete", "copy command", "annotate step"],
+      "revision1": "insert prerequisite step",
+      "revision2": "replace a code example and retain its comment"
+    },
+    {
+      "id": "threat-model",
+      "title": "Application threat model",
+      "category": "security",
+      "requiredNodes": ["diagram", "table", "risk", "checklist"],
+      "interactions": ["filter risk severity", "assign mitigation", "accept risk"],
+      "revision1": "add an abuse case",
+      "revision2": "change mitigation status and residual risk"
+    },
+    {
+      "id": "user-journey",
+      "title": "User onboarding journey",
+      "category": "design",
+      "requiredNodes": ["timeline", "persona", "metric", "callout"],
+      "interactions": ["switch persona", "annotate journey stage"],
+      "revision1": "add a failure branch",
+      "revision2": "change success metric and reorder two stages"
+    },
+    {
+      "id": "accessibility-audit",
+      "title": "Accessibility audit report",
+      "category": "quality",
+      "requiredNodes": ["metric", "table", "code", "checklist"],
+      "interactions": ["filter severity", "assign issue", "verify fix"],
+      "revision1": "mark issues remediated",
+      "revision2": "add manual keyboard findings"
+    },
+    {
+      "id": "performance-report",
+      "title": "Performance benchmark report",
+      "category": "quality",
+      "requiredNodes": ["metric", "chart", "table", "comparison"],
+      "interactions": ["switch environment", "inspect outlier", "toggle baseline"],
+      "revision1": "append a new build result",
+      "revision2": "change baseline and regression threshold"
+    },
+    {
+      "id": "onboarding-checklist",
+      "title": "Developer onboarding checklist",
+      "category": "workflow",
+      "requiredNodes": ["checklist", "code", "callout", "progress"],
+      "interactions": ["complete step", "copy command", "request help"],
+      "revision1": "insert a platform-specific step",
+      "revision2": "reopen a completed step after validation failure"
+    },
+    {
+      "id": "operational-runbook",
+      "title": "Service recovery runbook",
+      "category": "operations",
+      "requiredNodes": ["checklist", "code", "decision", "timeline"],
+      "interactions": ["advance step", "record evidence", "choose rollback"],
+      "revision1": "change one command and safety check",
+      "revision2": "add an escalation branch without losing progress"
+    }
+  ]
+}

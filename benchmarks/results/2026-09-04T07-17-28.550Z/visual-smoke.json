@@ -1,0 +1,78 @@
+{
+  "runId": "2026-09-04T07-17-28.550Z",
+  "browser": "system Chrome via Playwright",
+  "artifacts": [
+    {
+      "id": "product-plan",
+      "title": "Product implementation plan",
+      "nodeCount": 6,
+      "capabilityCount": 3,
+      "decideMode": true,
+      "reviewSelection": true,
+      "capabilityFeedback": true,
+      "noHorizontalOverflow": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "id": "system-architecture",
+      "title": "System architecture review",
+      "nodeCount": 4,
+      "capabilityCount": 3,
+      "decideMode": true,
+      "reviewSelection": true,
+      "capabilityFeedback": true,
+      "noHorizontalOverflow": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "id": "vendor-comparison",
+      "title": "Vendor comparison matrix",
+      "nodeCount": 4,
+      "capabilityCount": 3,
+      "decideMode": true,
+      "reviewSelection": true,
+      "capabilityFeedback": true,
+      "noHorizontalOverflow": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "id": "code-review",
+      "title": "Code review explainer",
+      "nodeCount": 4,
+      "capabilityCount": 3,
+      "decideMode": true,
+      "reviewSelection": true,
+      "capabilityFeedback": true,
+      "noHorizontalOverflow": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "id": "analytics-dashboard",
+      "title": "Product analytics dashboard",
+      "nodeCount": 4,
+      "capabilityCount": 3,
+      "decideMode": true,
+      "reviewSelection": true,
+      "capabilityFeedback": true,
+      "noHorizontalOverflow": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "mobile": {
+    "viewport": "375x812",
+    "noHorizontalOverflow": true,
+    "reviewPanelFollowsArtifact": true,
+    "passed": true
+  }
+}

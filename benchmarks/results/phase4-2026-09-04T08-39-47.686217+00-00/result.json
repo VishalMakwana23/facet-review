@@ -1,0 +1,38 @@
+{
+  "runId": "phase4-2026-09-04T08-39-47.686217+00-00",
+  "commandPalette": "keyboard-operable with focus restoration",
+  "anchors": [
+    "text",
+    "code"
+  ],
+  "semanticDiff": true,
+  "modeIsolationAndDecisionConfirmation": true,
+  "draftRecovery": true,
+  "readOnlyExport": true,
+  "responsive": [
+    {
+      "viewport": "375x812",
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": "812x375",
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": "768x1024",
+      "horizontalOverflow": false
+    },
+    {
+      "viewport": "1024x768",
+      "horizontalOverflow": false
+    }
+  ],
+  "reducedMotion": true,
+  "effective200PercentZoomViewport": "720x450",
+  "interactiveReadyMs": 14.3,
+  "p95ModeInteractionMs": 8.4,
+  "accessibilityViolations": [],
+  "criticalAccessibilityViolations": 0,
+  "consoleErrors": [],
+  "passed": true
+}

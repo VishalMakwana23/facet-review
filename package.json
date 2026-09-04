@@ -1,0 +1,33 @@
+{
+  "name": "facet-review",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local-first, token-efficient review canvas for human-agent collaboration.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "packageManager": "npm@11.6.2",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "services/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @facet-review/protocol && npm run build -w @facet-review/renderer && npm run build -w @facet-review/core && npm run build -w @facet-review/cli && npm run build -w @facet-review/review-app && npm run build -w @facet-review/docs-app && npm run build -w @facet-review/share-service",
+    "typecheck": "npm run typecheck -w @facet-review/protocol && npm run typecheck -w @facet-review/renderer && npm run typecheck -w @facet-review/core && npm run typecheck -w @facet-review/cli && npm run typecheck -w @facet-review/review-app && npm run typecheck -w @facet-review/docs-app && npm run typecheck -w @facet-review/share-service",
+    "verify:foundation": "node scripts/verify-foundation.mjs",
+    "test:protocol": "node scripts/test-protocol.mjs",
+    "test:phase3": "node scripts/test-phase3.mjs",
+    "test:phase4": "node scripts/test-phase4.mjs",
+    "benchmark:protocol": "npm run build && node benchmarks/scripts/run-protocol-benchmark.mjs",
+    "test": "npm run build && npm run verify:foundation && npm run test:protocol && npm run test:phase3 && npm run test:phase4 && npm run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "axe-core": "4.13.0",
+    "js-tiktoken": "1.0.21",
+    "typescript": "^5.9.2"
+  }
+}

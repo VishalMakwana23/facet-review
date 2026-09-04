@@ -1,0 +1,73 @@
+{
+  "format": "facet-tree",
+  "schemaVersion": 1,
+  "artifactId": "accessibility-audit",
+  "revision": 0,
+  "title": "Accessibility audit report",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "filter severity",
+    "assign issue",
+    "verify fix"
+  ],
+  "nodes": [
+    {
+      "id": "accessibility-audit.metric.1",
+      "type": "metric",
+      "title": "Metric",
+      "text": "Metric content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    },
+    {
+      "id": "accessibility-audit.table.2",
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "accessibility-audit.code.3",
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "accessibility-audit.checklist.4",
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Accessibility audit report sequence"
+      }
+    }
+  ]
+}

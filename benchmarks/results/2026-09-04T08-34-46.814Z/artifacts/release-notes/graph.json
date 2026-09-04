@@ -1,0 +1,51 @@
+{
+  "f": "fg1",
+  "a": "release-notes",
+  "r": 0,
+  "t": "Versioned release notes",
+  "h": "p",
+  "c": [
+    "filter change type",
+    "copy upgrade command"
+  ],
+  "roots": [
+    "release-notes.section.1",
+    "release-notes.status.2",
+    "release-notes.code.3",
+    "release-notes.callout.4"
+  ],
+  "nodes": {
+    "release-notes.section.1": {
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a breaking-change warning"
+      }
+    },
+    "release-notes.status.2": {
+      "type": "status",
+      "title": "Status",
+      "text": "Status content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "Ready for review"
+      }
+    },
+    "release-notes.code.3": {
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    "release-notes.callout.4": {
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a breaking-change warning"
+      }
+    }
+  }
+}

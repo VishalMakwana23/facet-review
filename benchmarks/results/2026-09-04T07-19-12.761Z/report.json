@@ -1,0 +1,1979 @@
+{
+  "runId": "2026-09-04T07-19-12.761Z",
+  "corpusId": "facet-foundation-20",
+  "gitCommit": "uncommitted",
+  "dirtyWorktree": true,
+  "environment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "node": "v24.12.0",
+    "tokenizers": [
+      "js-tiktoken@1.0.21:o200k_base",
+      "js-tiktoken@1.0.21:cl100k_base"
+    ]
+  },
+  "renderer": {
+    "package": "@facet-review/renderer",
+    "version": "0.0.0",
+    "compiledEntryBytes": 11224
+  },
+  "artifactCount": 20,
+  "selected": "tuple",
+  "gatePassed": true,
+  "summary": {
+    "tree": {
+      "medianReduction": {
+        "o200k_base": 85.98,
+        "cl100k_base": 85.9
+      },
+      "categoryMedians": {
+        "plan": 84.19,
+        "diagram": 85.75,
+        "comparison": 86.56,
+        "code": 85.79,
+        "diff": 85.05,
+        "operations": 85.99,
+        "report": 86.43,
+        "design": 86.26,
+        "decision": 86.88,
+        "data": 86.43,
+        "documentation": 85.77,
+        "security": 86.05,
+        "quality": 86.06,
+        "workflow": 86.08
+      },
+      "checksPassed": true,
+      "gatePassed": true
+    },
+    "graph": {
+      "medianReduction": {
+        "o200k_base": 85.3,
+        "cl100k_base": 85.27
+      },
+      "categoryMedians": {
+        "plan": 83.42,
+        "diagram": 85.09,
+        "comparison": 85.92,
+        "code": 85.29,
+        "diff": 84.1,
+        "operations": 85.31,
+        "report": 85.92,
+        "design": 85.48,
+        "decision": 86.17,
+        "data": 86.02,
+        "documentation": 85.31,
+        "security": 85.4,
+        "quality": 85.45,
+        "workflow": 85.21
+      },
+      "checksPassed": true,
+      "gatePassed": true
+    },
+    "tuple": {
+      "medianReduction": {
+        "o200k_base": 88.54,
+        "cl100k_base": 88.34
+      },
+      "categoryMedians": {
+        "plan": 87.02,
+        "diagram": 88.37,
+        "comparison": 88.89,
+        "code": 88.42,
+        "diff": 87.52,
+        "operations": 88.56,
+        "report": 89.03,
+        "design": 88.78,
+        "decision": 89.33,
+        "data": 88.9,
+        "documentation": 88.34,
+        "security": 88.5,
+        "quality": 88.48,
+        "workflow": 88.7
+      },
+      "checksPassed": true,
+      "gatePassed": true
+    }
+  },
+  "rows": [
+    {
+      "id": "product-plan",
+      "category": "plan",
+      "nodeCount": 6,
+      "html": {
+        "bytes": 8829,
+        "nonWhitespaceCharacters": 8479,
+        "tokens": {
+          "o200k_base": 2442,
+          "cl100k_base": 2416
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 2082,
+          "nonWhitespaceCharacters": 1925,
+          "tokens": {
+            "o200k_base": 417,
+            "cl100k_base": 413
+          },
+          "reduction": {
+            "o200k_base": 82.92,
+            "cl100k_base": 82.91
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 2135,
+          "nonWhitespaceCharacters": 1978,
+          "tokens": {
+            "o200k_base": 437,
+            "cl100k_base": 434
+          },
+          "reduction": {
+            "o200k_base": 82.1,
+            "cl100k_base": 82.04
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1715,
+          "nonWhitespaceCharacters": 1558,
+          "tokens": {
+            "o200k_base": 344,
+            "cl100k_base": 343
+          },
+          "reduction": {
+            "o200k_base": 85.91,
+            "cl100k_base": 85.8
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 123,
+          "nonWhitespaceCharacters": 114,
+          "tokens": {
+            "o200k_base": 37,
+            "cl100k_base": 37
+          }
+        },
+        "revision2": {
+          "bytes": 63,
+          "nonWhitespaceCharacters": 63,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "release-roadmap",
+      "category": "plan",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7476,
+        "nonWhitespaceCharacters": 7206,
+        "tokens": {
+          "o200k_base": 2089,
+          "cl100k_base": 2063
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1527,
+          "nonWhitespaceCharacters": 1413,
+          "tokens": {
+            "o200k_base": 304,
+            "cl100k_base": 299
+          },
+          "reduction": {
+            "o200k_base": 85.45,
+            "cl100k_base": 85.51
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1552,
+          "nonWhitespaceCharacters": 1438,
+          "tokens": {
+            "o200k_base": 319,
+            "cl100k_base": 315
+          },
+          "reduction": {
+            "o200k_base": 84.73,
+            "cl100k_base": 84.73
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1244,
+          "nonWhitespaceCharacters": 1130,
+          "tokens": {
+            "o200k_base": 248,
+            "cl100k_base": 247
+          },
+          "reduction": {
+            "o200k_base": 88.13,
+            "cl100k_base": 88.03
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 109,
+          "nonWhitespaceCharacters": 104,
+          "tokens": {
+            "o200k_base": 35,
+            "cl100k_base": 35
+          }
+        },
+        "revision2": {
+          "bytes": 70,
+          "nonWhitespaceCharacters": 70,
+          "tokens": {
+            "o200k_base": 26,
+            "cl100k_base": 27
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "system-architecture",
+      "category": "diagram",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7702,
+        "nonWhitespaceCharacters": 7422,
+        "tokens": {
+          "o200k_base": 2133,
+          "cl100k_base": 2108
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1531,
+          "nonWhitespaceCharacters": 1419,
+          "tokens": {
+            "o200k_base": 304,
+            "cl100k_base": 300
+          },
+          "reduction": {
+            "o200k_base": 85.75,
+            "cl100k_base": 85.77
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1568,
+          "nonWhitespaceCharacters": 1456,
+          "tokens": {
+            "o200k_base": 318,
+            "cl100k_base": 316
+          },
+          "reduction": {
+            "o200k_base": 85.09,
+            "cl100k_base": 85.01
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1252,
+          "nonWhitespaceCharacters": 1140,
+          "tokens": {
+            "o200k_base": 248,
+            "cl100k_base": 247
+          },
+          "reduction": {
+            "o200k_base": 88.37,
+            "cl100k_base": 88.28
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 125,
+          "nonWhitespaceCharacters": 119,
+          "tokens": {
+            "o200k_base": 36,
+            "cl100k_base": 37
+          }
+        },
+        "revision2": {
+          "bytes": 77,
+          "nonWhitespaceCharacters": 77,
+          "tokens": {
+            "o200k_base": 26,
+            "cl100k_base": 28
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "vendor-comparison",
+      "category": "comparison",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 8384,
+        "nonWhitespaceCharacters": 8101,
+        "tokens": {
+          "o200k_base": 2358,
+          "cl100k_base": 2333
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1511,
+          "nonWhitespaceCharacters": 1423,
+          "tokens": {
+            "o200k_base": 317,
+            "cl100k_base": 310
+          },
+          "reduction": {
+            "o200k_base": 86.56,
+            "cl100k_base": 86.71
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1542,
+          "nonWhitespaceCharacters": 1454,
+          "tokens": {
+            "o200k_base": 332,
+            "cl100k_base": 326
+          },
+          "reduction": {
+            "o200k_base": 85.92,
+            "cl100k_base": 86.03
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1232,
+          "nonWhitespaceCharacters": 1144,
+          "tokens": {
+            "o200k_base": 262,
+            "cl100k_base": 258
+          },
+          "reduction": {
+            "o200k_base": 88.89,
+            "cl100k_base": 88.94
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 117,
+          "nonWhitespaceCharacters": 112,
+          "tokens": {
+            "o200k_base": 36,
+            "cl100k_base": 36
+          }
+        },
+        "revision2": {
+          "bytes": 76,
+          "nonWhitespaceCharacters": 76,
+          "tokens": {
+            "o200k_base": 27,
+            "cl100k_base": 28
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "code-review",
+      "category": "code",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7631,
+        "nonWhitespaceCharacters": 7345,
+        "tokens": {
+          "o200k_base": 2168,
+          "cl100k_base": 2145
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1407,
+          "nonWhitespaceCharacters": 1298,
+          "tokens": {
+            "o200k_base": 308,
+            "cl100k_base": 306
+          },
+          "reduction": {
+            "o200k_base": 85.79,
+            "cl100k_base": 85.73
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1409,
+          "nonWhitespaceCharacters": 1300,
+          "tokens": {
+            "o200k_base": 319,
+            "cl100k_base": 318
+          },
+          "reduction": {
+            "o200k_base": 85.29,
+            "cl100k_base": 85.17
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1133,
+          "nonWhitespaceCharacters": 1024,
+          "tokens": {
+            "o200k_base": 251,
+            "cl100k_base": 253
+          },
+          "reduction": {
+            "o200k_base": 88.42,
+            "cl100k_base": 88.21
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 100,
+          "nonWhitespaceCharacters": 95,
+          "tokens": {
+            "o200k_base": 33,
+            "cl100k_base": 33
+          }
+        },
+        "revision2": {
+          "bytes": 58,
+          "nonWhitespaceCharacters": 58,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "schema-migration-diff",
+      "category": "diff",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7854,
+        "nonWhitespaceCharacters": 7568,
+        "tokens": {
+          "o200k_base": 2227,
+          "cl100k_base": 2200
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1539,
+          "nonWhitespaceCharacters": 1431,
+          "tokens": {
+            "o200k_base": 333,
+            "cl100k_base": 326
+          },
+          "reduction": {
+            "o200k_base": 85.05,
+            "cl100k_base": 85.18
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1578,
+          "nonWhitespaceCharacters": 1470,
+          "tokens": {
+            "o200k_base": 354,
+            "cl100k_base": 348
+          },
+          "reduction": {
+            "o200k_base": 84.1,
+            "cl100k_base": 84.18
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1269,
+          "nonWhitespaceCharacters": 1161,
+          "tokens": {
+            "o200k_base": 278,
+            "cl100k_base": 275
+          },
+          "reduction": {
+            "o200k_base": 87.52,
+            "cl100k_base": 87.5
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 135,
+          "nonWhitespaceCharacters": 127,
+          "tokens": {
+            "o200k_base": 42,
+            "cl100k_base": 42
+          }
+        },
+        "revision2": {
+          "bytes": 78,
+          "nonWhitespaceCharacters": 78,
+          "tokens": {
+            "o200k_base": 30,
+            "cl100k_base": 31
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "incident-report",
+      "category": "operations",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7684,
+        "nonWhitespaceCharacters": 7414,
+        "tokens": {
+          "o200k_base": 2149,
+          "cl100k_base": 2126
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1497,
+          "nonWhitespaceCharacters": 1393,
+          "tokens": {
+            "o200k_base": 299,
+            "cl100k_base": 296
+          },
+          "reduction": {
+            "o200k_base": 86.09,
+            "cl100k_base": 86.08
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1521,
+          "nonWhitespaceCharacters": 1417,
+          "tokens": {
+            "o200k_base": 310,
+            "cl100k_base": 308
+          },
+          "reduction": {
+            "o200k_base": 85.57,
+            "cl100k_base": 85.51
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1215,
+          "nonWhitespaceCharacters": 1111,
+          "tokens": {
+            "o200k_base": 242,
+            "cl100k_base": 243
+          },
+          "reduction": {
+            "o200k_base": 88.74,
+            "cl100k_base": 88.57
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 108,
+          "nonWhitespaceCharacters": 104,
+          "tokens": {
+            "o200k_base": 34,
+            "cl100k_base": 34
+          }
+        },
+        "revision2": {
+          "bytes": 68,
+          "nonWhitespaceCharacters": 68,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "research-report",
+      "category": "report",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7690,
+        "nonWhitespaceCharacters": 7426,
+        "tokens": {
+          "o200k_base": 2152,
+          "cl100k_base": 2126
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1432,
+          "nonWhitespaceCharacters": 1339,
+          "tokens": {
+            "o200k_base": 292,
+            "cl100k_base": 288
+          },
+          "reduction": {
+            "o200k_base": 86.43,
+            "cl100k_base": 86.45
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1453,
+          "nonWhitespaceCharacters": 1360,
+          "tokens": {
+            "o200k_base": 303,
+            "cl100k_base": 300
+          },
+          "reduction": {
+            "o200k_base": 85.92,
+            "cl100k_base": 85.89
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1155,
+          "nonWhitespaceCharacters": 1062,
+          "tokens": {
+            "o200k_base": 236,
+            "cl100k_base": 236
+          },
+          "reduction": {
+            "o200k_base": 89.03,
+            "cl100k_base": 88.9
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 112,
+          "nonWhitespaceCharacters": 107,
+          "tokens": {
+            "o200k_base": 33,
+            "cl100k_base": 33
+          }
+        },
+        "revision2": {
+          "bytes": 69,
+          "nonWhitespaceCharacters": 69,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "responsive-design-review",
+      "category": "design",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 8668,
+        "nonWhitespaceCharacters": 8363,
+        "tokens": {
+          "o200k_base": 2368,
+          "cl100k_base": 2344
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1635,
+          "nonWhitespaceCharacters": 1530,
+          "tokens": {
+            "o200k_base": 317,
+            "cl100k_base": 313
+          },
+          "reduction": {
+            "o200k_base": 86.61,
+            "cl100k_base": 86.65
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1697,
+          "nonWhitespaceCharacters": 1592,
+          "tokens": {
+            "o200k_base": 333,
+            "cl100k_base": 330
+          },
+          "reduction": {
+            "o200k_base": 85.94,
+            "cl100k_base": 85.92
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1353,
+          "nonWhitespaceCharacters": 1248,
+          "tokens": {
+            "o200k_base": 261,
+            "cl100k_base": 260
+          },
+          "reduction": {
+            "o200k_base": 88.98,
+            "cl100k_base": 88.91
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 128,
+          "nonWhitespaceCharacters": 123,
+          "tokens": {
+            "o200k_base": 35,
+            "cl100k_base": 35
+          }
+        },
+        "revision2": {
+          "bytes": 85,
+          "nonWhitespaceCharacters": 85,
+          "tokens": {
+            "o200k_base": 26,
+            "cl100k_base": 27
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "decision-memo",
+      "category": "decision",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7997,
+        "nonWhitespaceCharacters": 7720,
+        "tokens": {
+          "o200k_base": 2249,
+          "cl100k_base": 2224
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1434,
+          "nonWhitespaceCharacters": 1341,
+          "tokens": {
+            "o200k_base": 295,
+            "cl100k_base": 290
+          },
+          "reduction": {
+            "o200k_base": 86.88,
+            "cl100k_base": 86.96
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1449,
+          "nonWhitespaceCharacters": 1356,
+          "tokens": {
+            "o200k_base": 311,
+            "cl100k_base": 307
+          },
+          "reduction": {
+            "o200k_base": 86.17,
+            "cl100k_base": 86.2
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1155,
+          "nonWhitespaceCharacters": 1062,
+          "tokens": {
+            "o200k_base": 240,
+            "cl100k_base": 238
+          },
+          "reduction": {
+            "o200k_base": 89.33,
+            "cl100k_base": 89.3
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 122,
+          "nonWhitespaceCharacters": 116,
+          "tokens": {
+            "o200k_base": 36,
+            "cl100k_base": 36
+          }
+        },
+        "revision2": {
+          "bytes": 65,
+          "nonWhitespaceCharacters": 65,
+          "tokens": {
+            "o200k_base": 26,
+            "cl100k_base": 27
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "analytics-dashboard",
+      "category": "data",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 8025,
+        "nonWhitespaceCharacters": 7752,
+        "tokens": {
+          "o200k_base": 2225,
+          "cl100k_base": 2197
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1461,
+          "nonWhitespaceCharacters": 1371,
+          "tokens": {
+            "o200k_base": 302,
+            "cl100k_base": 297
+          },
+          "reduction": {
+            "o200k_base": 86.43,
+            "cl100k_base": 86.48
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1493,
+          "nonWhitespaceCharacters": 1403,
+          "tokens": {
+            "o200k_base": 311,
+            "cl100k_base": 307
+          },
+          "reduction": {
+            "o200k_base": 86.02,
+            "cl100k_base": 86.03
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1190,
+          "nonWhitespaceCharacters": 1100,
+          "tokens": {
+            "o200k_base": 247,
+            "cl100k_base": 245
+          },
+          "reduction": {
+            "o200k_base": 88.9,
+            "cl100k_base": 88.85
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 118,
+          "nonWhitespaceCharacters": 113,
+          "tokens": {
+            "o200k_base": 33,
+            "cl100k_base": 33
+          }
+        },
+        "revision2": {
+          "bytes": 76,
+          "nonWhitespaceCharacters": 76,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "release-notes",
+      "category": "documentation",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7323,
+        "nonWhitespaceCharacters": 7056,
+        "tokens": {
+          "o200k_base": 2069,
+          "cl100k_base": 2030
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1309,
+          "nonWhitespaceCharacters": 1209,
+          "tokens": {
+            "o200k_base": 285,
+            "cl100k_base": 277
+          },
+          "reduction": {
+            "o200k_base": 86.23,
+            "cl100k_base": 86.35
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1319,
+          "nonWhitespaceCharacters": 1219,
+          "tokens": {
+            "o200k_base": 299,
+            "cl100k_base": 288
+          },
+          "reduction": {
+            "o200k_base": 85.55,
+            "cl100k_base": 85.81
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1034,
+          "nonWhitespaceCharacters": 934,
+          "tokens": {
+            "o200k_base": 229,
+            "cl100k_base": 225
+          },
+          "reduction": {
+            "o200k_base": 88.93,
+            "cl100k_base": 88.92
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 111,
+          "nonWhitespaceCharacters": 106,
+          "tokens": {
+            "o200k_base": 36,
+            "cl100k_base": 34
+          }
+        },
+        "revision2": {
+          "bytes": 65,
+          "nonWhitespaceCharacters": 65,
+          "tokens": {
+            "o200k_base": 26,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "api-reference",
+      "category": "documentation",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7750,
+        "nonWhitespaceCharacters": 7476,
+        "tokens": {
+          "o200k_base": 2178,
+          "cl100k_base": 2153
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1500,
+          "nonWhitespaceCharacters": 1398,
+          "tokens": {
+            "o200k_base": 310,
+            "cl100k_base": 304
+          },
+          "reduction": {
+            "o200k_base": 85.77,
+            "cl100k_base": 85.88
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1512,
+          "nonWhitespaceCharacters": 1410,
+          "tokens": {
+            "o200k_base": 320,
+            "cl100k_base": 315
+          },
+          "reduction": {
+            "o200k_base": 85.31,
+            "cl100k_base": 85.37
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1225,
+          "nonWhitespaceCharacters": 1123,
+          "tokens": {
+            "o200k_base": 254,
+            "cl100k_base": 252
+          },
+          "reduction": {
+            "o200k_base": 88.34,
+            "cl100k_base": 88.3
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 106,
+          "nonWhitespaceCharacters": 101,
+          "tokens": {
+            "o200k_base": 33,
+            "cl100k_base": 33
+          }
+        },
+        "revision2": {
+          "bytes": 68,
+          "nonWhitespaceCharacters": 68,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "migration-guide",
+      "category": "documentation",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7779,
+        "nonWhitespaceCharacters": 7491,
+        "tokens": {
+          "o200k_base": 2175,
+          "cl100k_base": 2150
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1541,
+          "nonWhitespaceCharacters": 1427,
+          "tokens": {
+            "o200k_base": 313,
+            "cl100k_base": 309
+          },
+          "reduction": {
+            "o200k_base": 85.61,
+            "cl100k_base": 85.63
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1560,
+          "nonWhitespaceCharacters": 1446,
+          "tokens": {
+            "o200k_base": 323,
+            "cl100k_base": 320
+          },
+          "reduction": {
+            "o200k_base": 85.15,
+            "cl100k_base": 85.12
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1266,
+          "nonWhitespaceCharacters": 1152,
+          "tokens": {
+            "o200k_base": 257,
+            "cl100k_base": 257
+          },
+          "reduction": {
+            "o200k_base": 88.18,
+            "cl100k_base": 88.05
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 111,
+          "nonWhitespaceCharacters": 107,
+          "tokens": {
+            "o200k_base": 32,
+            "cl100k_base": 32
+          }
+        },
+        "revision2": {
+          "bytes": 70,
+          "nonWhitespaceCharacters": 70,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "threat-model",
+      "category": "security",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 8050,
+        "nonWhitespaceCharacters": 7761,
+        "tokens": {
+          "o200k_base": 2287,
+          "cl100k_base": 2255
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1531,
+          "nonWhitespaceCharacters": 1426,
+          "tokens": {
+            "o200k_base": 319,
+            "cl100k_base": 311
+          },
+          "reduction": {
+            "o200k_base": 86.05,
+            "cl100k_base": 86.21
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1538,
+          "nonWhitespaceCharacters": 1433,
+          "tokens": {
+            "o200k_base": 334,
+            "cl100k_base": 324
+          },
+          "reduction": {
+            "o200k_base": 85.4,
+            "cl100k_base": 85.63
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1256,
+          "nonWhitespaceCharacters": 1151,
+          "tokens": {
+            "o200k_base": 263,
+            "cl100k_base": 258
+          },
+          "reduction": {
+            "o200k_base": 88.5,
+            "cl100k_base": 88.56
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 97,
+          "nonWhitespaceCharacters": 92,
+          "tokens": {
+            "o200k_base": 35,
+            "cl100k_base": 34
+          }
+        },
+        "revision2": {
+          "bytes": 63,
+          "nonWhitespaceCharacters": 63,
+          "tokens": {
+            "o200k_base": 26,
+            "cl100k_base": 26
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "user-journey",
+      "category": "design",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7384,
+        "nonWhitespaceCharacters": 7123,
+        "tokens": {
+          "o200k_base": 2108,
+          "cl100k_base": 2072
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1391,
+          "nonWhitespaceCharacters": 1289,
+          "tokens": {
+            "o200k_base": 297,
+            "cl100k_base": 293
+          },
+          "reduction": {
+            "o200k_base": 85.91,
+            "cl100k_base": 85.86
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1401,
+          "nonWhitespaceCharacters": 1299,
+          "tokens": {
+            "o200k_base": 316,
+            "cl100k_base": 309
+          },
+          "reduction": {
+            "o200k_base": 85.01,
+            "cl100k_base": 85.09
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1112,
+          "nonWhitespaceCharacters": 1010,
+          "tokens": {
+            "o200k_base": 241,
+            "cl100k_base": 241
+          },
+          "reduction": {
+            "o200k_base": 88.57,
+            "cl100k_base": 88.37
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 101,
+          "nonWhitespaceCharacters": 96,
+          "tokens": {
+            "o200k_base": 37,
+            "cl100k_base": 35
+          }
+        },
+        "revision2": {
+          "bytes": 64,
+          "nonWhitespaceCharacters": 64,
+          "tokens": {
+            "o200k_base": 28,
+            "cl100k_base": 27
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "accessibility-audit",
+      "category": "quality",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 8028,
+        "nonWhitespaceCharacters": 7746,
+        "tokens": {
+          "o200k_base": 2269,
+          "cl100k_base": 2247
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1529,
+          "nonWhitespaceCharacters": 1429,
+          "tokens": {
+            "o200k_base": 321,
+            "cl100k_base": 317
+          },
+          "reduction": {
+            "o200k_base": 85.85,
+            "cl100k_base": 85.89
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1563,
+          "nonWhitespaceCharacters": 1463,
+          "tokens": {
+            "o200k_base": 339,
+            "cl100k_base": 336
+          },
+          "reduction": {
+            "o200k_base": 85.06,
+            "cl100k_base": 85.05
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1255,
+          "nonWhitespaceCharacters": 1155,
+          "tokens": {
+            "o200k_base": 265,
+            "cl100k_base": 265
+          },
+          "reduction": {
+            "o200k_base": 88.32,
+            "cl100k_base": 88.21
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 115,
+          "nonWhitespaceCharacters": 111,
+          "tokens": {
+            "o200k_base": 38,
+            "cl100k_base": 37
+          }
+        },
+        "revision2": {
+          "bytes": 76,
+          "nonWhitespaceCharacters": 76,
+          "tokens": {
+            "o200k_base": 28,
+            "cl100k_base": 29
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "performance-report",
+      "category": "quality",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 8312,
+        "nonWhitespaceCharacters": 8032,
+        "tokens": {
+          "o200k_base": 2314,
+          "cl100k_base": 2286
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1554,
+          "nonWhitespaceCharacters": 1465,
+          "tokens": {
+            "o200k_base": 318,
+            "cl100k_base": 310
+          },
+          "reduction": {
+            "o200k_base": 86.26,
+            "cl100k_base": 86.44
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1586,
+          "nonWhitespaceCharacters": 1497,
+          "tokens": {
+            "o200k_base": 328,
+            "cl100k_base": 321
+          },
+          "reduction": {
+            "o200k_base": 85.83,
+            "cl100k_base": 85.96
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1279,
+          "nonWhitespaceCharacters": 1190,
+          "tokens": {
+            "o200k_base": 263,
+            "cl100k_base": 259
+          },
+          "reduction": {
+            "o200k_base": 88.63,
+            "cl100k_base": 88.67
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 116,
+          "nonWhitespaceCharacters": 110,
+          "tokens": {
+            "o200k_base": 34,
+            "cl100k_base": 34
+          }
+        },
+        "revision2": {
+          "bytes": 74,
+          "nonWhitespaceCharacters": 74,
+          "tokens": {
+            "o200k_base": 24,
+            "cl100k_base": 25
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "onboarding-checklist",
+      "category": "workflow",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 7792,
+        "nonWhitespaceCharacters": 7516,
+        "tokens": {
+          "o200k_base": 2177,
+          "cl100k_base": 2160
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1487,
+          "nonWhitespaceCharacters": 1385,
+          "tokens": {
+            "o200k_base": 303,
+            "cl100k_base": 307
+          },
+          "reduction": {
+            "o200k_base": 86.08,
+            "cl100k_base": 85.79
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1529,
+          "nonWhitespaceCharacters": 1427,
+          "tokens": {
+            "o200k_base": 322,
+            "cl100k_base": 327
+          },
+          "reduction": {
+            "o200k_base": 85.21,
+            "cl100k_base": 84.86
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1209,
+          "nonWhitespaceCharacters": 1107,
+          "tokens": {
+            "o200k_base": 246,
+            "cl100k_base": 254
+          },
+          "reduction": {
+            "o200k_base": 88.7,
+            "cl100k_base": 88.24
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 129,
+          "nonWhitespaceCharacters": 124,
+          "tokens": {
+            "o200k_base": 39,
+            "cl100k_base": 39
+          }
+        },
+        "revision2": {
+          "bytes": 81,
+          "nonWhitespaceCharacters": 81,
+          "tokens": {
+            "o200k_base": 29,
+            "cl100k_base": 30
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    },
+    {
+      "id": "operational-runbook",
+      "category": "operations",
+      "nodeCount": 4,
+      "html": {
+        "bytes": 8118,
+        "nonWhitespaceCharacters": 7829,
+        "tokens": {
+          "o200k_base": 2280,
+          "cl100k_base": 2257
+        }
+      },
+      "candidates": {
+        "tree": {
+          "bytes": 1537,
+          "nonWhitespaceCharacters": 1430,
+          "tokens": {
+            "o200k_base": 322,
+            "cl100k_base": 318
+          },
+          "reduction": {
+            "o200k_base": 85.88,
+            "cl100k_base": 85.91
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "graph": {
+          "bytes": 1576,
+          "nonWhitespaceCharacters": 1469,
+          "tokens": {
+            "o200k_base": 341,
+            "cl100k_base": 339
+          },
+          "reduction": {
+            "o200k_base": 85.04,
+            "cl100k_base": 84.98
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        },
+        "tuple": {
+          "bytes": 1257,
+          "nonWhitespaceCharacters": 1150,
+          "tokens": {
+            "o200k_base": 265,
+            "cl100k_base": 266
+          },
+          "reduction": {
+            "o200k_base": 88.38,
+            "cl100k_base": 88.21
+          },
+          "roundTrip": true,
+          "renderedEqual": true
+        }
+      },
+      "patches": {
+        "revision1": {
+          "bytes": 131,
+          "nonWhitespaceCharacters": 124,
+          "tokens": {
+            "o200k_base": 40,
+            "cl100k_base": 40
+          }
+        },
+        "revision2": {
+          "bytes": 79,
+          "nonWhitespaceCharacters": 79,
+          "tokens": {
+            "o200k_base": 29,
+            "cl100k_base": 30
+          }
+        }
+      },
+      "checks": {
+        "structuralAccessibility": {
+          "passed": true,
+          "checks": {
+            "language": true,
+            "viewport": true,
+            "landmarks": true,
+            "labelledReview": true,
+            "labelledInput": true,
+            "visibleFocus": true,
+            "reducedMotion": true,
+            "stableNodeHooks": true,
+            "capabilities": true
+          }
+        },
+        "deterministic": true,
+        "stableIds": true,
+        "migrationLossless": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+[
+  "ft1",
+  "product-plan",
+  0,
+  "Product implementation plan",
+  "p",
+  [
+    "navigate sections",
+    "annotate phase",
+    "approve scope"
+  ],
+  [
+    [
+      "product-plan.section.1",
+      0,
+      "Section",
+      "Section content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "change one success threshold and add a risk"
+      }
+    ],
+    [
+      "product-plan.callout.2",
+      1,
+      "Callout",
+      "Callout content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "change one success threshold and add a risk"
+      }
+    ],
+    [
+      "product-plan.metric.3",
+      2,
+      "Metric",
+      "Metric content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "3×",
+        "label": "Measured target"
+      }
+    ],
+    [
+      "product-plan.timeline.4",
+      3,
+      "Timeline",
+      "Timeline content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Product implementation plan sequence"
+      }
+    ],
+    [
+      "product-plan.checklist.5",
+      4,
+      "Checklist",
+      "Checklist content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Product implementation plan sequence"
+      }
+    ],
+    [
+      "product-plan.decision.6",
+      5,
+      "Decision",
+      "Decision content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    ]
+  ]
+]

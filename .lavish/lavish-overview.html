@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" data-theme="luxury">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lavish — Visual review for agent work</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/daisyui.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.5.19/themes.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.2.4/dist/index.global.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :where(.grid, .flex) > * { min-width: 0; }
+    :where(p, h1, h2, h3, li, td, th, .badge) { overflow-wrap: anywhere; }
+    :where(img, svg) { max-width: 100%; height: auto; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at 15% 5%, color-mix(in oklab, var(--color-primary) 16%, transparent), transparent 28rem),
+        radial-gradient(circle at 90% 22%, color-mix(in oklab, var(--color-secondary) 12%, transparent), transparent 32rem),
+        var(--color-base-300);
+    }
+    .glass-panel {
+      background: color-mix(in oklab, var(--color-base-100) 90%, transparent);
+      border: 1px solid color-mix(in oklab, var(--color-base-content) 12%, transparent);
+      box-shadow: 0 24px 80px rgb(0 0 0 / .18);
+    }
+    .eyebrow { letter-spacing: .18em; text-transform: uppercase; }
+    .flow-line { stroke: var(--color-primary); stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .flow-node { fill: var(--color-base-100); stroke: color-mix(in oklab, var(--color-primary) 55%, var(--color-base-content)); stroke-width: 2; }
+    .flow-text { fill: var(--color-base-content); font: 600 15px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+    .flow-small { fill: color-mix(in oklab, var(--color-base-content) 70%, transparent); font: 12px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+    .number-orb { width: 2.2rem; height: 2.2rem; display: grid; place-items: center; border-radius: 999px; }
+  </style>
+</head>
+<body class="min-h-screen text-base-content">
+  <header class="navbar sticky top-0 z-20 border-b border-base-content/10 bg-base-300/85 px-4 backdrop-blur-xl lg:px-8">
+    <div class="navbar-start">
+      <a href="#top" class="btn btn-ghost text-xl">Lavish <span class="badge badge-primary badge-sm">explained</span></a>
+    </div>
+    <nav class="navbar-end hidden gap-1 md:flex" aria-label="Page sections">
+      <a class="btn btn-ghost btn-sm" href="#workflow">Workflow</a>
+      <a class="btn btn-ghost btn-sm" href="#capabilities">Capabilities</a>
+      <a class="btn btn-ghost btn-sm" href="#benefits">Benefits</a>
+      <a class="btn btn-ghost btn-sm" href="#start">Get started</a>
+    </nav>
+  </header>
+
+  <main id="top" class="mx-auto max-w-7xl space-y-8 p-4 py-8 sm:p-6 lg:p-10">
+    <section class="glass-panel hero overflow-hidden rounded-3xl">
+      <div class="hero-content grid w-full gap-10 px-6 py-14 text-left lg:grid-cols-[1.15fr_.85fr] lg:px-14 lg:py-20">
+        <div>
+          <div class="eyebrow mb-4 text-sm font-semibold text-primary">Visual collaboration layer</div>
+          <h1 class="max-w-4xl text-4xl font-black leading-tight sm:text-6xl">Turn an agent’s answer into a page you can see, inspect, and comment on.</h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-base-content/75">Lavish is a CLI-powered review surface for agent-generated HTML. It is especially useful for plans, comparisons, diagrams, tables, reports, code reviews, prototypes, and presentations.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <span class="badge badge-outline badge-lg">Interactive HTML</span>
+            <span class="badge badge-outline badge-lg">Element annotations</span>
+            <span class="badge badge-outline badge-lg">Feedback to the agent</span>
+            <span class="badge badge-outline badge-lg">Portable export</span>
+          </div>
+        </div>
+        <div class="mockup-browser border border-base-content/15 bg-base-200 shadow-2xl">
+          <div class="mockup-browser-toolbar"><div class="input">Local Lavish review</div></div>
+          <div class="space-y-4 bg-base-100 p-5">
+            <div class="flex items-center gap-3"><div class="status status-success"></div><strong>Artifact ready</strong></div>
+            <div class="card card-border bg-base-200"><div class="card-body p-4"><div class="h-3 w-1/2 rounded bg-primary/50"></div><div class="h-2 w-full rounded bg-base-content/15"></div><div class="h-2 w-4/5 rounded bg-base-content/15"></div></div></div>
+            <div class="chat chat-end"><div class="chat-bubble chat-bubble-primary">Make this option clearer and add the cost.</div></div>
+            <div class="alert alert-success alert-soft"><span>Feedback queued for the agent</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="glass-panel rounded-3xl p-6 lg:p-10">
+      <div class="mb-7 max-w-3xl">
+        <div class="eyebrow text-xs font-bold text-primary">How it works</div>
+        <h2 class="mt-2 text-3xl font-bold">A visual review loop, not just a prettier answer</h2>
+        <p class="mt-3 text-base-content/70">The agent builds a standalone HTML artifact, Lavish serves it locally in a browser, and your annotations return as actionable feedback.</p>
+      </div>
+      <figure aria-labelledby="flow-caption">
+        <svg viewBox="0 0 1000 250" width="100%" role="img" aria-labelledby="flow-title flow-desc">
+          <title id="flow-title">The Lavish review workflow</title>
+          <desc id="flow-desc">The agent creates an HTML artifact, Lavish opens it for review, the user annotates it, and feedback returns to the agent for revision.</desc>
+          <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="var(--color-primary)"/></marker></defs>
+          <g id="create-artifact"><title>Agent creates the artifact</title><rect class="flow-node" x="20" y="60" rx="22" width="205" height="120"/><text class="flow-text" x="122" y="110">1 · Agent creates</text><text class="flow-small" x="122" y="137">structured HTML</text></g>
+          <path id="serve-edge" class="flow-line" d="M225 120 H280"><title>Lavish serves the artifact locally</title></path>
+          <g id="open-review"><title>Lavish opens the review surface</title><rect class="flow-node" x="280" y="60" rx="22" width="205" height="120"/><text class="flow-text" x="382" y="110">2 · Lavish opens</text><text class="flow-small" x="382" y="137">browser review</text></g>
+          <path id="annotate-edge" class="flow-line" d="M485 120 H540"><title>User inspects and annotates</title></path>
+          <g id="annotate"><title>User annotates elements and text</title><rect class="flow-node" x="540" y="60" rx="22" width="205" height="120"/><text class="flow-text" x="642" y="110">3 · You annotate</text><text class="flow-small" x="642" y="137">elements or text</text></g>
+          <path id="feedback-edge" class="flow-line" d="M745 120 H800"><title>Feedback is sent back</title></path>
+          <g id="revise"><title>Agent receives feedback and revises</title><rect class="flow-node" x="800" y="60" rx="22" width="180" height="120"/><text class="flow-text" x="890" y="110">4 · Agent revises</text><text class="flow-small" x="890" y="137">with context</text></g>
+        </svg>
+        <figcaption id="flow-caption" class="mt-2 text-center text-sm text-base-content/60">The review surface makes feedback precise: you can point at the exact card, sentence, code block, or diagram node.</figcaption>
+      </figure>
+    </section>
+
+    <section id="capabilities" class="grid gap-6 lg:grid-cols-[.72fr_1.28fr]">
+      <div class="glass-panel rounded-3xl p-7 lg:p-9">
+        <div class="eyebrow text-xs font-bold text-primary">Best fit</div>
+        <h2 class="mt-2 text-3xl font-bold">Use Lavish when shape matters</h2>
+        <p class="mt-3 text-base-content/70">It earns its keep when relationships, tradeoffs, layout, or detailed review are hard to express in chat alone.</p>
+        <div class="mt-7 space-y-3">
+          <div class="alert alert-soft alert-success"><span>✓ Plans and roadmaps</span></div>
+          <div class="alert alert-soft alert-success"><span>✓ Option comparisons</span></div>
+          <div class="alert alert-soft alert-success"><span>✓ Architecture and flows</span></div>
+          <div class="alert alert-soft alert-success"><span>✓ Tables, reports, and reviews</span></div>
+          <div class="alert alert-soft alert-success"><span>✓ Prototypes and slide-like stories</span></div>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded-3xl p-6 lg:p-9">
+        <h2 class="text-2xl font-bold">What it provides</h2>
+        <p class="mt-2 text-base-content/65">The artifact formats below have dedicated Lavish playbooks.</p>
+        <div class="mt-5 overflow-x-auto rounded-box border border-base-content/10 bg-base-100">
+          <table class="table table-zebra">
+            <thead><tr><th>Format</th><th>What it clarifies</th><th>Typical example</th></tr></thead>
+            <tbody>
+              <tr id="cap-diagram"><td><span class="badge badge-primary badge-soft">Diagram</span></td><td>Relationships, flows, states, architecture</td><td>How requests move through a system</td></tr>
+              <tr id="cap-table"><td><span class="badge badge-secondary badge-soft">Table</span></td><td>Dense records with shared fields</td><td>Audit findings and their status</td></tr>
+              <tr id="cap-comparison"><td><span class="badge badge-accent badge-soft">Comparison</span></td><td>Options, costs, and tradeoffs</td><td>Build versus buy</td></tr>
+              <tr id="cap-plan"><td><span class="badge badge-info badge-soft">Plan</span></td><td>Phases, decisions, risks, validation</td><td>Product implementation plan</td></tr>
+              <tr id="cap-code"><td><span class="badge badge-warning badge-soft">Code</span></td><td>Files, patches, diffs, before/after</td><td>PR review with precise comments</td></tr>
+              <tr id="cap-input"><td><span class="badge badge-success badge-soft">Input</span></td><td>Structured choices and preferences</td><td>Pick a direction with rationale</td></tr>
+              <tr id="cap-slides"><td><span class="badge badge-neutral badge-soft">Slides</span></td><td>A deliberate presentation sequence</td><td>Project proposal or briefing</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits" class="glass-panel rounded-3xl p-6 lg:p-10">
+      <div class="eyebrow text-xs font-bold text-primary">Why use it</div>
+      <h2 class="mt-2 text-3xl font-bold">The practical benefits</h2>
+      <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="card card-border bg-base-100"><div class="card-body"><div class="number-orb bg-primary text-primary-content">1</div><h3 class="card-title mt-2">Faster understanding</h3><p class="text-base-content/65">Hierarchy, diagrams, tables, and side-by-side views reduce scanning effort.</p></div></article>
+        <article class="card card-border bg-base-100"><div class="card-body"><div class="number-orb bg-secondary text-secondary-content">2</div><h3 class="card-title mt-2">Precise feedback</h3><p class="text-base-content/65">Annotate the exact element or selected text instead of describing where the issue is.</p></div></article>
+        <article class="card card-border bg-base-100"><div class="card-body"><div class="number-orb bg-accent text-accent-content">3</div><h3 class="card-title mt-2">Iterative review</h3><p class="text-base-content/65">Your comments return to the agent, which can revise the artifact and reopen the loop.</p></div></article>
+        <article class="card card-border bg-base-100"><div class="card-body"><div class="number-orb bg-info text-info-content">4</div><h3 class="card-title mt-2">Portable output</h3><p class="text-base-content/65">Export a standalone HTML file with local assets inlined for later viewing.</p></div></article>
+      </div>
+    </section>
+
+    <section class="grid gap-6 lg:grid-cols-2">
+      <div class="glass-panel rounded-3xl p-7 lg:p-9">
+        <h2 class="text-2xl font-bold">What Lavish does not do</h2>
+        <ul class="mt-5 space-y-4">
+          <li class="flex gap-3"><span class="badge badge-ghost">01</span><span><strong>It does not improve reasoning automatically.</strong> It improves how complex work is presented, inspected, and revised.</span></li>
+          <li class="flex gap-3"><span class="badge badge-ghost">02</span><span><strong>It is not necessary for every answer.</strong> A short explanation or simple command is usually better directly in chat.</span></li>
+          <li class="flex gap-3"><span class="badge badge-ghost">03</span><span><strong>It does not inject a design system.</strong> The agent must match your project’s styles or deliberately choose a fallback.</span></li>
+          <li class="flex gap-3"><span class="badge badge-ghost">04</span><span><strong>Remote resources stay remote.</strong> An exported page inlines local assets, but CDN fonts or scripts still require network access.</span></li>
+        </ul>
+      </div>
+      <div class="glass-panel rounded-3xl p-7 lg:p-9">
+        <h2 class="text-2xl font-bold">Privacy and sharing</h2>
+        <div class="mt-5 space-y-4">
+          <div class="alert alert-info alert-soft"><span><strong>Local review:</strong> the artifact is served through a local Express server.</span></div>
+          <div class="alert alert-warning alert-soft"><span><strong>Publishing:</strong> the optional share command uploads to <code>ht-ml.app</code>, a third-party service.</span></div>
+          <div class="alert alert-error alert-soft"><span><strong>Important:</strong> shares are public by default. Use <code>--private</code> or <code>--password</code> for protected access, and still avoid sensitive data unless appropriate.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="glass-panel rounded-3xl p-6 lg:p-10">
+      <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <div>
+          <div class="eyebrow text-xs font-bold text-primary">Try it</div>
+          <h2 class="mt-2 text-3xl font-bold">How to ask Codex to use Lavish</h2>
+          <p class="mt-3 text-base-content/70">Mention the skill and describe the artifact you want. Clear goals produce clearer pages.</p>
+          <div class="mockup-code mt-6 bg-base-300">
+            <pre data-prefix="1"><code>Use Lavish to compare three database options.</code></pre>
+            <pre data-prefix="2"><code>Create a Lavish architecture diagram for this repo.</code></pre>
+            <pre data-prefix="3"><code>Present the implementation plan in Lavish so I can annotate it.</code></pre>
+            <pre data-prefix="4"><code>Turn these audit findings into a Lavish report.</code></pre>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold">Core CLI commands</h2>
+          <div class="mt-5 space-y-3">
+            <div class="collapse collapse-arrow border border-base-content/10 bg-base-100"><input type="checkbox"><div class="collapse-title font-semibold">Open or resume a review</div><div class="collapse-content"><code>npx -y lavish-axi &lt;html-file&gt;</code></div></div>
+            <div class="collapse collapse-arrow border border-base-content/10 bg-base-100"><input type="checkbox"><div class="collapse-title font-semibold">Wait for feedback</div><div class="collapse-content"><code>npx -y lavish-axi poll &lt;html-file&gt;</code></div></div>
+            <div class="collapse collapse-arrow border border-base-content/10 bg-base-100"><input type="checkbox"><div class="collapse-title font-semibold">Export one portable HTML file</div><div class="collapse-content"><code>npx -y lavish-axi export &lt;html-file&gt; --out &lt;path&gt;</code></div></div>
+            <div class="collapse collapse-arrow border border-base-content/10 bg-base-100"><input type="checkbox"><div class="collapse-title font-semibold">End the session</div><div class="collapse-content"><code>npx -y lavish-axi end &lt;html-file&gt;</code></div></div>
+          </div>
+          <p class="mt-5 text-sm text-base-content/60">You normally do not need to type these yourself—Codex uses them as part of the skill workflow.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pb-6 text-center text-sm text-base-content/50">This page is itself a Lavish artifact. Annotate any part to experience the review loop.</footer>
+  </main>
+</body>
+</html>

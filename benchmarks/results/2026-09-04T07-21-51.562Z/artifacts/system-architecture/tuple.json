@@ -1,0 +1,60 @@
+[
+  "ft1",
+  "system-architecture",
+  0,
+  "System architecture review",
+  "p",
+  [
+    "focus diagram node",
+    "read equivalent node list",
+    "annotate edge"
+  ],
+  [
+    [
+      "system-architecture.diagram.1",
+      8,
+      "Diagram",
+      "Diagram content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "System architecture review sequence"
+      }
+    ],
+    [
+      "system-architecture.legend.2",
+      9,
+      "Legend",
+      "Legend content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "System architecture review sequence"
+      }
+    ],
+    [
+      "system-architecture.section.3",
+      0,
+      "Section",
+      "Section content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add an optional storage adapter"
+      }
+    ],
+    [
+      "system-architecture.callout.4",
+      1,
+      "Callout",
+      "Callout content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add an optional storage adapter"
+      }
+    ]
+  ]
+]

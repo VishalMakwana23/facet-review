@@ -1,0 +1,76 @@
+[
+  "ft1",
+  "threat-model",
+  0,
+  "Application threat model",
+  "p",
+  [
+    "filter risk severity",
+    "assign mitigation",
+    "accept risk"
+  ],
+  [
+    [
+      "threat-model.diagram.1",
+      8,
+      "Diagram",
+      "Diagram content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Application threat model sequence"
+      }
+    ],
+    [
+      "threat-model.table.2",
+      11,
+      "Table",
+      "Table content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "threat-model.risk.3",
+      16,
+      "Risk",
+      "Risk content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add an abuse case"
+      }
+    ],
+    [
+      "threat-model.checklist.4",
+      4,
+      "Checklist",
+      "Checklist content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Application threat model sequence"
+      }
+    ]
+  ]
+]

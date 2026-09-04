@@ -1,0 +1,57 @@
+{
+  "format": "facet-tree",
+  "schemaVersion": 1,
+  "artifactId": "user-journey",
+  "revision": 0,
+  "title": "User onboarding journey",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "switch persona",
+    "annotate journey stage"
+  ],
+  "nodes": [
+    {
+      "id": "user-journey.timeline.1",
+      "type": "timeline",
+      "title": "Timeline",
+      "text": "Timeline content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "User onboarding journey sequence"
+      }
+    },
+    {
+      "id": "user-journey.persona.2",
+      "type": "persona",
+      "title": "Persona",
+      "text": "Persona content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "role": "Technical reviewer",
+        "need": "Reach a confident decision"
+      }
+    },
+    {
+      "id": "user-journey.metric.3",
+      "type": "metric",
+      "title": "Metric",
+      "text": "Metric content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "3×",
+        "label": "Measured target"
+      }
+    },
+    {
+      "id": "user-journey.callout.4",
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a failure branch"
+      }
+    }
+  ]
+}

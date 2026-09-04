@@ -1,0 +1,12 @@
+{
+  "artifactId": "decision-memo",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "decision-memo.section.1",
+      "value": "Section content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: change recommendation after new evidence."
+    }
+  ]
+}

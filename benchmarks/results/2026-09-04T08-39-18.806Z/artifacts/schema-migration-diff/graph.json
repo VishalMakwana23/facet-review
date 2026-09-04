@@ -1,0 +1,72 @@
+{
+  "f": "fg1",
+  "a": "schema-migration-diff",
+  "r": 0,
+  "t": "Schema migration diff",
+  "h": "p",
+  "c": [
+    "switch split and unified view",
+    "annotate changed field"
+  ],
+  "roots": [
+    "schema-migration-diff.diff.1",
+    "schema-migration-diff.code.2",
+    "schema-migration-diff.table.3",
+    "schema-migration-diff.timeline.4"
+  ],
+  "nodes": {
+    "schema-migration-diff.diff.1": {
+      "type": "diff",
+      "title": "Diff",
+      "text": "Diff content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    "schema-migration-diff.code.2": {
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    "schema-migration-diff.table.3": {
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "schema-migration-diff.timeline.4": {
+      "type": "timeline",
+      "title": "Timeline",
+      "text": "Timeline content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Schema migration diff sequence"
+      }
+    }
+  }
+}

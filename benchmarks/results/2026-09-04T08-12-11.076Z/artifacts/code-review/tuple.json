@@ -1,0 +1,55 @@
+[
+  "ft1",
+  "code-review",
+  0,
+  "Code review explainer",
+  "p",
+  [
+    "copy code",
+    "toggle wrapping",
+    "comment on line"
+  ],
+  [
+    [
+      "code-review.code.1",
+      12,
+      "Code",
+      "Code content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "code-review.diff.2",
+      13,
+      "Diff",
+      "Diff content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "code-review.callout.3",
+      1,
+      "Callout",
+      "Callout content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "apply one suggested patch"
+      }
+    ],
+    [
+      "code-review.checklist.4",
+      4,
+      "Checklist",
+      "Checklist content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Code review explainer sequence"
+      }
+    ]
+  ]
+]

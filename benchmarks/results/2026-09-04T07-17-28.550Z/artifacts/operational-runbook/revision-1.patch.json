@@ -1,0 +1,12 @@
+{
+  "artifactId": "operational-runbook",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "operational-runbook.checklist.1",
+      "value": "Checklist content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: change one command and safety check."
+    }
+  ]
+}

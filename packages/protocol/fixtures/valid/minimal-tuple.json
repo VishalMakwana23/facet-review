@@ -1,0 +1,11 @@
+[
+  "ft1",
+  "fixture-minimal",
+  0,
+  "Minimal fixture",
+  "p",
+  ["annotate section"],
+  [
+    ["summary", 0, "Summary", "Conformance fixture text.", 0]
+  ]
+]

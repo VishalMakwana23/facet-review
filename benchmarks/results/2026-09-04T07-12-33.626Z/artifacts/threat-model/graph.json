@@ -1,0 +1,78 @@
+{
+  "f": "fg1",
+  "a": "threat-model",
+  "r": 0,
+  "t": "Application threat model",
+  "h": "p",
+  "c": [
+    "filter risk severity",
+    "assign mitigation",
+    "accept risk"
+  ],
+  "roots": [
+    "threat-model.diagram.1",
+    "threat-model.table.2",
+    "threat-model.risk.3",
+    "threat-model.checklist.4"
+  ],
+  "nodes": {
+    "threat-model.diagram.1": {
+      "type": "diagram",
+      "title": "Diagram",
+      "text": "Diagram content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Application threat model sequence"
+      }
+    },
+    "threat-model.table.2": {
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "threat-model.risk.3": {
+      "type": "risk",
+      "title": "Risk",
+      "text": "Risk content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add an abuse case"
+      }
+    },
+    "threat-model.checklist.4": {
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Application threat model sequence"
+      }
+    }
+  }
+}

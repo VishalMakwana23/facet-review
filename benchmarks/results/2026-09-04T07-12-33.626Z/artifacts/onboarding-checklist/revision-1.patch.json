@@ -1,0 +1,12 @@
+{
+  "artifactId": "onboarding-checklist",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "onboarding-checklist.checklist.1",
+      "value": "Checklist content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: insert a platform-specific step."
+    }
+  ]
+}

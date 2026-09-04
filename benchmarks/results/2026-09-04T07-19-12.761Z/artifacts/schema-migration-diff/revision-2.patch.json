@@ -1,0 +1,14 @@
+[
+  "fp1",
+  "schema-migration-diff",
+  1,
+  2,
+  [
+    [
+      "m",
+      "schema-migration-diff.diff.1",
+      0,
+      3
+    ]
+  ]
+]

@@ -1,0 +1,12 @@
+{
+  "artifactId": "code-review",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "code-review.code.1",
+      "value": "Code content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: apply one suggested patch."
+    }
+  ]
+}

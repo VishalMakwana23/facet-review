@@ -1,0 +1,61 @@
+{
+  "f": "fg1",
+  "a": "release-roadmap",
+  "r": 0,
+  "t": "Release roadmap with dependencies",
+  "h": "p",
+  "c": [
+    "filter by status",
+    "open phase details"
+  ],
+  "roots": [
+    "release-roadmap.timeline.1",
+    "release-roadmap.status.2",
+    "release-roadmap.dependency.3",
+    "release-roadmap.callout.4"
+  ],
+  "nodes": {
+    "release-roadmap.timeline.1": {
+      "type": "timeline",
+      "title": "Timeline",
+      "text": "Timeline content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Release roadmap with dependencies sequence"
+      }
+    },
+    "release-roadmap.status.2": {
+      "type": "status",
+      "title": "Status",
+      "text": "Status content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "Ready for review"
+      }
+    },
+    "release-roadmap.dependency.3": {
+      "type": "dependency",
+      "title": "Dependency",
+      "text": "Dependency content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Release roadmap with dependencies sequence"
+      }
+    },
+    "release-roadmap.callout.4": {
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "mark one phase blocked"
+      }
+    }
+  }
+}

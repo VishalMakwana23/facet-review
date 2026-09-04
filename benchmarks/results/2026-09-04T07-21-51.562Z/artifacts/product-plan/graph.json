@@ -1,0 +1,85 @@
+{
+  "f": "fg1",
+  "a": "product-plan",
+  "r": 0,
+  "t": "Product implementation plan",
+  "h": "p",
+  "c": [
+    "navigate sections",
+    "annotate phase",
+    "approve scope"
+  ],
+  "roots": [
+    "product-plan.section.1",
+    "product-plan.callout.2",
+    "product-plan.metric.3",
+    "product-plan.timeline.4",
+    "product-plan.checklist.5",
+    "product-plan.decision.6"
+  ],
+  "nodes": {
+    "product-plan.section.1": {
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "change one success threshold and add a risk"
+      }
+    },
+    "product-plan.callout.2": {
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "change one success threshold and add a risk"
+      }
+    },
+    "product-plan.metric.3": {
+      "type": "metric",
+      "title": "Metric",
+      "text": "Metric content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "3×",
+        "label": "Measured target"
+      }
+    },
+    "product-plan.timeline.4": {
+      "type": "timeline",
+      "title": "Timeline",
+      "text": "Timeline content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Product implementation plan sequence"
+      }
+    },
+    "product-plan.checklist.5": {
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Product implementation plan sequence"
+      }
+    },
+    "product-plan.decision.6": {
+      "type": "decision",
+      "title": "Decision",
+      "text": "Decision content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "artifactId": "responsive-design-review",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "responsive-design-review.image.1",
+      "value": "Image content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: replace mobile state image."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  "ft1",
+  "accessibility-audit",
+  0,
+  "Accessibility audit report",
+  "p",
+  [
+    "filter severity",
+    "assign issue",
+    "verify fix"
+  ],
+  [
+    [
+      "accessibility-audit.metric.1",
+      2,
+      "Metric",
+      "Metric content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    ],
+    [
+      "accessibility-audit.table.2",
+      11,
+      "Table",
+      "Table content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "accessibility-audit.code.3",
+      12,
+      "Code",
+      "Code content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "accessibility-audit.checklist.4",
+      4,
+      "Checklist",
+      "Checklist content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Accessibility audit report sequence"
+      }
+    ]
+  ]
+]

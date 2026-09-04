@@ -1,0 +1,12 @@
+{
+  "artifactId": "migration-guide",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "migration-guide.timeline.1",
+      "value": "Timeline content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: insert prerequisite step."
+    }
+  ]
+}

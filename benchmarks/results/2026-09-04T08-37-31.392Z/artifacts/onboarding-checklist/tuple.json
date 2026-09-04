@@ -1,0 +1,56 @@
+[
+  "ft1",
+  "onboarding-checklist",
+  0,
+  "Developer onboarding checklist",
+  "p",
+  [
+    "complete step",
+    "copy command",
+    "request help"
+  ],
+  [
+    [
+      "onboarding-checklist.checklist.1",
+      4,
+      "Checklist",
+      "Checklist content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Developer onboarding checklist sequence"
+      }
+    ],
+    [
+      "onboarding-checklist.code.2",
+      12,
+      "Code",
+      "Code content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "onboarding-checklist.callout.3",
+      1,
+      "Callout",
+      "Callout content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "insert a platform-specific step"
+      }
+    ],
+    [
+      "onboarding-checklist.progress.4",
+      21,
+      "Progress",
+      "Progress content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": 64,
+        "label": "Completion"
+      }
+    ]
+  ]
+]

@@ -1,0 +1,15 @@
+[
+  "fp1",
+  "schema-migration-diff",
+  0,
+  1,
+  [
+    [
+      "s",
+      "schema-migration-diff.diff.1",
+      141,
+      0,
+      " Revision: change a field from optional to required."
+    ]
+  ]
+]

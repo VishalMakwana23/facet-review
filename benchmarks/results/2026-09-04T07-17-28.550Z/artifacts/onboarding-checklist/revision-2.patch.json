@@ -1,0 +1,13 @@
+{
+  "artifactId": "onboarding-checklist",
+  "baseRevision": 1,
+  "nextRevision": 2,
+  "operations": [
+    {
+      "op": "move",
+      "id": "onboarding-checklist.checklist.1",
+      "parentId": null,
+      "index": 3
+    }
+  ]
+}

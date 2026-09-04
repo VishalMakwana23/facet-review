@@ -1,0 +1,89 @@
+{
+  "f": "fg1",
+  "a": "vendor-comparison",
+  "r": 0,
+  "t": "Vendor comparison matrix",
+  "h": "p",
+  "c": [
+    "sort criteria",
+    "select recommendation",
+    "comment on cell"
+  ],
+  "roots": [
+    "vendor-comparison.comparison.1",
+    "vendor-comparison.table.2",
+    "vendor-comparison.metric.3",
+    "vendor-comparison.decision.4"
+  ],
+  "nodes": {
+    "vendor-comparison.comparison.1": {
+      "type": "comparison",
+      "title": "Comparison",
+      "text": "Comparison content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "vendor-comparison.table.2": {
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "vendor-comparison.metric.3": {
+      "type": "metric",
+      "title": "Metric",
+      "text": "Metric content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "3×",
+        "label": "Measured target"
+      }
+    },
+    "vendor-comparison.decision.4": {
+      "type": "decision",
+      "title": "Decision",
+      "text": "Decision content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    }
+  }
+}

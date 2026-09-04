@@ -1,0 +1,12 @@
+{
+  "artifactId": "accessibility-audit",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "accessibility-audit.metric.1",
+      "value": "Metric content for Accessibility audit report. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: mark issues remediated."
+    }
+  ]
+}

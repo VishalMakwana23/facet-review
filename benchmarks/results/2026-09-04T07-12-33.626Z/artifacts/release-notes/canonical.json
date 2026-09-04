@@ -1,0 +1,50 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "release-notes",
+  "title": "Versioned release notes",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "filter change type",
+    "copy upgrade command"
+  ],
+  "nodes": [
+    {
+      "id": "release-notes.section.1",
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a breaking-change warning"
+      }
+    },
+    {
+      "id": "release-notes.status.2",
+      "type": "status",
+      "title": "Status",
+      "text": "Status content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "Ready for review"
+      }
+    },
+    {
+      "id": "release-notes.code.3",
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "release-notes.callout.4",
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Versioned release notes. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a breaking-change warning"
+      }
+    }
+  ]
+}

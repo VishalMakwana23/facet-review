@@ -1,0 +1,56 @@
+[
+  "ft1",
+  "user-journey",
+  0,
+  "User onboarding journey",
+  "p",
+  [
+    "switch persona",
+    "annotate journey stage"
+  ],
+  [
+    [
+      "user-journey.timeline.1",
+      3,
+      "Timeline",
+      "Timeline content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "User onboarding journey sequence"
+      }
+    ],
+    [
+      "user-journey.persona.2",
+      20,
+      "Persona",
+      "Persona content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "role": "Technical reviewer",
+        "need": "Reach a confident decision"
+      }
+    ],
+    [
+      "user-journey.metric.3",
+      2,
+      "Metric",
+      "Metric content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "3×",
+        "label": "Measured target"
+      }
+    ],
+    [
+      "user-journey.callout.4",
+      1,
+      "Callout",
+      "Callout content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add a failure branch"
+      }
+    ]
+  ]
+]

@@ -1,0 +1,13 @@
+{
+  "artifactId": "release-notes",
+  "baseRevision": 1,
+  "nextRevision": 2,
+  "operations": [
+    {
+      "op": "move",
+      "id": "release-notes.section.1",
+      "parentId": null,
+      "index": 3
+    }
+  ]
+}

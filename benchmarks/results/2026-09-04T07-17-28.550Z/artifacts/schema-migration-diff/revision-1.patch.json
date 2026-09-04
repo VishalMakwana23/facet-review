@@ -1,0 +1,12 @@
+{
+  "artifactId": "schema-migration-diff",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "schema-migration-diff.diff.1",
+      "value": "Diff content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: change a field from optional to required."
+    }
+  ]
+}

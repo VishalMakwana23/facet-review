@@ -1,0 +1,65 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "operational-runbook",
+  "title": "Service recovery runbook",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "advance step",
+    "record evidence",
+    "choose rollback"
+  ],
+  "nodes": [
+    {
+      "id": "operational-runbook.checklist.1",
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Service recovery runbook sequence"
+      }
+    },
+    {
+      "id": "operational-runbook.code.2",
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "operational-runbook.decision.3",
+      "type": "decision",
+      "title": "Decision",
+      "text": "Decision content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    },
+    {
+      "id": "operational-runbook.timeline.4",
+      "type": "timeline",
+      "title": "Timeline",
+      "text": "Timeline content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Service recovery runbook sequence"
+      }
+    }
+  ]
+}

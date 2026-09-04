@@ -1,0 +1,80 @@
+{
+  "f": "fg1",
+  "a": "analytics-dashboard",
+  "r": 0,
+  "t": "Product analytics dashboard",
+  "h": "p",
+  "c": [
+    "change segment",
+    "inspect data point",
+    "sort table"
+  ],
+  "roots": [
+    "analytics-dashboard.metric.1",
+    "analytics-dashboard.chart.2",
+    "analytics-dashboard.table.3",
+    "analytics-dashboard.filter.4"
+  ],
+  "nodes": {
+    "analytics-dashboard.metric.1": {
+      "type": "metric",
+      "title": "Metric",
+      "text": "Metric content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    },
+    "analytics-dashboard.chart.2": {
+      "type": "chart",
+      "title": "Chart",
+      "text": "Chart content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "values": [
+          28,
+          46,
+          63,
+          78
+        ],
+        "summary": "Product analytics dashboard trend"
+      }
+    },
+    "analytics-dashboard.table.3": {
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "analytics-dashboard.filter.4": {
+      "type": "filter",
+      "title": "Filter",
+      "text": "Filter content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "label": "View",
+        "options": [
+          "All",
+          "Open",
+          "Resolved"
+        ]
+      }
+    }
+  }
+}

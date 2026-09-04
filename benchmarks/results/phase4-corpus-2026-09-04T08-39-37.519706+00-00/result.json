@@ -1,0 +1,168 @@
+{
+  "runId": "phase4-corpus-2026-09-04T08-39-37.519706+00-00",
+  "sourceRun": "2026-09-04T08-39-18.806Z",
+  "scope": "20 synthetic frozen artifacts; Chromium desktop and mobile; no CPU throttling",
+  "passed": true,
+  "rows": [
+    {
+      "artifact": "accessibility-audit",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "analytics-dashboard",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "api-reference",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "code-review",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "decision-memo",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "incident-report",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "migration-guide",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "onboarding-checklist",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "operational-runbook",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "performance-report",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "product-plan",
+      "nodeCount": 6,
+      "p95NextFrameMs": 8.3,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "release-notes",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "release-roadmap",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.3,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "research-report",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "responsive-design-review",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "schema-migration-diff",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "system-architecture",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "threat-model",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "user-journey",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    },
+    {
+      "artifact": "vendor-comparison",
+      "nodeCount": 4,
+      "p95NextFrameMs": 8.4,
+      "violations": [],
+      "errors": [],
+      "externalRequests": []
+    }
+  ]
+}

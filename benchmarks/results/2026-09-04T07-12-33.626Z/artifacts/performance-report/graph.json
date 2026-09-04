@@ -1,0 +1,91 @@
+{
+  "f": "fg1",
+  "a": "performance-report",
+  "r": 0,
+  "t": "Performance benchmark report",
+  "h": "p",
+  "c": [
+    "switch environment",
+    "inspect outlier",
+    "toggle baseline"
+  ],
+  "roots": [
+    "performance-report.metric.1",
+    "performance-report.chart.2",
+    "performance-report.table.3",
+    "performance-report.comparison.4"
+  ],
+  "nodes": {
+    "performance-report.metric.1": {
+      "type": "metric",
+      "title": "Metric",
+      "text": "Metric content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    },
+    "performance-report.chart.2": {
+      "type": "chart",
+      "title": "Chart",
+      "text": "Chart content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "values": [
+          28,
+          46,
+          63,
+          78
+        ],
+        "summary": "Performance benchmark report trend"
+      }
+    },
+    "performance-report.table.3": {
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "performance-report.comparison.4": {
+      "type": "comparison",
+      "title": "Comparison",
+      "text": "Comparison content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    }
+  }
+}

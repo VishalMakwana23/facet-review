@@ -1,0 +1,56 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "code-review",
+  "title": "Code review explainer",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "copy code",
+    "toggle wrapping",
+    "comment on line"
+  ],
+  "nodes": [
+    {
+      "id": "code-review.code.1",
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "code-review.diff.2",
+      "type": "diff",
+      "title": "Diff",
+      "text": "Diff content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "code-review.callout.3",
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "apply one suggested patch"
+      }
+    },
+    {
+      "id": "code-review.checklist.4",
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Code review explainer. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Code review explainer sequence"
+      }
+    }
+  ]
+}

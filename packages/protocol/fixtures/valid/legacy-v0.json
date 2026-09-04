@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 0,
+  "document": {
+    "id": "fixture-legacy",
+    "revision": 3,
+    "title": "Legacy fixture",
+    "actions": ["approve scope"],
+    "blocks": [
+      {
+        "id": "decision",
+        "type": "decision",
+        "title": "Decision",
+        "text": "Migration preserves this content.",
+        "data": { "options": ["Approve", "Revise"] }
+      }
+    ]
+  }
+}

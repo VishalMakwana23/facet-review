@@ -1,0 +1,12 @@
+{
+  "artifactId": "api-reference",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "api-reference.navigation.1",
+      "value": "Navigation content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: add an error response."
+    }
+  ]
+}

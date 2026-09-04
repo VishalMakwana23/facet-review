@@ -1,0 +1,68 @@
+{
+  "f": "fg1",
+  "a": "research-report",
+  "r": 0,
+  "t": "Evidence-backed research report",
+  "h": "p",
+  "c": [
+    "filter evidence",
+    "open citation",
+    "annotate claim"
+  ],
+  "roots": [
+    "research-report.section.1",
+    "research-report.citation.2",
+    "research-report.table.3",
+    "research-report.callout.4"
+  ],
+  "nodes": {
+    "research-report.section.1": {
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a contradictory source"
+      }
+    },
+    "research-report.citation.2": {
+      "type": "citation",
+      "title": "Citation",
+      "text": "Citation content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "source": "Benchmark evidence source"
+      }
+    },
+    "research-report.table.3": {
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "research-report.callout.4": {
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add a contradictory source"
+      }
+    }
+  }
+}

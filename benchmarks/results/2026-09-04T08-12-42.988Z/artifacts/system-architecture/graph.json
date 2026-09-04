@@ -1,0 +1,62 @@
+{
+  "f": "fg1",
+  "a": "system-architecture",
+  "r": 0,
+  "t": "System architecture review",
+  "h": "p",
+  "c": [
+    "focus diagram node",
+    "read equivalent node list",
+    "annotate edge"
+  ],
+  "roots": [
+    "system-architecture.diagram.1",
+    "system-architecture.legend.2",
+    "system-architecture.section.3",
+    "system-architecture.callout.4"
+  ],
+  "nodes": {
+    "system-architecture.diagram.1": {
+      "type": "diagram",
+      "title": "Diagram",
+      "text": "Diagram content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "System architecture review sequence"
+      }
+    },
+    "system-architecture.legend.2": {
+      "type": "legend",
+      "title": "Legend",
+      "text": "Legend content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "System architecture review sequence"
+      }
+    },
+    "system-architecture.section.3": {
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add an optional storage adapter"
+      }
+    },
+    "system-architecture.callout.4": {
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add an optional storage adapter"
+      }
+    }
+  }
+}

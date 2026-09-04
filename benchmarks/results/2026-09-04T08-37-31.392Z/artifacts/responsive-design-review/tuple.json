@@ -1,0 +1,75 @@
+[
+  "ft1",
+  "responsive-design-review",
+  0,
+  "Responsive interface design review",
+  "p",
+  [
+    "switch viewport",
+    "comment on component",
+    "approve state"
+  ],
+  [
+    [
+      "responsive-design-review.image.1",
+      15,
+      "Image",
+      "Image content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "alt": "Responsive interface design review responsive preview"
+      }
+    ],
+    [
+      "responsive-design-review.comparison.2",
+      10,
+      "Comparison",
+      "Comparison content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "responsive-design-review.checklist.3",
+      4,
+      "Checklist",
+      "Checklist content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Responsive interface design review sequence"
+      }
+    ],
+    [
+      "responsive-design-review.decision.4",
+      5,
+      "Decision",
+      "Decision content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    ]
+  ]
+]

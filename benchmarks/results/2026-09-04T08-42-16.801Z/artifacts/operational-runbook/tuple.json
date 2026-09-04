@@ -1,0 +1,64 @@
+[
+  "ft1",
+  "operational-runbook",
+  0,
+  "Service recovery runbook",
+  "p",
+  [
+    "advance step",
+    "record evidence",
+    "choose rollback"
+  ],
+  [
+    [
+      "operational-runbook.checklist.1",
+      4,
+      "Checklist",
+      "Checklist content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Service recovery runbook sequence"
+      }
+    ],
+    [
+      "operational-runbook.code.2",
+      12,
+      "Code",
+      "Code content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "operational-runbook.decision.3",
+      5,
+      "Decision",
+      "Decision content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    ],
+    [
+      "operational-runbook.timeline.4",
+      3,
+      "Timeline",
+      "Timeline content for Service recovery runbook. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Service recovery runbook sequence"
+      }
+    ]
+  ]
+]

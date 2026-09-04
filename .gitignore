@@ -1,0 +1,12 @@
+node_modules/
+.venv/
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+.lavish/qa/
+.facet-review/

@@ -1,0 +1,62 @@
+{
+  "f": "fg1",
+  "a": "migration-guide",
+  "r": 0,
+  "t": "Framework migration guide",
+  "h": "p",
+  "c": [
+    "mark task complete",
+    "copy command",
+    "annotate step"
+  ],
+  "roots": [
+    "migration-guide.timeline.1",
+    "migration-guide.code.2",
+    "migration-guide.diff.3",
+    "migration-guide.checklist.4"
+  ],
+  "nodes": {
+    "migration-guide.timeline.1": {
+      "type": "timeline",
+      "title": "Timeline",
+      "text": "Timeline content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Framework migration guide sequence"
+      }
+    },
+    "migration-guide.code.2": {
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    "migration-guide.diff.3": {
+      "type": "diff",
+      "title": "Diff",
+      "text": "Diff content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    "migration-guide.checklist.4": {
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Framework migration guide sequence"
+      }
+    }
+  }
+}

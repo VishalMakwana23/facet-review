@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://facet.review/schema/facet-tuple-v1.schema.json",
+  "title": "Facet compact tuple artifact v1",
+  "description": "The selected token-efficient wire representation. Tuple positions are fixed and decoded into the canonical FacetArtifact model.",
+  "$ref": "#/$defs/artifact",
+  "$defs": {
+    "jsonValue": {
+      "oneOf": [
+        { "type": ["string", "number", "boolean", "null"] },
+        { "type": "array", "items": { "$ref": "#/$defs/jsonValue" } },
+        { "type": "object", "additionalProperties": { "$ref": "#/$defs/jsonValue" } }
+      ]
+    },
+    "nodeData": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/jsonValue" }
+    },
+    "node": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "string", "minLength": 1, "maxLength": 160 },
+        { "type": "integer", "minimum": 0, "maximum": 21 },
+        { "oneOf": [{ "const": 0 }, { "type": "string" }] },
+        { "oneOf": [{ "const": 0 }, { "type": "string" }] },
+        { "oneOf": [{ "const": 0 }, { "$ref": "#/$defs/nodeData" }] },
+        { "type": "array", "items": { "$ref": "#/$defs/node" } }
+      ],
+      "minItems": 5,
+      "maxItems": 6
+    },
+    "artifact": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "ft1" },
+        { "type": "string", "minLength": 1, "maxLength": 160 },
+        { "type": "integer", "minimum": 0 },
+        { "type": "string", "minLength": 1 },
+        { "const": "p" },
+        { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        { "type": "array", "items": { "$ref": "#/$defs/node" }, "minItems": 1 }
+      ],
+      "minItems": 7,
+      "maxItems": 7
+    }
+  }
+}

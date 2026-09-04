@@ -1,0 +1,12 @@
+{
+  "artifactId": "incident-report",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "incident-report.metric.1",
+      "value": "Metric content for Production incident report. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: add root-cause evidence."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+[
+  "ft1",
+  "vendor-comparison",
+  0,
+  "Vendor comparison matrix",
+  "p",
+  [
+    "sort criteria",
+    "select recommendation",
+    "comment on cell"
+  ],
+  [
+    [
+      "vendor-comparison.comparison.1",
+      10,
+      "Comparison",
+      "Comparison content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "vendor-comparison.table.2",
+      11,
+      "Table",
+      "Table content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "vendor-comparison.metric.3",
+      2,
+      "Metric",
+      "Metric content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "3×",
+        "label": "Measured target"
+      }
+    ],
+    [
+      "vendor-comparison.decision.4",
+      5,
+      "Decision",
+      "Decision content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    ]
+  ]
+]

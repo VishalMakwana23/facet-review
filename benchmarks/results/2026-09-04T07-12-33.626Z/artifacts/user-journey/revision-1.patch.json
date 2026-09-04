@@ -1,0 +1,12 @@
+{
+  "artifactId": "user-journey",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "user-journey.timeline.1",
+      "value": "Timeline content for User onboarding journey. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: add a failure branch."
+    }
+  ]
+}

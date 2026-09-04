@@ -1,0 +1,20 @@
+{
+  "name": "@facet-review/cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": { ".": "./dist/index.js" },
+  "bin": { "facet": "./dist/index.js" },
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "dependencies": {
+    "@facet-review/core": "0.0.0",
+    "@facet-review/protocol": "0.0.0",
+    "@facet-review/renderer": "0.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

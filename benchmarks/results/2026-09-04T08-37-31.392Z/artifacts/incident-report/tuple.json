@@ -1,0 +1,61 @@
+[
+  "ft1",
+  "incident-report",
+  0,
+  "Production incident report",
+  "p",
+  [
+    "filter events",
+    "assign action",
+    "resolve action"
+  ],
+  [
+    [
+      "incident-report.metric.1",
+      2,
+      "Metric",
+      "Metric content for Production incident report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    ],
+    [
+      "incident-report.timeline.2",
+      3,
+      "Timeline",
+      "Timeline content for Production incident report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Production incident report sequence"
+      }
+    ],
+    [
+      "incident-report.callout.3",
+      1,
+      "Callout",
+      "Callout content for Production incident report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add root-cause evidence"
+      }
+    ],
+    [
+      "incident-report.checklist.4",
+      4,
+      "Checklist",
+      "Checklist content for Production incident report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Production incident report sequence"
+      }
+    ]
+  ]
+]

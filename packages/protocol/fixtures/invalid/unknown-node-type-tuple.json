@@ -1,0 +1,11 @@
+[
+  "ft1",
+  "fixture-invalid",
+  0,
+  "Invalid fixture",
+  "p",
+  [],
+  [
+    ["unknown", 999, "Unknown", 0, 0]
+  ]
+]

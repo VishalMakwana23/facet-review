@@ -1,0 +1,71 @@
+{
+  "format": "facet-tree",
+  "schemaVersion": 1,
+  "artifactId": "decision-memo",
+  "revision": 0,
+  "title": "Architecture decision memo",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "rank options",
+    "record approval",
+    "request change"
+  ],
+  "nodes": [
+    {
+      "id": "decision-memo.section.1",
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "change recommendation after new evidence"
+      }
+    },
+    {
+      "id": "decision-memo.comparison.2",
+      "type": "comparison",
+      "title": "Comparison",
+      "text": "Comparison content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "decision-memo.risk.3",
+      "type": "risk",
+      "title": "Risk",
+      "text": "Risk content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "change recommendation after new evidence"
+      }
+    },
+    {
+      "id": "decision-memo.decision.4",
+      "type": "decision",
+      "title": "Decision",
+      "text": "Decision content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    }
+  ]
+}

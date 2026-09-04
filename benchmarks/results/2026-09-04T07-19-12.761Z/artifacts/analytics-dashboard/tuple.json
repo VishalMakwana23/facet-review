@@ -1,0 +1,78 @@
+[
+  "ft1",
+  "analytics-dashboard",
+  0,
+  "Product analytics dashboard",
+  "p",
+  [
+    "change segment",
+    "inspect data point",
+    "sort table"
+  ],
+  [
+    [
+      "analytics-dashboard.metric.1",
+      2,
+      "Metric",
+      "Metric content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    ],
+    [
+      "analytics-dashboard.chart.2",
+      17,
+      "Chart",
+      "Chart content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "values": [
+          28,
+          46,
+          63,
+          78
+        ],
+        "summary": "Product analytics dashboard trend"
+      }
+    ],
+    [
+      "analytics-dashboard.table.3",
+      11,
+      "Table",
+      "Table content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "analytics-dashboard.filter.4",
+      18,
+      "Filter",
+      "Filter content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "label": "View",
+        "options": [
+          "All",
+          "Open",
+          "Resolved"
+        ]
+      }
+    ]
+  ]
+]

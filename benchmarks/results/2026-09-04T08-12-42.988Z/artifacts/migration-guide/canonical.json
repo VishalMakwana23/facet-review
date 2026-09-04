@@ -1,0 +1,61 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "migration-guide",
+  "title": "Framework migration guide",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "mark task complete",
+    "copy command",
+    "annotate step"
+  ],
+  "nodes": [
+    {
+      "id": "migration-guide.timeline.1",
+      "type": "timeline",
+      "title": "Timeline",
+      "text": "Timeline content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Framework migration guide sequence"
+      }
+    },
+    {
+      "id": "migration-guide.code.2",
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "migration-guide.diff.3",
+      "type": "diff",
+      "title": "Diff",
+      "text": "Diff content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "migration-guide.checklist.4",
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Framework migration guide. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Framework migration guide sequence"
+      }
+    }
+  ]
+}

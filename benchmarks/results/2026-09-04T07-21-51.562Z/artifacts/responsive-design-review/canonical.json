@@ -1,0 +1,76 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "responsive-design-review",
+  "title": "Responsive interface design review",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "switch viewport",
+    "comment on component",
+    "approve state"
+  ],
+  "nodes": [
+    {
+      "id": "responsive-design-review.image.1",
+      "type": "image",
+      "title": "Image",
+      "text": "Image content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "alt": "Responsive interface design review responsive preview"
+      }
+    },
+    {
+      "id": "responsive-design-review.comparison.2",
+      "type": "comparison",
+      "title": "Comparison",
+      "text": "Comparison content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "responsive-design-review.checklist.3",
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Responsive interface design review sequence"
+      }
+    },
+    {
+      "id": "responsive-design-review.decision.4",
+      "type": "decision",
+      "title": "Decision",
+      "text": "Decision content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    }
+  ]
+}

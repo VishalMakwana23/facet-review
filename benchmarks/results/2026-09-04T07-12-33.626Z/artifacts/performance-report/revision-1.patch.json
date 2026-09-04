@@ -1,0 +1,12 @@
+{
+  "artifactId": "performance-report",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "performance-report.metric.1",
+      "value": "Metric content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: append a new build result."
+    }
+  ]
+}

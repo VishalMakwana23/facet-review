@@ -1,0 +1,90 @@
+{
+  "format": "facet-tree",
+  "schemaVersion": 1,
+  "artifactId": "performance-report",
+  "revision": 0,
+  "title": "Performance benchmark report",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "switch environment",
+    "inspect outlier",
+    "toggle baseline"
+  ],
+  "nodes": [
+    {
+      "id": "performance-report.metric.1",
+      "type": "metric",
+      "title": "Metric",
+      "text": "Metric content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    },
+    {
+      "id": "performance-report.chart.2",
+      "type": "chart",
+      "title": "Chart",
+      "text": "Chart content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "values": [
+          28,
+          46,
+          63,
+          78
+        ],
+        "summary": "Performance benchmark report trend"
+      }
+    },
+    {
+      "id": "performance-report.table.3",
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "performance-report.comparison.4",
+      "type": "comparison",
+      "title": "Comparison",
+      "text": "Comparison content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    }
+  ]
+}

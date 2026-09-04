@@ -1,0 +1,12 @@
+{
+  "artifactId": "threat-model",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "threat-model.diagram.1",
+      "value": "Diagram content for Application threat model. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: add an abuse case."
+    }
+  ]
+}

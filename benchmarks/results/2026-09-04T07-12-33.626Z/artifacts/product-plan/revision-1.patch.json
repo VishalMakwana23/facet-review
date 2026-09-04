@@ -1,0 +1,12 @@
+{
+  "artifactId": "product-plan",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "product-plan.section.1",
+      "value": "Section content for Product implementation plan. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: change one success threshold and add a risk."
+    }
+  ]
+}

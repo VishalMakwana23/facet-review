@@ -1,0 +1,61 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "system-architecture",
+  "title": "System architecture review",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "focus diagram node",
+    "read equivalent node list",
+    "annotate edge"
+  ],
+  "nodes": [
+    {
+      "id": "system-architecture.diagram.1",
+      "type": "diagram",
+      "title": "Diagram",
+      "text": "Diagram content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "System architecture review sequence"
+      }
+    },
+    {
+      "id": "system-architecture.legend.2",
+      "type": "legend",
+      "title": "Legend",
+      "text": "Legend content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "System architecture review sequence"
+      }
+    },
+    {
+      "id": "system-architecture.section.3",
+      "type": "section",
+      "title": "Section",
+      "text": "Section content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add an optional storage adapter"
+      }
+    },
+    {
+      "id": "system-architecture.callout.4",
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add an optional storage adapter"
+      }
+    }
+  ]
+}

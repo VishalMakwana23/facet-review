@@ -1,0 +1,12 @@
+{
+  "artifactId": "system-architecture",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "system-architecture.diagram.1",
+      "value": "Diagram content for System architecture review. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: add an optional storage adapter."
+    }
+  ]
+}

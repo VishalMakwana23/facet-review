@@ -1,0 +1,70 @@
+[
+  "ft1",
+  "decision-memo",
+  0,
+  "Architecture decision memo",
+  "p",
+  [
+    "rank options",
+    "record approval",
+    "request change"
+  ],
+  [
+    [
+      "decision-memo.section.1",
+      0,
+      "Section",
+      "Section content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "change recommendation after new evidence"
+      }
+    ],
+    [
+      "decision-memo.comparison.2",
+      10,
+      "Comparison",
+      "Comparison content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "decision-memo.risk.3",
+      16,
+      "Risk",
+      "Risk content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "change recommendation after new evidence"
+      }
+    ],
+    [
+      "decision-memo.decision.4",
+      5,
+      "Decision",
+      "Decision content for Architecture decision memo. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    ]
+  ]
+]

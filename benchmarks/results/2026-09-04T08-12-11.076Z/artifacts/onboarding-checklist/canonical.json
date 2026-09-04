@@ -1,0 +1,57 @@
+{
+  "protocol": "facet",
+  "version": 1,
+  "revision": 0,
+  "id": "onboarding-checklist",
+  "title": "Developer onboarding checklist",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "complete step",
+    "copy command",
+    "request help"
+  ],
+  "nodes": [
+    {
+      "id": "onboarding-checklist.checklist.1",
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Developer onboarding checklist sequence"
+      }
+    },
+    {
+      "id": "onboarding-checklist.code.2",
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "onboarding-checklist.callout.3",
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "insert a platform-specific step"
+      }
+    },
+    {
+      "id": "onboarding-checklist.progress.4",
+      "type": "progress",
+      "title": "Progress",
+      "text": "Progress content for Developer onboarding checklist. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": 64,
+        "label": "Completion"
+      }
+    }
+  ]
+}

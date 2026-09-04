@@ -1,0 +1,12 @@
+{
+  "artifactId": "research-report",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "research-report.section.1",
+      "value": "Section content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: add a contradictory source."
+    }
+  ]
+}

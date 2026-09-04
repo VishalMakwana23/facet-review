@@ -1,0 +1,89 @@
+[
+  "ft1",
+  "performance-report",
+  0,
+  "Performance benchmark report",
+  "p",
+  [
+    "switch environment",
+    "inspect outlier",
+    "toggle baseline"
+  ],
+  [
+    [
+      "performance-report.metric.1",
+      2,
+      "Metric",
+      "Metric content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "70%",
+        "label": "Measured target"
+      }
+    ],
+    [
+      "performance-report.chart.2",
+      17,
+      "Chart",
+      "Chart content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "values": [
+          28,
+          46,
+          63,
+          78
+        ],
+        "summary": "Performance benchmark report trend"
+      }
+    ],
+    [
+      "performance-report.table.3",
+      11,
+      "Table",
+      "Table content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "performance-report.comparison.4",
+      10,
+      "Comparison",
+      "Comparison content for Performance benchmark report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ]
+  ]
+]

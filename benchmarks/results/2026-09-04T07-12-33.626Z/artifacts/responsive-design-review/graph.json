@@ -1,0 +1,77 @@
+{
+  "f": "fg1",
+  "a": "responsive-design-review",
+  "r": 0,
+  "t": "Responsive interface design review",
+  "h": "p",
+  "c": [
+    "switch viewport",
+    "comment on component",
+    "approve state"
+  ],
+  "roots": [
+    "responsive-design-review.image.1",
+    "responsive-design-review.comparison.2",
+    "responsive-design-review.checklist.3",
+    "responsive-design-review.decision.4"
+  ],
+  "nodes": {
+    "responsive-design-review.image.1": {
+      "type": "image",
+      "title": "Image",
+      "text": "Image content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "alt": "Responsive interface design review responsive preview"
+      }
+    },
+    "responsive-design-review.comparison.2": {
+      "type": "comparison",
+      "title": "Comparison",
+      "text": "Comparison content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "responsive-design-review.checklist.3": {
+      "type": "checklist",
+      "title": "Checklist",
+      "text": "Checklist content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Responsive interface design review sequence"
+      }
+    },
+    "responsive-design-review.decision.4": {
+      "type": "decision",
+      "title": "Decision",
+      "text": "Decision content for Responsive interface design review. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "options": [
+          "Continue",
+          "Revise",
+          "Stop"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+[
+  "ft1",
+  "phase3-demo",
+  0,
+  "Local review vertical slice",
+  "p",
+  ["annotate sections", "compare options", "approve scope"],
+  [
+    ["summary", 0, "What changes", "Facet keeps the review loop local while Codex sends only semantic content and compact revisions.", {"value":"No account or network dependency"}],
+    ["tradeoffs", 10, "Protocol choice", "The compact tuple is optimized for transport and immediately decoded into a readable canonical model.", {"headers":["Criterion","Result"],"rows":[["Median token reduction","88.54%"],["Median patch ratio","11.70%"],["Offline workflow","Passed"]]}],
+    ["example-code", 12, "Agent integration", "The skill writes compact artifacts and revisions.", {"code":"const session = await facet.open(artifact);\nconst feedback = await session.inbox();\nawait session.apply(patch);"}],
+    ["approval", 5, "Release decision", "Choose whether the local slice is ready for product-quality work.", {"options":["Approve","Revise","Stop"]}]
+  ]
+]

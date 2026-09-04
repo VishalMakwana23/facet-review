@@ -1,0 +1,59 @@
+[
+  "ft1",
+  "release-roadmap",
+  0,
+  "Release roadmap with dependencies",
+  "p",
+  [
+    "filter by status",
+    "open phase details"
+  ],
+  [
+    [
+      "release-roadmap.timeline.1",
+      3,
+      "Timeline",
+      "Timeline content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Release roadmap with dependencies sequence"
+      }
+    ],
+    [
+      "release-roadmap.status.2",
+      6,
+      "Status",
+      "Status content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "Ready for review"
+      }
+    ],
+    [
+      "release-roadmap.dependency.3",
+      7,
+      "Dependency",
+      "Dependency content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Release roadmap with dependencies sequence"
+      }
+    ],
+    [
+      "release-roadmap.callout.4",
+      1,
+      "Callout",
+      "Callout content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "mark one phase blocked"
+      }
+    ]
+  ]
+]

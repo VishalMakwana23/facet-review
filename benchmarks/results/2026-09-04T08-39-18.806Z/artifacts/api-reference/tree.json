@@ -1,0 +1,72 @@
+{
+  "format": "facet-tree",
+  "schemaVersion": 1,
+  "artifactId": "api-reference",
+  "revision": 0,
+  "title": "Interactive API reference",
+  "theme": "precision-canvas",
+  "capabilities": [
+    "navigate endpoint",
+    "copy request",
+    "switch response"
+  ],
+  "nodes": [
+    {
+      "id": "api-reference.navigation.1",
+      "type": "navigation",
+      "title": "Navigation",
+      "text": "Navigation content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Interactive API reference sequence"
+      }
+    },
+    {
+      "id": "api-reference.code.2",
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    {
+      "id": "api-reference.table.3",
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "api-reference.callout.4",
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add an error response"
+      }
+    }
+  ]
+}

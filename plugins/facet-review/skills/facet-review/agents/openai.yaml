@@ -1,0 +1,8 @@
+interface:
+  display_name: "Facet Review"
+  short_description: "Create compact local review canvases"
+  brand_color: "#7C6CFF"
+  default_prompt: "Use $facet-review to open this structured work in a local review canvas."
+
+policy:
+  allow_implicit_invocation: true

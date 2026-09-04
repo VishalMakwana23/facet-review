@@ -1,0 +1,13 @@
+{
+  "artifactId": "analytics-dashboard",
+  "baseRevision": 1,
+  "nextRevision": 2,
+  "operations": [
+    {
+      "op": "move",
+      "id": "analytics-dashboard.metric.1",
+      "parentId": null,
+      "index": 3
+    }
+  ]
+}

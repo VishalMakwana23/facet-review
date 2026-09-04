@@ -1,0 +1,13 @@
+{
+  "artifactId": "research-report",
+  "baseRevision": 1,
+  "nextRevision": 2,
+  "operations": [
+    {
+      "op": "move",
+      "id": "research-report.section.1",
+      "parentId": null,
+      "index": 3
+    }
+  ]
+}

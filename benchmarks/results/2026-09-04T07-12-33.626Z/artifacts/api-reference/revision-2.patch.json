@@ -1,0 +1,13 @@
+{
+  "artifactId": "api-reference",
+  "baseRevision": 1,
+  "nextRevision": 2,
+  "operations": [
+    {
+      "op": "move",
+      "id": "api-reference.navigation.1",
+      "parentId": null,
+      "index": 3
+    }
+  ]
+}

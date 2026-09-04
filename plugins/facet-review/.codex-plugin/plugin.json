@@ -1,0 +1,25 @@
+{
+  "name": "facet-review",
+  "version": "0.1.0",
+  "description": "Create token-efficient local review canvases for complex Codex work.",
+  "author": {
+    "name": "Facet contributors"
+  },
+  "license": "Apache-2.0",
+  "keywords": ["codex", "review", "visualization", "local-first", "token-efficient"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Facet Review",
+    "shortDescription": "Token-efficient visual review for Codex.",
+    "longDescription": "Turn complex Codex output into an accessible local review canvas with anchored comments, typed decisions, and compact revision patches.",
+    "developerName": "Facet contributors",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Local-first", "Write"],
+    "defaultPrompt": [
+      "Open this implementation plan in Facet for review.",
+      "Turn this comparison into a Facet decision canvas.",
+      "Read my Facet feedback and apply a compact patch."
+    ],
+    "brandColor": "#7C6CFF"
+  }
+}

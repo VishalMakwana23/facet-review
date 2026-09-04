@@ -1,0 +1,12 @@
+{
+  "artifactId": "release-roadmap",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "release-roadmap.timeline.1",
+      "value": "Timeline content for Release roadmap with dependencies. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: mark one phase blocked."
+    }
+  ]
+}

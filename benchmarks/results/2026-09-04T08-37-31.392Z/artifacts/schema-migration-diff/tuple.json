@@ -1,0 +1,70 @@
+[
+  "ft1",
+  "schema-migration-diff",
+  0,
+  "Schema migration diff",
+  "p",
+  [
+    "switch split and unified view",
+    "annotate changed field"
+  ],
+  [
+    [
+      "schema-migration-diff.diff.1",
+      13,
+      "Diff",
+      "Diff content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "schema-migration-diff.code.2",
+      12,
+      "Code",
+      "Code content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    ],
+    [
+      "schema-migration-diff.table.3",
+      11,
+      "Table",
+      "Table content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "schema-migration-diff.timeline.4",
+      3,
+      "Timeline",
+      "Timeline content for Schema migration diff. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Schema migration diff sequence"
+      }
+    ]
+  ]
+]

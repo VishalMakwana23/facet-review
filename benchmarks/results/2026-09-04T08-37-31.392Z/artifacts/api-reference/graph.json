@@ -1,0 +1,73 @@
+{
+  "f": "fg1",
+  "a": "api-reference",
+  "r": 0,
+  "t": "Interactive API reference",
+  "h": "p",
+  "c": [
+    "navigate endpoint",
+    "copy request",
+    "switch response"
+  ],
+  "roots": [
+    "api-reference.navigation.1",
+    "api-reference.code.2",
+    "api-reference.table.3",
+    "api-reference.callout.4"
+  ],
+  "nodes": {
+    "api-reference.navigation.1": {
+      "type": "navigation",
+      "title": "Navigation",
+      "text": "Navigation content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "items": [
+          "Prepare evidence",
+          "Review the change",
+          "Record the decision"
+        ],
+        "summary": "Interactive API reference sequence"
+      }
+    },
+    "api-reference.code.2": {
+      "type": "code",
+      "title": "Code",
+      "text": "Code content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "code": "export function review(input) {\n  return validate(input);\n}"
+      }
+    },
+    "api-reference.table.3": {
+      "type": "table",
+      "title": "Table",
+      "text": "Table content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    },
+    "api-reference.callout.4": {
+      "type": "callout",
+      "title": "Callout",
+      "text": "Callout content for Interactive API reference. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      "data": {
+        "value": "add an error response"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "artifactId": "vendor-comparison",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "vendor-comparison.comparison.1",
+      "value": "Comparison content for Vendor comparison matrix. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: update two vendor scores."
+    }
+  ]
+}

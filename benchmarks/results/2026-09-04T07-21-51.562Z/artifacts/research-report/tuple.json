@@ -1,0 +1,66 @@
+[
+  "ft1",
+  "research-report",
+  0,
+  "Evidence-backed research report",
+  "p",
+  [
+    "filter evidence",
+    "open citation",
+    "annotate claim"
+  ],
+  [
+    [
+      "research-report.section.1",
+      0,
+      "Section",
+      "Section content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add a contradictory source"
+      }
+    ],
+    [
+      "research-report.citation.2",
+      14,
+      "Citation",
+      "Citation content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "source": "Benchmark evidence source"
+      }
+    ],
+    [
+      "research-report.table.3",
+      11,
+      "Table",
+      "Table content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "headers": [
+          "Criterion",
+          "Current",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Clarity",
+            "Variable",
+            "Consistent"
+          ],
+          [
+            "Review",
+            "Manual",
+            "Structured"
+          ]
+        ]
+      }
+    ],
+    [
+      "research-report.callout.4",
+      1,
+      "Callout",
+      "Callout content for Evidence-backed research report. This section preserves the complete claim, state, and review context required by the benchmark brief.",
+      {
+        "value": "add a contradictory source"
+      }
+    ]
+  ]
+]

@@ -1,0 +1,12 @@
+{
+  "artifactId": "analytics-dashboard",
+  "baseRevision": 0,
+  "nextRevision": 1,
+  "operations": [
+    {
+      "op": "setText",
+      "id": "analytics-dashboard.metric.1",
+      "value": "Metric content for Product analytics dashboard. This section preserves the complete claim, state, and review context required by the benchmark brief. Revision: append a reporting period."
+    }
+  ]
+}
