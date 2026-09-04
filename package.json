@@ -21,6 +21,8 @@
     "test:protocol": "node scripts/test-protocol.mjs",
     "test:phase3": "node scripts/test-phase3.mjs",
     "test:phase4": "node scripts/test-phase4.mjs",
+    "release:pack": "npm run build && node scripts/pack-release.mjs",
+    "test:release": "node scripts/test-release.mjs",
     "benchmark:protocol": "npm run build && node benchmarks/scripts/run-protocol-benchmark.mjs",
     "test": "npm run build && npm run verify:foundation && npm run test:protocol && npm run test:phase3 && npm run test:phase4 && npm run typecheck"
   },

@@ -44,3 +44,7 @@ node packages/cli/dist/index.js open examples/phase3-demo.facet.json
 ```
 
 The command prints a private loopback session URL and opens the review UI. See [the Phase 3 workflow](docs/phase3/LOCAL_VERTICAL_SLICE.md) for feedback, patch, resume, resolve, and export commands.
+
+## Local release candidate
+
+Run `npm run release:pack` followed by `npm run test:release` to build and test an isolated, dependency-free CLI archive. `.release/latest.json` identifies the archive and checksum. No registry publication or Codex installation occurs automatically. See [Phase 5 distribution status](docs/phase5/DISTRIBUTION.md) for installation, CI, cleanup, and remaining release gates.

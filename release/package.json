@@ -1,0 +1,13 @@
+{
+  "name": "facet-review",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "description": "Local-first visual review skill and CLI for Codex.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": { "type": "git", "url": "git+https://github.com/VishalMakwana23/facet-review.git" },
+  "engines": { "node": ">=22.14.0" },
+  "bin": { "facet": "runtime/cli/index.js" },
+  "files": ["runtime", "plugin", "examples", "README.md", "LICENSE", "SECURITY.md"],
+  "publishConfig": { "access": "public", "tag": "alpha" }
+}

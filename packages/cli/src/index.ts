@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readFile } from "node:fs/promises";
+import { realpathSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { homedir } from "node:os";
 import { resolve } from "node:path";
@@ -29,6 +30,16 @@ export function parseArtifact(input: unknown): FacetArtifact {
 
 export async function runCli(argv = process.argv.slice(2)): Promise<number> {
   const [command, subject, ...rest] = argv;
+  if (command === "doctor") {
+    const [major = 0, minor = 0] = process.versions.node.split(".").map(Number);
+    const supported = major > 22 || (major === 22 && minor >= 14);
+    process.stdout.write(`${JSON.stringify({ node: process.versions.node, platform: process.platform, architecture: process.arch, supportedNode: supported, protocol: "ft1", telemetry: "disabled — no diagnostic data transmitted" }, null, 2)}\n`);
+    return supported ? 0 : 1;
+  }
+  if (command === "--help" || command === "help" || command === "-h") {
+    process.stdout.write("Facet: open <artifact>, resume <session>, inbox <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <new-directory>, repair-journal <session> --confirm, doctor\nOptions: --data-dir <directory>, open/resume: --no-browser --port <port>\n");
+    return 0;
+  }
   const dataDirectory = option(rest, "--data-dir") ?? resolve(homedir(), ".facet-review");
   const store = new FileSessionStore(dataDirectory);
 
@@ -133,7 +144,7 @@ async function waitForShutdown(running: RunningFacetServer): Promise<void> {
   });
 }
 
-const entry = process.argv[1] ? pathToFileURL(process.argv[1]).href : "";
+const entry = process.argv[1] ? pathToFileURL(realpathSync(process.argv[1])).href : "";
 if (import.meta.url === entry) {
   runCli().then((code) => { process.exitCode = code }).catch((error: unknown) => {
     process.stderr.write(`Facet error: ${error instanceof Error ? error.message : String(error)}\n`);

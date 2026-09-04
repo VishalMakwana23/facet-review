@@ -97,4 +97,10 @@ Verification on 2026-09-04:
 
 See `docs/phase4/VALIDATION.md` for exact evidence paths and limitations, `docs/phase4/RECOVERY.md` for repair procedures, and `docs/phase4/MANUAL_TEST.md` for the deferred pilot.
 
-Phase 5 has not started. Packages remain private; nothing was published or installed globally in Phase 4.
+Packages remain private; nothing was published or installed globally in Phase 4.
+
+## Phase 5 — Public alpha distribution: In progress
+
+First increment: dependency-free standalone npm archive staging, packed-file allowlist/checksum manifest, CLI help and local diagnostics, isolated offline npm-exec/install/review/uninstall/reinstall tests, and a pinned-action Windows/macOS/Linux CI matrix definition. Local Windows installation is tested; remote CI is not yet run.
+
+The repository is now `VishalMakwana23/facet-review`, renamed from `plan-viewer` at the user's request; repository identity and remote `master` are verified. Initial commit `d4ba1a3` is preserved. The npm web session identifies `vishalmakwanaa`; terminal authorization and account 2FA setup are pending. Phase 5 packaging changes are being submitted for remote CI. Public publishing, trusted-publisher setup, signed release evidence, marketplace installation, cross-version rollback, and the docs website remain outstanding. See `docs/phase5/DISTRIBUTION.md`. Human acceptance stays deferred as requested.

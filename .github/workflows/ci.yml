@@ -1,0 +1,38 @@
+name: Validate and package candidate
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: ['22.14.0', '24']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run release:pack
+      - run: npm run test:release
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: candidate-${{ matrix.os }}-node-${{ matrix.node }}
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            .release/candidate-*/*.tgz
+            .release/candidate-*/manifest.json
+            .release/candidate-*/install-test.json

@@ -10,3 +10,4 @@ Thumbs.db
 !.env.example
 .lavish/qa/
 .facet-review/
+.release/
