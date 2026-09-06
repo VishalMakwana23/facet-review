@@ -1,6 +1,6 @@
 # Facet Review 0.1.0-alpha.1 — release candidate notes
 
-Status: locally verified, unpublished candidate. These notes are not signed release evidence. The npm release manifest remains private until registry authentication and final publication checks succeed.
+Status: published to npm on 2026-09-06 and verified through a fresh public-registry CLI run. These notes are not signed release evidence.
 
 ## Included
 
@@ -20,10 +20,10 @@ The tested minimum Node version is 22.14. The supplied archive needs no runtime 
 
 ## Installation and data
 
-Until publication, follow the archive's README using its exact local path. Do not assume a registry package with this name is ours. npm runtime installation does not automatically register the Codex plugin.
+Install with `npm install --global facet-review@alpha`, or run without a permanent installation using `npm exec --yes --package=facet-review@alpha -- facet --help`. npm runtime installation does not automatically register the Codex plugin.
 
 Session data remains outside the installed package. Uninstalling the runtime does not delete reviews. Static HTML exports cannot resume a session; keep the original store for continued work.
 
 ## Known limits
 
-Blind human preference testing and hands-on screen-reader acceptance remain pending. Real marketplace installation, public registry installation, provenance/signature verification, and rollback between different released versions are not yet demonstrated. The host renders structured review content, not arbitrary websites or artifact JavaScript. Token savings are synthetic representation measurements, not a direct Lavish or full-model usage benchmark.
+Blind human preference testing and hands-on screen-reader acceptance remain pending. Universal plugin-directory installation, provenance/signature verification, and rollback between different released versions are not yet demonstrated. The host renders structured review content, not arbitrary websites or artifact JavaScript. Token savings are synthetic representation measurements, not a direct Lavish or full-model usage benchmark.

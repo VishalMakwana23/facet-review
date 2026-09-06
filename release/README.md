@@ -1,39 +1,73 @@
-# Facet Review — local alpha candidate
+# Facet Review
 
-This archive contains the Facet CLI, its standalone runtime, the Codex plugin source, and example artifacts. Node.js 22.14 or newer is required. No runtime npm dependencies, postinstall scripts, accounts, API keys, or telemetry are required.
+Facet Review turns structured agent output into an accessible, local-first review canvas with anchored comments, explicit decisions, and compact revision patches.
 
-This is an unpublished candidate. The package name is provisional. Do not assume a similarly named registry package is this project.
+## Install
 
-## Run the supplied archive
+Node.js 22.14 or newer is required. The package has no runtime npm dependencies, postinstall scripts, accounts, API keys, or telemetry.
 
-Use the exact absolute archive path supplied with the release:
-
-```text
-npm exec --offline --yes --package=/absolute/path/facet-review-0.1.0-alpha.1.tgz -- facet --help
+```bash
+npm install --global facet-review@alpha
+facet doctor
 ```
 
-For repeated use, install the supplied archive in a dedicated local folder with `npm install --ignore-scripts --no-audit --no-fund /absolute/path/archive.tgz`. Invoke the installed `facet` binary or `node node_modules/facet-review/runtime/cli/index.js`. On Windows, the npm executable shim is `node_modules/.bin/facet.cmd`.
+Run without a global installation:
 
-```text
-facet open artifact.facet.json
+```bash
+npm exec --yes --package=facet-review@alpha -- facet --help
+```
+
+## Start a review
+
+Facet accepts compact `fi1` intent files and canonical `.facet.json` artifacts.
+
+```bash
+facet lint decision.fi1.json
+facet open decision.fi1.json
+```
+
+The `open` command creates a session, prints its ID and private loopback URL, and opens the browser. Keep that process running during review. Use `--no-browser` to print the URL without opening it, and reuse the same `--data-dir` for isolated session stores.
+
+```bash
 facet inbox SESSION_ID
+facet digest SESSION_ID
+facet poll SESSION_ID
+facet resume SESSION_ID
 facet export SESSION_ID new-export-directory
 ```
 
-Keep the `open` process running during review. The URL binds only to loopback. `--no-browser` prints the URL without launching a browser; use `--data-dir DIRECTORY` consistently to isolate local sessions.
+Use **Review actions → Export standalone HTML** for a human-readable snapshot. Machine-readable export bundles and static HTML exports are read-only handoffs; keep the original session store to continue editing.
 
-## Codex skill
+## Use the Codex skill
 
-The plugin source is in `plugin/`. Installing the npm runtime does not automatically install a Codex plugin or modify Codex settings. For repo-local experimentation, copy `plugin/skills/facet-review` to the target repository's `.agents/skills/facet-review` only if that path does not already exist. Start a new Codex task if the skill is not discovered. Ensure the runtime is on PATH, or tell the task its absolute `runtime/cli/index.js` path.
+The npm package includes the plugin source under `plugin/`, but npm does not automatically register it with Codex. For repository-local use, copy `plugin/skills/facet-review` from the installed package into `.agents/skills/facet-review` only when that destination does not already exist, then start a new Codex task.
 
-Reusable distribution should use the plugin packaging flow; marketplace registration is separate and not included in this local alpha. See [official skill discovery and plugin guidance](https://learn.chatgpt.com/docs/build-skills).
+```text
+Use $facet-review to turn this implementation plan into a decision-ready review workspace.
+```
+
+Reusable discovery through the universal plugin directory is a separate publication path. See OpenAI's [Build skills](https://learn.chatgpt.com/docs/build-skills) and [Build plugins](https://learn.chatgpt.com/docs/build-plugins) documentation.
+
+## Privacy and data
+
+- Review servers bind to loopback.
+- No diagnostic or review data is transmitted by the CLI.
+- No arbitrary artifact JavaScript or remote assets are accepted.
+- Session data stays in `--data-dir`, or `.facet-review` under the user profile by default.
+- Uninstalling the package does not delete session data.
+
+Read the [complete project guide](https://github.com/VishalMakwana23/facet-review#readme) and [security model](https://github.com/VishalMakwana23/facet-review/blob/master/SECURITY.md) before using sensitive material.
 
 ## Remove or roll back
 
-Stop review processes before uninstalling. Run `npm uninstall facet-review` in the dedicated installation folder. Remove only the repo-local skill folder you installed, after checking for edits. No uninstall hook removes user data. Sessions remain in the directory selected by `--data-dir` or the default `.facet-review` under your user profile. Export anything important before choosing to delete a specific session.
+Stop running review processes, then uninstall the CLI:
 
-To restore a previous release, reinstall its saved archive. Keep the store unchanged; rollback compatibility must be tested before adopting a future store schema. Static export bundles are read-only handoffs, not resumable store imports.
+```bash
+npm uninstall --global facet-review
+```
 
-## Limits
+Install a saved archive or an explicitly selected npm version to roll back. Back up the actual session store before any future schema-changing upgrade.
 
-This is a structured review skill, not a general website builder. Human acceptance and cross-platform release certification are pending. Benchmark savings are synthetic output-representation comparisons, not measured full-model or Lavish usage savings. Keep the original store for continued editing; exports cannot save changes.
+## Alpha limits
+
+Facet renders structured review content, not arbitrary websites. Hands-on screen-reader acceptance, broader human preference testing, cross-version rollback, and universal plugin-directory publication remain pending. Synthetic representation benchmarks are not direct measurements of full-model or competing-tool token usage.
