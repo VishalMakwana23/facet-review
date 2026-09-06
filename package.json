@@ -33,6 +33,7 @@
     "test:product-quality": "node scripts/test-product-quality.mjs",
     "release:pack": "npm run build && node scripts/pack-release.mjs",
     "test:release": "node scripts/test-release.mjs",
+    "test:public-rollback": "node scripts/test-public-rollback.mjs",
     "benchmark:protocol": "npm run build && node benchmarks/scripts/run-protocol-benchmark.mjs",
     "benchmark:competitive": "npm run build && node benchmarks/scripts/run-competitive-benchmark.mjs",
     "test:competitive": "node scripts/test-competitive-benchmark.mjs",

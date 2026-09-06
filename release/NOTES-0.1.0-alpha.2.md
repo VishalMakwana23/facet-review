@@ -14,4 +14,4 @@ Node.js 22.14 or newer is required. The standalone CLI remains dependency-free a
 
 ## Known limits
 
-Universal plugin-directory review, independent human preference testing, hands-on screen-reader acceptance, and cross-version rollback evidence remain pending. The package does not automatically register the bundled skill with Codex.
+Universal plugin-directory review, independent human preference testing, and hands-on screen-reader acceptance remain pending. The package does not automatically register the bundled skill with Codex.
