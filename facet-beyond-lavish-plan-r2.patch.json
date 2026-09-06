@@ -1,0 +1,141 @@
+[
+  "fp1",
+  "facet-beyond-lavish-plan",
+  1,
+  2,
+  [
+    [
+      "t",
+      "delivery-roadmap",
+      "Implement Facet sequentially through seven gated phases. Each phase must leave the repository buildable, preserve existing review behavior, and produce reviewable evidence. Estimates are working ranges for focused implementation, not calendar commitments. Publishing and hosted collaboration remain outside this plan until the local product passes Phase 6."
+    ],
+    [
+      "d",
+      "delivery-roadmap",
+      "items",
+      [
+        "Phase 0 — Baseline and contracts (2–3 focused days): freeze competitive prompts, scoring rules, screenshots, current performance, token estimates, compatibility fixtures, and regression tests.",
+        "Phase 1 — Design foundation and shell (4–6 focused days): implement the neutral-plus-violet tokens, typography, spacing, accessible primitives, responsive application shell, navigation, review rail, command surface, and complete interaction states.",
+        "Phase 2 — Option Showdown vertical slice (5–7 focused days): build the adaptive recipe engine and redesign comparison, risk, recommendation, evidence, and decision blocks around one excellent end-to-end expense-tracker review.",
+        "Phase 3 — Review intelligence (6–8 focused days): add visible anchors, threaded feedback, review filters, guided progression, semantic change map, decision rationale, confidence, ownership, and supersession history.",
+        "Phase 4 — Token compiler and patch loop (5–7 focused days): compile compact intent locally, apply defaults and stable IDs, validate automatically, emit feedback digests, optimize patches, and display honest Token Receipts.",
+        "Phase 5 — Creative workspace modes (6–10 focused days): add Summary, Evidence, Risk, Change, Decision, Story, Board, and Focus lenses plus Decision Cockpit, Evidence Gravity, Revision Radar, and graceful legacy fallbacks.",
+        "Phase 6 — Competitive proof and release decision (7–10 focused days plus participant scheduling): run blind Facet-versus-Lavish comparisons, usability sessions, accessibility and performance audits, fix critical gaps, and decide whether a local alpha is ready."
+      ]
+    ],
+    [
+      "i",
+      0,
+      15,
+      {
+        "id": "phase-deliverables",
+        "type": "table",
+        "title": "Phase-by-phase delivery contract",
+        "text": "Every phase has one dominant outcome and a measurable exit gate. Work that belongs to a later phase is recorded but not pulled forward unless it blocks the current gate.",
+        "data": {
+          "headers": [
+            "Phase",
+            "Primary deliverable",
+            "Exit gate"
+          ],
+          "rows": [
+            [
+              "0 — Baseline",
+              "Reproducible current Facet/Lavish evidence pack and frozen contracts",
+              "Identical prompts, parity rubric, raw outputs, screenshots, and current test suite recorded"
+            ],
+            [
+              "1 — Foundation",
+              "Production-quality modular shell and design primitives",
+              "375/768/1024/1440 layouts pass; keyboard, contrast, reduced motion, and all state variants pass"
+            ],
+            [
+              "2 — Vertical slice",
+              "Option Showdown recipe with premium comparison and decision experience",
+              "Equal-content prototype is materially clearer than current Facet and wins internal side-by-side review"
+            ],
+            [
+              "3 — Review intelligence",
+              "End-to-end evidence, comments, changes, and decision workflow",
+              "Feedback survives two revisions; unresolved work is visible; all flows work by keyboard and after restart"
+            ],
+            [
+              "4 — Token system",
+              "Intent compiler, digest, optimized patching, and Token Receipt",
+              "No fidelity loss; median patch remains at or below 15%; full workflow accounting includes prompts and retries"
+            ],
+            [
+              "5 — Creative modes",
+              "Multiple lenses and workspace compositions from one artifact",
+              "Switching modes requires no regeneration; legacy artifacts remain readable; interaction p95 stays below target"
+            ],
+            [
+              "6 — Product proof",
+              "Competitive and human-validation report with release recommendation",
+              "At least 60% blind preference, 90% task completion, 40% workflow-token advantage, and zero critical accessibility failures"
+            ]
+          ]
+        }
+      }
+    ],
+    [
+      "i",
+      0,
+      16,
+      {
+        "id": "phase-operating-rules",
+        "type": "checklist",
+        "title": "Rules for phase-wise implementation",
+        "text": "These rules keep quality high and make rollback straightforward while the renderer, protocol, and skill evolve together.",
+        "data": {
+          "items": [
+            "Create a scoped implementation brief and acceptance checklist before each phase begins.",
+            "Keep every commit buildable and preserve unrelated user changes.",
+            "Add tests with each new primitive, block, recipe, state, and protocol behavior.",
+            "Compare desktop, tablet, and mobile screenshots before closing visual work.",
+            "Run keyboard, screen-reader semantics, contrast, reduced-motion, offline, restart, and export checks at the relevant gate.",
+            "Record token, bundle, latency, and compatibility changes without overwriting earlier evidence.",
+            "Do not add a new semantic block when an existing block plus a layout recipe can express the same meaning.",
+            "Do not move to the next phase with unresolved critical or high-severity defects.",
+            "Review and approve the phase result in Facet before beginning the next phase.",
+            "Keep publishing, marketplace release, accounts, and hosted collaboration out of scope until separately approved."
+          ]
+        }
+      }
+    ],
+    [
+      "t",
+      "first-sprint",
+      "Begin with Phase 0, then proceed to Phase 1 only after the baseline evidence and contracts are frozen. The first visible milestone is the redesigned Option Showdown vertical slice in Phase 2; the foundation phases exist to make that result reusable rather than a one-off mockup."
+    ],
+    [
+      "d",
+      "first-sprint",
+      "items",
+      [
+        "Phase 0.1 — Freeze five identical competitor prompts and the equal-content, equal-function scoring rubric.",
+        "Phase 0.2 — Capture untouched current outputs, screenshots, timings, failures, retries, and token estimates.",
+        "Phase 0.3 — Record current build, test, accessibility, responsive, offline, export, and patch baselines.",
+        "Phase 0.4 — Freeze compatibility fixtures and define which existing behaviors cannot regress.",
+        "Phase 0 gate — Review the evidence pack and approve the exact Phase 1 scope.",
+        "Phase 1.1 — Implement tokens and primitive states without changing artifact semantics.",
+        "Phase 1.2 — Build the responsive shell, collapsible navigation, review rail, command surface, and mode indicators.",
+        "Phase 1 gate — Complete visual, responsive, accessibility, performance, and regression review before Phase 2."
+      ]
+    ],
+    [
+      "t",
+      "product-decision",
+      "Choose whether to start Phase 0 baseline work now or revise the phase boundaries before any implementation begins. Approval authorizes only Phase 0; later phases remain independently gated."
+    ],
+    [
+      "d",
+      "product-decision",
+      "options",
+      [
+        "Approve Phase 0 only",
+        "Revise the phase breakdown"
+      ]
+    ]
+  ]
+]

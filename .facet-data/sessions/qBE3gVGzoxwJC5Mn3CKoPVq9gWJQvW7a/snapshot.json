@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "id": "qBE3gVGzoxwJC5Mn3CKoPVq9gWJQvW7a",
+  "state": "open",
+  "artifact": {
+    "protocol": "facet",
+    "version": 1,
+    "revision": 2,
+    "id": "nextjs-ping-pong-plan",
+    "title": "Next.js Ping Pong Game — Implementation Plan",
+    "theme": "precision-canvas",
+    "capabilities": [
+      "review architecture",
+      "inspect phases",
+      "annotate risks",
+      "approve implementation scope"
+    ],
+    "nodes": [
+      {
+        "id": "product-goal",
+        "type": "section",
+        "title": "Product goal",
+        "text": "Build a fast, responsive browser Ping Pong game using Next.js, TypeScript, and Canvas 2D. The first release supports one player versus CPU and local two-player mode, works with keyboard and touch controls, and requires no account or backend."
+      },
+      {
+        "id": "mvp-scope",
+        "type": "table",
+        "title": "MVP scope",
+        "text": "Keep the first release small enough to validate game feel before adding network complexity.",
+        "data": {
+          "headers": [
+            "Area",
+            "Included in MVP",
+            "Deferred"
+          ],
+          "rows": [
+            [
+              "Modes",
+              "Player vs CPU; local two-player",
+              "Online multiplayer and matchmaking"
+            ],
+            [
+              "Controls",
+              "Keyboard, pointer, and touch",
+              "Gamepad remapping"
+            ],
+            [
+              "Progression",
+              "First to 11; restart; difficulty selection",
+              "Accounts, ranks, seasons"
+            ],
+            [
+              "Presentation",
+              "Responsive court, HUD, pause, sound toggle",
+              "Cosmetics and advanced effects"
+            ],
+            [
+              "Persistence",
+              "Local preferences only",
+              "Cloud profiles and leaderboards"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "application-architecture",
+        "type": "diagram",
+        "title": "Application architecture",
+        "text": "Keep the deterministic game engine independent from React so physics can be tested without rendering.",
+        "data": {
+          "summary": "A small client-side game shell coordinates input, a pure simulation engine, Canvas rendering, and an accessible DOM HUD.",
+          "flow": [
+            {
+              "label": "Next.js shell",
+              "detail": "Route, layout, and static instructions"
+            },
+            {
+              "label": "Game controller",
+              "detail": "Lifecycle, input, pause, and resize"
+            },
+            {
+              "label": "Pure engine",
+              "detail": "Deterministic simulation and collision rules"
+            },
+            {
+              "label": "Dual output",
+              "detail": "Canvas court plus semantic DOM HUD"
+            }
+          ],
+          "items": [
+            "app/page.tsx — static server-rendered page shell",
+            "components/PingPongGame.tsx — client boundary and lifecycle",
+            "game/engine.ts — deterministic state transitions",
+            "game/physics.ts — collision and scoring rules",
+            "game/input.ts — keyboard, pointer, and touch normalization",
+            "game/renderer.ts — Canvas 2D drawing only",
+            "components/GameHud.tsx — score, pause, status, and controls",
+            "game/audio.ts — optional effects respecting mute preferences"
+          ]
+        }
+      },
+      {
+        "id": "technical-contracts",
+        "type": "table",
+        "title": "Technical contracts",
+        "text": "Define boundaries before visual polish so gameplay remains predictable and testable.",
+        "data": {
+          "headers": [
+            "Module",
+            "Responsibility",
+            "Important rule"
+          ],
+          "rows": [
+            [
+              "Game state",
+              "Ball, paddles, score, phase, difficulty",
+              "Serializable data; no DOM references"
+            ],
+            [
+              "Simulation",
+              "Advance state from elapsed time and input",
+              "Fixed simulation step; clamp long frames"
+            ],
+            [
+              "Collision",
+              "Walls, paddles, goals, rebound angles",
+              "Resolve penetration and prevent tunnelling"
+            ],
+            [
+              "Input",
+              "Normalize keyboard and touch into actions",
+              "No game rules inside event handlers"
+            ],
+            [
+              "Renderer",
+              "Draw the latest state onto Canvas",
+              "No state mutation during drawing"
+            ],
+            [
+              "React shell",
+              "Mount, pause, restart, resize, announce scores",
+              "Never set React state every animation frame"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "phased-implementation",
+        "type": "timeline",
+        "title": "Phased implementation",
+        "text": "Complete each phase only when its exit checks pass.",
+        "data": {
+          "items": [
+            {
+              "label": "Phase 1 · Project foundation",
+              "detail": "Create the Next.js App Router project, TypeScript configuration, test setup, responsive page shell, and core design tokens."
+            },
+            {
+              "label": "Phase 2 · Deterministic engine",
+              "detail": "Define serializable game state and implement the fixed-step loop, paddle movement, serves, scoring, match completion, and deterministic fixtures."
+            },
+            {
+              "label": "Phase 3 · Collision system",
+              "detail": "Implement wall and paddle collision response, penetration correction, bounded rebound angles, velocity caps, and edge-case unit tests."
+            },
+            {
+              "label": "Phase 4 · Playable responsive interface",
+              "detail": "Add Canvas rendering, coordinate scaling, resize handling, semantic score HUD, keyboard/touch controls, pause/restart, and both local game modes."
+            },
+            {
+              "label": "Phase 5 · CPU, game feel, and accessibility",
+              "detail": "Add CPU profiles, speed and rebound tuning, sound controls, reduced motion, high-contrast cues, focus management, status announcements, and mobile resilience."
+            },
+            {
+              "label": "Phase 6 · Verification and release candidate",
+              "detail": "Pass engine, component, browser, performance, responsive, accessibility, and real-device gates, then produce the static export candidate."
+            }
+          ]
+        }
+      },
+      {
+        "id": "delivery-dependencies",
+        "type": "dependency",
+        "title": "Delivery dependencies",
+        "text": "The order protects the core loop from UI-driven rewrites.",
+        "data": {
+          "items": [
+            {
+              "from": "Typed game-state model",
+              "to": "Deterministic simulation"
+            },
+            {
+              "from": "Deterministic simulation",
+              "to": "Canvas renderer and CPU"
+            },
+            {
+              "from": "Normalized input actions",
+              "to": "Keyboard and touch parity"
+            },
+            {
+              "from": "Stable gameplay loop",
+              "to": "Game-feel tuning"
+            },
+            {
+              "from": "Accessible DOM HUD",
+              "to": "Browser acceptance tests"
+            },
+            {
+              "from": "All automated gates",
+              "to": "Static release candidate"
+            }
+          ]
+        }
+      },
+      {
+        "id": "definition-of-done",
+        "type": "checklist",
+        "title": "Definition of done",
+        "text": "The MVP is complete only when gameplay and product-quality gates pass together.",
+        "data": {
+          "items": [
+            "Steady 60 FPS target on supported desktop and mobile browsers",
+            "No ball tunnelling through a paddle under maximum configured speed",
+            "Keyboard and touch can start, play, pause, resume, and restart",
+            "Canvas resizes without distorting gameplay coordinates",
+            "Score and game state are available outside Canvas to assistive technology",
+            "The game pauses when the document becomes hidden",
+            "Reduced-motion mode removes nonessential flashes and camera effects",
+            "Unit tests cover serves, collisions, scoring, and match completion",
+            "Playwright covers both modes, pause/restart, viewport changes, and touch input",
+            "Production build and static export complete without runtime server dependencies"
+          ]
+        }
+      },
+      {
+        "id": "physics-instability",
+        "type": "risk",
+        "title": "Physics instability",
+        "text": "Variable frame times can cause missed collisions, impossible rebound angles, or different outcomes across devices.",
+        "data": {
+          "severity": "High",
+          "mitigation": "Use a fixed simulation timestep with an accumulator, clamp large elapsed intervals, resolve overlap after collision, cap velocity, and unit-test boundary cases."
+        }
+      },
+      {
+        "id": "rendering-and-input-performance",
+        "type": "risk",
+        "title": "Rendering and input performance",
+        "text": "Updating React state on every animation frame or mixing layout reads with drawing can create jank and delayed controls.",
+        "data": {
+          "severity": "High",
+          "mitigation": "Keep frame state in the engine and refs, render through requestAnimationFrame, batch resize measurements, update the DOM HUD only when semantic values change, and profile long tasks."
+        }
+      },
+      {
+        "id": "mobile-usability",
+        "type": "risk",
+        "title": "Mobile usability",
+        "text": "Small touch targets, browser gestures, changing viewport height, and fingers covering the court can make a technically working game frustrating.",
+        "data": {
+          "severity": "Medium",
+          "mitigation": "Use large separated control regions, pointer events with touch-action rules, dynamic viewport units, safe-area padding, landscape and portrait layouts, and real-device testing."
+        }
+      },
+      {
+        "id": "delivery-risk-map",
+        "type": "chart",
+        "title": "Delivery risk map",
+        "text": "Prioritize technical risk reduction before presentation polish.",
+        "data": {
+          "kind": "risk-matrix",
+          "summary": "Physics instability and rendering performance are the highest-priority engineering risks; mobile usability requires early device validation.",
+          "items": [
+            {
+              "label": "Physics instability",
+              "likelihood": 3,
+              "impact": 5
+            },
+            {
+              "label": "Rendering and input performance",
+              "likelihood": 3,
+              "impact": 4
+            },
+            {
+              "label": "Mobile usability",
+              "likelihood": 4,
+              "impact": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "testing-strategy",
+        "type": "section",
+        "title": "Testing strategy",
+        "text": "Use Vitest for pure engine and physics tests, React component tests for controls and HUD behavior, and Playwright for complete browser flows. Test deterministic engine fixtures at multiple frame cadences, validate responsive layouts at 375, 768, 1024, and 1440 pixels, and include keyboard-only and touch-emulated runs."
+      },
+      {
+        "id": "explicit-non-goals",
+        "type": "section",
+        "title": "Explicit non-goals",
+        "text": "Do not add authentication, databases, real-time networking, matchmaking, chat, payments, analytics tracking, or a complex state-management library in the MVP. Online multiplayer should begin as a separate architecture decision after local gameplay is proven."
+      },
+      {
+        "id": "recommended-delivery-approach",
+        "type": "callout",
+        "title": "Recommended delivery approach",
+        "text": "Build the local deterministic MVP first and make game feel measurable before introducing online state. Use the Next.js App Router for the page shell, a narrow client component for browser interactivity, a pure TypeScript engine, Canvas 2D for the court, and semantic DOM controls for accessibility.",
+        "data": {
+          "status": "Recommended: local-first six-phase MVP"
+        }
+      },
+      {
+        "id": "implementation-scope-decision",
+        "type": "decision",
+        "title": "Implementation scope decision",
+        "text": "Approve the plan before any game code is created.",
+        "data": {
+          "options": [
+            "Approve local MVP plan",
+            "Revise scope before implementation"
+          ]
+        }
+      }
+    ]
+  },
+  "comments": [
+    {
+      "id": "d2c980f4-9c73-400e-85d2-8decdaa22672",
+      "nodeId": "phased-implementation",
+      "body": "need to devide in small phase we can make it 9 phase",
+      "anchorRevision": 0,
+      "status": "resolved",
+      "createdAt": "2026-09-06T08:49:27.030Z",
+      "anchor": {
+        "kind": "node"
+      },
+      "resolvedAt": "2026-09-06T08:53:30.156Z"
+    },
+    {
+      "id": "83373b21-d317-4fad-adf6-386d9a3d62b8",
+      "nodeId": "phased-implementation",
+      "body": "we can make it 6 phase only",
+      "anchorRevision": 1,
+      "status": "resolved",
+      "createdAt": "2026-09-06T09:19:29.505Z",
+      "anchor": {
+        "kind": "node"
+      },
+      "resolvedAt": "2026-09-06T09:20:05.029Z"
+    }
+  ],
+  "decisions": [],
+  "revisionChanges": [
+    {
+      "revision": 1,
+      "nodeIds": [
+        "phased-implementation",
+        "recommended-delivery-approach"
+      ],
+      "operations": [
+        {
+          "op": "setData",
+          "id": "phased-implementation",
+          "key": "items",
+          "value": [
+            {
+              "label": "Phase 1 · Project foundation",
+              "detail": "Create the Next.js App Router project, TypeScript configuration, test setup, responsive page shell, and core design tokens."
+            },
+            {
+              "label": "Phase 2 · Game-state model",
+              "detail": "Define serializable ball, paddle, score, match, difficulty, and input state with explicit defaults and reset rules."
+            },
+            {
+              "label": "Phase 3 · Deterministic simulation",
+              "detail": "Build the fixed-step loop, paddle movement, serves, scoring, match completion, and deterministic engine fixtures."
+            },
+            {
+              "label": "Phase 4 · Collision system",
+              "detail": "Implement wall and paddle collision response, penetration correction, bounded rebound angles, velocity caps, and edge-case unit tests."
+            },
+            {
+              "label": "Phase 5 · Responsive court",
+              "detail": "Add the Canvas renderer, coordinate scaling, resize handling, semantic DOM score HUD, and stable animation lifecycle."
+            },
+            {
+              "label": "Phase 6 · Controls and local modes",
+              "detail": "Normalize keyboard, pointer, and touch input; add pause, resume, restart, player-versus-CPU, and local two-player flows."
+            },
+            {
+              "label": "Phase 7 · CPU and game feel",
+              "detail": "Add three CPU profiles, progressive speed tuning, sound controls, readable feedback, and measurable gameplay tuning tools."
+            },
+            {
+              "label": "Phase 8 · Accessibility and resilience",
+              "detail": "Add reduced motion, high-contrast cues, focus management, status announcements, visibility pause, safe-area support, and real-device checks."
+            },
+            {
+              "label": "Phase 9 · Verification and release candidate",
+              "detail": "Pass engine, component, browser, performance, responsive, and accessibility gates, then produce the static export candidate."
+            }
+          ]
+        },
+        {
+          "op": "setData",
+          "id": "recommended-delivery-approach",
+          "key": "status",
+          "value": "Recommended: local-first nine-phase MVP"
+        }
+      ],
+      "details": [
+        {
+          "nodeId": "phased-implementation",
+          "before": "{\n  \"parent\": null,\n  \"index\": 4,\n  \"id\": \"phased-implementation\",\n  \"type\": \"timeline\",\n  \"title\": \"Phased implementation\",\n  \"text\": \"Complete each phase only when its exit checks pass.\",\n  \"data\": {\n    \"items\": [\n      {\n        \"label\": \"Phase 1 · Foundation\",\n        \"detail\": \"Create the App Router project, TypeScript configuration, responsive page shell, design tokens, and test setup.\"\n      },\n      {\n        \"label\": \"Phase 2 · Deterministic engine\",\n        \"detail\": \"Implement game state, fixed-step loop, serve/reset logic, paddle movement, collision response, scoring, and pure unit tests.\"\n      },\n      {\n        \"label\": \"Phase 3 · Playable interface\",\n        \"detail\": \"Add the Canvas renderer, resize handling, keyboard/touch input, DOM score HUD, pause/restart controls, and local two-player mode.\"\n      },\n      {\n        \"label\": \"Phase 4 · CPU and game feel\",\n        \"detail\": \"Add three CPU difficulty profiles, speed progression, bounded rebound angles, sound, feedback, and tuning tools.\"\n      },\n      {\n        \"label\": \"Phase 5 · Accessibility and resilience\",\n        \"detail\": \"Add reduced motion, high-contrast court cues, focus management, readable status announcements, visibility pause, and mobile safe-area support.\"\n      },\n      {\n        \"label\": \"Phase 6 · Verification and release candidate\",\n        \"detail\": \"Pass engine, component, browser, performance, responsive, and accessibility gates; produce a static export candidate.\"\n      }\n    ]\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 4,\n  \"id\": \"phased-implementation\",\n  \"type\": \"timeline\",\n  \"title\": \"Phased implementation\",\n  \"text\": \"Complete each phase only when its exit checks pass.\",\n  \"data\": {\n    \"items\": [\n      {\n        \"label\": \"Phase 1 · Project foundation\",\n        \"detail\": \"Create the Next.js App Router project, TypeScript configuration, test setup, responsive page shell, and core design tokens.\"\n      },\n      {\n        \"label\": \"Phase 2 · Game-state model\",\n        \"detail\": \"Define serializable ball, paddle, score, match, difficulty, and input state with explicit defaults and reset rules.\"\n      },\n      {\n        \"label\": \"Phase 3 · Deterministic simulation\",\n        \"detail\": \"Build the fixed-step loop, paddle movement, serves, scoring, match completion, and deterministic engine fixtures.\"\n      },\n      {\n        \"label\": \"Phase 4 · Collision system\",\n        \"detail\": \"Implement wall and paddle collision response, penetration correction, bounded rebound angles, velocity caps, and edge-case unit tests.\"\n      },\n      {\n        \"label\": \"Phase 5 · Responsive court\",\n        \"detail\": \"Add the Canvas renderer, coordinate scaling, resize handling, semantic DOM score HUD, and stable animation lifecycle.\"\n      },\n      {\n        \"label\": \"Phase 6 · Controls and local modes\",\n        \"detail\": \"Normalize keyboard, pointer, and touch input; add pause, resume, restart, player-versus-CPU, and local two-player flows.\"\n      },\n      {\n        \"label\": \"Phase 7 · CPU and game feel\",\n        \"detail\": \"Add three CPU profiles, progressive speed tuning, sound controls, readable feedback, and measurable gameplay tuning tools.\"\n      },\n      {\n        \"label\": \"Phase 8 · Accessibility and resilience\",\n        \"detail\": \"Add reduced motion, high-contrast cues, focus management, status announcements, visibility pause, safe-area support, and real-device checks.\"\n      },\n      {\n        \"label\": \"Phase 9 · Verification and release candidate\",\n        \"detail\": \"Pass engine, component, browser, performance, responsive, and accessibility gates, then produce the static export candidate.\"\n      }\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "recommended-delivery-approach",
+          "before": "{\n  \"parent\": null,\n  \"index\": 13,\n  \"id\": \"recommended-delivery-approach\",\n  \"type\": \"callout\",\n  \"title\": \"Recommended delivery approach\",\n  \"text\": \"Build the local deterministic MVP first and make game feel measurable before introducing online state. Use the Next.js App Router for the page shell, a narrow client component for browser interactivity, a pure TypeScript engine, Canvas 2D for the court, and semantic DOM controls for accessibility.\",\n  \"data\": {\n    \"status\": \"Recommended: local-first six-phase MVP\"\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 13,\n  \"id\": \"recommended-delivery-approach\",\n  \"type\": \"callout\",\n  \"title\": \"Recommended delivery approach\",\n  \"text\": \"Build the local deterministic MVP first and make game feel measurable before introducing online state. Use the Next.js App Router for the page shell, a narrow client component for browser interactivity, a pure TypeScript engine, Canvas 2D for the court, and semantic DOM controls for accessibility.\",\n  \"data\": {\n    \"status\": \"Recommended: local-first nine-phase MVP\"\n  }\n}\n"
+        }
+      ]
+    },
+    {
+      "revision": 2,
+      "nodeIds": [
+        "phased-implementation",
+        "recommended-delivery-approach"
+      ],
+      "operations": [
+        {
+          "op": "setData",
+          "id": "phased-implementation",
+          "key": "items",
+          "value": [
+            {
+              "label": "Phase 1 · Project foundation",
+              "detail": "Create the Next.js App Router project, TypeScript configuration, test setup, responsive page shell, and core design tokens."
+            },
+            {
+              "label": "Phase 2 · Deterministic engine",
+              "detail": "Define serializable game state and implement the fixed-step loop, paddle movement, serves, scoring, match completion, and deterministic fixtures."
+            },
+            {
+              "label": "Phase 3 · Collision system",
+              "detail": "Implement wall and paddle collision response, penetration correction, bounded rebound angles, velocity caps, and edge-case unit tests."
+            },
+            {
+              "label": "Phase 4 · Playable responsive interface",
+              "detail": "Add Canvas rendering, coordinate scaling, resize handling, semantic score HUD, keyboard/touch controls, pause/restart, and both local game modes."
+            },
+            {
+              "label": "Phase 5 · CPU, game feel, and accessibility",
+              "detail": "Add CPU profiles, speed and rebound tuning, sound controls, reduced motion, high-contrast cues, focus management, status announcements, and mobile resilience."
+            },
+            {
+              "label": "Phase 6 · Verification and release candidate",
+              "detail": "Pass engine, component, browser, performance, responsive, accessibility, and real-device gates, then produce the static export candidate."
+            }
+          ]
+        },
+        {
+          "op": "setData",
+          "id": "recommended-delivery-approach",
+          "key": "status",
+          "value": "Recommended: local-first six-phase MVP"
+        }
+      ],
+      "details": [
+        {
+          "nodeId": "phased-implementation",
+          "before": "{\n  \"parent\": null,\n  \"index\": 4,\n  \"id\": \"phased-implementation\",\n  \"type\": \"timeline\",\n  \"title\": \"Phased implementation\",\n  \"text\": \"Complete each phase only when its exit checks pass.\",\n  \"data\": {\n    \"items\": [\n      {\n        \"label\": \"Phase 1 · Project foundation\",\n        \"detail\": \"Create the Next.js App Router project, TypeScript configuration, test setup, responsive page shell, and core design tokens.\"\n      },\n      {\n        \"label\": \"Phase 2 · Game-state model\",\n        \"detail\": \"Define serializable ball, paddle, score, match, difficulty, and input state with explicit defaults and reset rules.\"\n      },\n      {\n        \"label\": \"Phase 3 · Deterministic simulation\",\n        \"detail\": \"Build the fixed-step loop, paddle movement, serves, scoring, match completion, and deterministic engine fixtures.\"\n      },\n      {\n        \"label\": \"Phase 4 · Collision system\",\n        \"detail\": \"Implement wall and paddle collision response, penetration correction, bounded rebound angles, velocity caps, and edge-case unit tests.\"\n      },\n      {\n        \"label\": \"Phase 5 · Responsive court\",\n        \"detail\": \"Add the Canvas renderer, coordinate scaling, resize handling, semantic DOM score HUD, and stable animation lifecycle.\"\n      },\n      {\n        \"label\": \"Phase 6 · Controls and local modes\",\n        \"detail\": \"Normalize keyboard, pointer, and touch input; add pause, resume, restart, player-versus-CPU, and local two-player flows.\"\n      },\n      {\n        \"label\": \"Phase 7 · CPU and game feel\",\n        \"detail\": \"Add three CPU profiles, progressive speed tuning, sound controls, readable feedback, and measurable gameplay tuning tools.\"\n      },\n      {\n        \"label\": \"Phase 8 · Accessibility and resilience\",\n        \"detail\": \"Add reduced motion, high-contrast cues, focus management, status announcements, visibility pause, safe-area support, and real-device checks.\"\n      },\n      {\n        \"label\": \"Phase 9 · Verification and release candidate\",\n        \"detail\": \"Pass engine, component, browser, performance, responsive, and accessibility gates, then produce the static export candidate.\"\n      }\n    ]\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 4,\n  \"id\": \"phased-implementation\",\n  \"type\": \"timeline\",\n  \"title\": \"Phased implementation\",\n  \"text\": \"Complete each phase only when its exit checks pass.\",\n  \"data\": {\n    \"items\": [\n      {\n        \"label\": \"Phase 1 · Project foundation\",\n        \"detail\": \"Create the Next.js App Router project, TypeScript configuration, test setup, responsive page shell, and core design tokens.\"\n      },\n      {\n        \"label\": \"Phase 2 · Deterministic engine\",\n        \"detail\": \"Define serializable game state and implement the fixed-step loop, paddle movement, serves, scoring, match completion, and deterministic fixtures.\"\n      },\n      {\n        \"label\": \"Phase 3 · Collision system\",\n        \"detail\": \"Implement wall and paddle collision response, penetration correction, bounded rebound angles, velocity caps, and edge-case unit tests.\"\n      },\n      {\n        \"label\": \"Phase 4 · Playable responsive interface\",\n        \"detail\": \"Add Canvas rendering, coordinate scaling, resize handling, semantic score HUD, keyboard/touch controls, pause/restart, and both local game modes.\"\n      },\n      {\n        \"label\": \"Phase 5 · CPU, game feel, and accessibility\",\n        \"detail\": \"Add CPU profiles, speed and rebound tuning, sound controls, reduced motion, high-contrast cues, focus management, status announcements, and mobile resilience.\"\n      },\n      {\n        \"label\": \"Phase 6 · Verification and release candidate\",\n        \"detail\": \"Pass engine, component, browser, performance, responsive, accessibility, and real-device gates, then produce the static export candidate.\"\n      }\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "recommended-delivery-approach",
+          "before": "{\n  \"parent\": null,\n  \"index\": 13,\n  \"id\": \"recommended-delivery-approach\",\n  \"type\": \"callout\",\n  \"title\": \"Recommended delivery approach\",\n  \"text\": \"Build the local deterministic MVP first and make game feel measurable before introducing online state. Use the Next.js App Router for the page shell, a narrow client component for browser interactivity, a pure TypeScript engine, Canvas 2D for the court, and semantic DOM controls for accessibility.\",\n  \"data\": {\n    \"status\": \"Recommended: local-first nine-phase MVP\"\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 13,\n  \"id\": \"recommended-delivery-approach\",\n  \"type\": \"callout\",\n  \"title\": \"Recommended delivery approach\",\n  \"text\": \"Build the local deterministic MVP first and make game feel measurable before introducing online state. Use the Next.js App Router for the page shell, a narrow client component for browser interactivity, a pure TypeScript engine, Canvas 2D for the court, and semantic DOM controls for accessibility.\",\n  \"data\": {\n    \"status\": \"Recommended: local-first six-phase MVP\"\n  }\n}\n"
+        }
+      ]
+    }
+  ],
+  "sequence": 7,
+  "createdAt": "2026-09-06T08:19:04.888Z",
+  "updatedAt": "2026-09-06T09:20:05.029Z",
+  "submissions": [
+    {
+      "id": "5fd79572-29a8-4e33-97cc-341bb79f934b",
+      "sequence": 5,
+      "revision": 1,
+      "end": false,
+      "createdAt": "2026-09-06T09:19:29.518Z"
+    }
+  ]
+}

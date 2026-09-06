@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-09-05T12-55-28.661Z",
+  "benchmarkId": "facet-vs-lavish-v1",
+  "gitCommit": "dc63dd4c6369fad3e61753a8ca229487a431e412",
+  "dirtyWorktree": true,
+  "disclosure": "Direct captured-output harness. Final representation tokens, emitted workflow tokens, and authoritative turn usage are separate measures. Missing data fails closed and estimated text tokens are not billing usage.",
+  "coverage": {
+    "required": 5,
+    "captured": 1,
+    "completed": 0
+  },
+  "summary": {
+    "facetVisualPreferencePercent": null,
+    "medianWorkflowTokenReductionPercent": null,
+    "unassistedTaskCompletionPercent": null,
+    "medianFacetPatchPercent": null,
+    "criticalAccessibilityViolations": 0,
+    "gates": {
+      "coverage": false,
+      "visualPreference": false,
+      "taskCompletion": false,
+      "workflowTokens": false,
+      "patchEfficiency": false,
+      "accessibility": false
+    },
+    "gatePassed": false
+  },
+  "cases": [
+    {
+      "id": "expense-tracker-storage-review",
+      "status": "partial",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "low",
+      "facet": {
+        "initial": {
+          "bytes": 5414,
+          "tokens": 1057
+        },
+        "revisions": [
+          {
+            "bytes": 3360,
+            "tokens": 651
+          }
+        ],
+        "final": {
+          "bytes": 4881,
+          "tokens": 922
+        },
+        "authoritativeUsage": null
+      },
+      "lavish": {
+        "initial": null,
+        "revisions": [],
+        "final": {
+          "bytes": 13584,
+          "tokens": 3788
+        },
+        "authoritativeUsage": null
+      },
+      "workflowTokenReductionPercent": null,
+      "finalRepresentationReductionPercent": 75.66,
+      "facetPatchPercent": null,
+      "evaluation": {
+        "contentParity": "pending",
+        "interactionParity": "different",
+        "blindVisualPreference": "lavish",
+        "reviewWorkflowPreference": "facet",
+        "notes": "User found Lavish cleaner and more decision-focused, while Facet had stronger comments, history, modes, anchors, navigation, and revision tracking. The Lavish initial output and per-turn usage were not captured, so this is not a complete workflow comparison."
+      }
+    },
+    {
+      "id": "api-migration-review",
+      "status": "missing"
+    },
+    {
+      "id": "incident-retrospective-review",
+      "status": "missing"
+    },
+    {
+      "id": "vendor-selection-review",
+      "status": "missing"
+    },
+    {
+      "id": "product-roadmap-review",
+      "status": "missing"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "7eeMGHVUMZNSycMJ6vKUQpEQXHTFqwA5",
+  "state": "open",
+  "artifact": {
+    "protocol": "facet",
+    "version": 1,
+    "revision": 0,
+    "id": "expense-tracker-storage-review",
+    "title": "Personal expense tracker: storage approach review",
+    "theme": "precision-canvas",
+    "capabilities": [
+      "annotate sections",
+      "compare approaches",
+      "record storage decision"
+    ],
+    "nodes": [
+      {
+        "id": "review-context",
+        "type": "section",
+        "title": "Decision context",
+        "text": "Choose the default storage architecture for a personal expense tracker. This review assumes one primary user, sensitive financial data, a desire for reliable backups, and possible use across more than one device. It compares product and operational tradeoffs only; it does not implement the tracker."
+      },
+      {
+        "id": "approach-comparison",
+        "type": "comparison",
+        "title": "At-a-glance comparison",
+        "text": "Local-only minimizes data exposure and infrastructure, while cloud sync improves continuity and multi-device access at the cost of greater security and operational responsibility.",
+        "data": {
+          "headers": [
+            "Criterion",
+            "Local-only storage",
+            "Cloud sync"
+          ],
+          "rows": [
+            [
+              "Privacy",
+              "Data stays on the user's device by default",
+              "Data leaves the device and must be protected in transit and at rest"
+            ],
+            [
+              "Offline use",
+              "Native and dependable",
+              "Requires an offline cache and later reconciliation for a smooth experience"
+            ],
+            [
+              "Multi-device access",
+              "Manual export, transfer, or device-specific records",
+              "Automatic once identity and synchronization are working"
+            ],
+            [
+              "Backup and recovery",
+              "User-managed; device loss can mean data loss",
+              "Central backups can simplify recovery"
+            ],
+            [
+              "Engineering scope",
+              "Smaller: local database, export, and optional device backup integration",
+              "Larger: accounts, backend, sync engine, conflict handling, monitoring, and recovery"
+            ],
+            [
+              "Ongoing cost",
+              "Low infrastructure cost",
+              "Hosting, storage, observability, support, and security maintenance"
+            ],
+            [
+              "Failure modes",
+              "Corruption, accidental deletion, or lost device",
+              "Outage, account lockout, sync conflicts, breach, plus local failure modes"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "local-benefits",
+        "type": "section",
+        "title": "Local-only: benefits",
+        "text": "Keeps sensitive spending data under direct user control. Works without an account or connection. Reduces the initial build, testing, compliance, and support surface. Offers predictable behavior because there is no distributed state to reconcile. Can still support explicit encrypted exports and platform-level device backups."
+      },
+      {
+        "id": "local-risks",
+        "type": "risk",
+        "title": "Local-only: risks",
+        "text": "The largest risk is unrecoverable loss when a device is lost, damaged, reset, or corrupted. Users must understand and use export or backup features. Moving between devices is inconvenient, and concurrent use across devices is impractical. Local data should still be encrypted where the platform permits, with careful key handling and migration testing.",
+        "data": {
+          "severity": "High if backup is omitted",
+          "mitigation": "Provide encrypted export/import, backup reminders, atomic writes, schema migrations, and recovery testing."
+        }
+      },
+      {
+        "id": "cloud-benefits",
+        "type": "section",
+        "title": "Cloud sync: benefits",
+        "text": "Makes records available across phones, tablets, and the web. Central backup can make device replacement and recovery easier. Enables future shared budgets, receipt processing, or server-side insights. A well-designed offline-first client can preserve day-to-day use during temporary connectivity loss."
+      },
+      {
+        "id": "cloud-risks",
+        "type": "risk",
+        "title": "Cloud sync: risks",
+        "text": "Financial records become a high-value remote target. The product must handle authentication, authorization, encryption, retention, deletion, incident response, and account recovery. Sync introduces duplicate, stale, and conflicting edits that can silently damage user trust. Availability and recurring infrastructure costs become product concerns.",
+        "data": {
+          "severity": "High",
+          "mitigation": "Use a mature identity provider, least-privilege access, encryption, auditable deletion, conflict-safe data modeling, idempotent sync, monitoring, and tested restore procedures."
+        }
+      },
+      {
+        "id": "recommendation",
+        "type": "callout",
+        "title": "Recommendation",
+        "text": "Start with local-only storage, paired with encrypted export/import and clear backup guidance. For a personal tracker, this delivers the core value with the smallest privacy, security, and operational burden. Design stable record identifiers and timestamps now so cloud sync can be added later if validated demand for seamless multi-device use outweighs the added responsibility. Choose cloud sync now only if cross-device continuity is a launch requirement rather than a future convenience.",
+        "data": {
+          "status": "Recommended: local-only first"
+        }
+      },
+      {
+        "id": "storage-decision",
+        "type": "decision",
+        "title": "Storage architecture decision",
+        "text": "Select the approach that should define the initial product scope.",
+        "data": {
+          "options": [
+            "Choose local-only storage",
+            "Choose cloud sync"
+          ]
+        }
+      }
+    ]
+  },
+  "comments": [
+    {
+      "id": "dc0ab0ab-7e98-42e9-8bf3-03cc16af2033",
+      "nodeId": "approach-comparison",
+      "body": "looks good",
+      "anchorRevision": 0,
+      "status": "resolved",
+      "createdAt": "2026-09-05T05:38:23.821Z",
+      "anchor": {
+        "kind": "node"
+      },
+      "resolvedAt": "2026-09-05T05:38:26.186Z"
+    },
+    {
+      "id": "6dfa4f5e-19b9-4526-8770-973d57095e9a",
+      "nodeId": "approach-comparison",
+      "body": "okay",
+      "anchorRevision": 0,
+      "status": "open",
+      "createdAt": "2026-09-05T05:38:35.334Z",
+      "anchor": {
+        "kind": "node"
+      }
+    }
+  ],
+  "decisions": [],
+  "revisionChanges": [],
+  "sequence": 3,
+  "createdAt": "2026-09-05T05:36:28.981Z",
+  "updatedAt": "2026-09-05T05:38:35.334Z"
+}

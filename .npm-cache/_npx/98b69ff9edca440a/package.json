@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "facet-review": "0.1.0-alpha.2"
+  },
+  "_npx": {
+    "packages": [
+      "facet-review@0.1.0-alpha.2"
+    ]
+  }
+}

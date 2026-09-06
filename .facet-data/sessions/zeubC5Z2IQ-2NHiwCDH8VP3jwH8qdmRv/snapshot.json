@@ -1,0 +1,937 @@
+{
+  "schemaVersion": 1,
+  "id": "zeubC5Z2IQ-2NHiwCDH8VP3jwH8qdmRv",
+  "state": "open",
+  "artifact": {
+    "protocol": "facet",
+    "version": 1,
+    "revision": 2,
+    "id": "facet-beyond-lavish-plan",
+    "title": "Facet Next: from review canvas to decision workspace",
+    "theme": "precision-canvas",
+    "capabilities": [
+      "annotate roadmap",
+      "compare priorities",
+      "approve proof sprint"
+    ],
+    "nodes": [
+      {
+        "id": "north-star",
+        "type": "callout",
+        "title": "North star",
+        "text": "Facet should become a full decision workspace with presentation quality that exceeds Lavish and review functionality that goes materially further. The goal is not decorative HTML volume: it is modular creative composition, excellent interaction design, durable collaboration, and substantially lower Codex usage. The product promise is: turn compact agent intent into a premium adaptive workspace, guide people from evidence to decision, then return precise feedback as tiny semantic changes.",
+        "data": {
+          "status": "Decision quality per token"
+        }
+      },
+      {
+        "id": "honest-baseline",
+        "type": "comparison",
+        "title": "What the first comparison tells us",
+        "text": "Lavish currently wins visual hierarchy and presentation. Facet already has the stronger structured review foundation. The next release must close the visual gap without weakening its durable feedback loop or compact protocol.",
+        "data": {
+          "headers": [
+            "Capability",
+            "Current signal",
+            "Required outcome"
+          ],
+          "rows": [
+            [
+              "Visual clarity",
+              "Facet feels document-like and crowded",
+              "Decision-first layouts with stronger hierarchy and breathing room"
+            ],
+            [
+              "Creative presentation",
+              "Mostly one vertical document treatment",
+              "Multiple deterministic compositions chosen from semantic intent"
+            ],
+            [
+              "Decision controls",
+              "Correct but visually weak outside Decide mode",
+              "Clear state, rationale, consequences, and confident primary action"
+            ],
+            [
+              "Review workflow",
+              "Comments, modes, anchors, history, and revisions are strong",
+              "Keep and deepen this advantage"
+            ],
+            [
+              "Token efficiency",
+              "Strong synthetic output results",
+              "Prove full workflow savings directly against Lavish"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "experience-pillars",
+        "type": "section",
+        "title": "Four product pillars",
+        "text": "1. Composed clarity: every artifact receives an intentional visual hierarchy rather than identical stacked sections. 2. Review intelligence: comments, evidence, revisions, and decisions remain connected through stable semantic identity. 3. Creative range: the renderer offers premium native compositions without asking the model to emit CSS or JavaScript. 4. Token discipline: agents express meaning and changes; the host owns layout, behavior, accessibility, and polish."
+      },
+      {
+        "id": "visual-engine",
+        "type": "section",
+        "title": "Pillar 1 — Visual Engine 2.0",
+        "text": "Introduce deterministic layout recipes selected from artifact semantics: executive brief, option showdown, evidence board, implementation roadmap, incident room, code-review cockpit, and metric dashboard. Add summary bands, weighted scorecards, side-by-side option cards, evidence/risk clusters, sticky decision summaries, and progressive disclosure. Preserve quiet chrome, one icon family, accessible contrast, 44-pixel touch targets, responsive reading widths, and reduced-motion support. The model chooses intent and emphasis; the renderer chooses responsive layout details. Use the shadcn reference as a compositional benchmark: quiet neutral foundations, crisp typography, deliberate borders, confident control states, and modular blocks. Facet must exceed it through task-aware composition and integrated review intelligence rather than ornamental effects."
+      },
+      {
+        "id": "shadcn-direction",
+        "type": "section",
+        "title": "Design reference — shadcn principles, Facet identity",
+        "text": "Use shadcn/ui as a quality reference for composable accessible primitives, thoughtful defaults, calm neutral surfaces, disciplined spacing, clear component states, responsive sidebars, dialogs, sheets, tables, charts, and command interfaces. Do not clone its site or make shadcn a runtime requirement. Facet should translate those principles into dependency-light semantic renderer primitives and retain its own violet-and-cyan identity, review modes, local-first security boundary, and artifact protocol.",
+        "data": {
+          "source": "https://ui.shadcn.com"
+        }
+      },
+      {
+        "id": "color-direction",
+        "type": "table",
+        "title": "Color direction — neutral precision with expressive signals",
+        "text": "Adopt a shadcn-inspired neutral foundation so content, evidence, and decisions carry the visual weight. Keep color purposeful: violet for primary action and active review state, cyan for keyboard focus and live location, and semantic colors for outcomes. These are proposed tokens and must pass automated and manual contrast checks before implementation.",
+        "data": {
+          "headers": [
+            "Token",
+            "Proposed value",
+            "Purpose"
+          ],
+          "rows": [
+            [
+              "App background",
+              "#09090B",
+              "Deep neutral workspace"
+            ],
+            [
+              "Panel surface",
+              "#18181B",
+              "Toolbar, navigation, review rail"
+            ],
+            [
+              "Raised surface",
+              "#27272A",
+              "Menus, selected controls, overlays"
+            ],
+            [
+              "Canvas",
+              "#FAFAFA",
+              "Calm readable artifact background"
+            ],
+            [
+              "Card",
+              "#FFFFFF",
+              "Evidence and decision modules"
+            ],
+            [
+              "Canvas ink",
+              "#18181B",
+              "Primary readable text"
+            ],
+            [
+              "Muted text",
+              "#52525B",
+              "Secondary information"
+            ],
+            [
+              "Border",
+              "#E4E4E7",
+              "Quiet structural separation"
+            ],
+            [
+              "Facet violet",
+              "#6D5CE7",
+              "Primary actions, selected anchors, Decide mode"
+            ],
+            [
+              "Focus cyan",
+              "#0891B2",
+              "Keyboard focus and active location"
+            ],
+            [
+              "Success / warning / danger",
+              "#15803D / #B45309 / #B91C1C",
+              "Outcome states reinforced by icon and text"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "modular-design-system",
+        "type": "diagram",
+        "title": "Modular composition system",
+        "text": "Build the UI as replaceable layers. Primitives guarantee accessibility and states; semantic blocks express review meaning; layout recipes compose blocks for a task; visual lenses let the user change perspective without regenerating content. Each layer remains deterministic and locally rendered so visual richness costs almost no additional model output.",
+        "data": {
+          "summary": "Design tokens feed accessible primitives, semantic blocks, adaptive recipes, and user-selectable review lenses",
+          "items": [
+            "Tokens — color, type, spacing, radius, elevation, motion",
+            "Primitives — button, field, card, tabs, dialog, sheet, command, tooltip, table",
+            "Review primitives — anchor, thread, change marker, evidence badge, decision action",
+            "Semantic blocks — option, risk, evidence, recommendation, scorecard, timeline, diagram",
+            "Recipes — executive brief, option showdown, roadmap, review cockpit, incident room, dashboard",
+            "Lenses — summary, evidence, risks, changes, comments, decisions, presentation"
+          ]
+        }
+      },
+      {
+        "id": "review-superpowers",
+        "type": "section",
+        "title": "Pillar 2 — Review superpowers",
+        "text": "Add threaded anchored comments, visible annotation pins, reviewer status, a change map, side-by-side semantic revisions, unresolved-feedback filters, decision rationale, confidence, owner, due date, and superseded-decision history. Create a guided review flow: understand the brief, inspect evidence, compare options, resolve concerns, then decide. Keep Explore, Review, and Decide modes, but make their purpose immediately legible and preserve reading position between modes."
+      },
+      {
+        "id": "creative-blocks",
+        "type": "section",
+        "title": "Pillar 3 — Native creative blocks",
+        "text": "Expand the renderer with high-value semantic primitives rather than arbitrary markup: option cards, score matrix, evidence card, quote, key takeaway, assumption, constraint, recommendation banner, decision summary, before/after view, milestone lane, dependency map, and annotated media. Each block must define compact data, loading and error states, keyboard behavior, mobile composition, print/export output, and a readable fallback for older viewers."
+      },
+      {
+        "id": "beyond-lavish-capabilities",
+        "type": "comparison",
+        "title": "Functionality beyond Lavish",
+        "text": "Facet should pair premium composition with capabilities that improve the complete decision lifecycle. The differentiator is not the number of components; it is how evidence, discussion, change, and commitment remain connected.",
+        "data": {
+          "headers": [
+            "Capability",
+            "User value",
+            "Facet advantage"
+          ],
+          "rows": [
+            [
+              "Adaptive layout recipes",
+              "The same content becomes the right review experience for its purpose",
+              "Intent token selects reusable local composition"
+            ],
+            [
+              "Review lenses",
+              "Switch among summary, evidence, risk, change, and decision views",
+              "No content regeneration or duplicated artifact"
+            ],
+            [
+              "Semantic change map",
+              "Understand exactly what changed and why",
+              "Stable IDs and compact revision history"
+            ],
+            [
+              "Decision ledger",
+              "Preserve choice, rationale, confidence, owner, and supersession",
+              "Decision becomes durable structured data"
+            ],
+            [
+              "Evidence graph",
+              "Trace recommendations back to assumptions, citations, risks, and comments",
+              "Review becomes explainable rather than merely attractive"
+            ],
+            [
+              "Guided review path",
+              "Know what must be read or resolved before deciding",
+              "Completeness and unresolved concerns are visible"
+            ],
+            [
+              "Feedback-to-patch loop",
+              "Requested changes update only affected content",
+              "Lower latency, context use, and revision tokens"
+            ],
+            [
+              "Local-first portable review",
+              "Private work without an account, plus durable export",
+              "No hosted service required for the core workflow"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "creative-interaction-ideas",
+        "type": "section",
+        "title": "Creative interaction ideas",
+        "text": "Add a Decision Cockpit that condenses recommendation, unresolved risks, confidence, and next action into one focused surface. Introduce Evidence Gravity so strongly supported claims visually gain weight while uncertain assumptions remain visibly provisional. Offer Story mode for guided presentation, Board mode for spatial comparison, and Focus mode for deep reading from the same artifact. Add a Revision Radar that highlights semantic change by importance, a Devil's Advocate lens that foregrounds counterarguments already present in the artifact, and a Token Receipt that shows the cost of initial creation and each revision. These experiences must be derived from structured data—not generated decoration—and must remain readable without animation or color.",
+        "data": {}
+      },
+      {
+        "id": "token-architecture",
+        "type": "section",
+        "title": "Pillar 4 — Token intelligence",
+        "text": "Build an artifact compiler so the skill can send a short intent-oriented source format instead of hand-authoring full tuple structures. Apply schema defaults, reusable vocabulary, deterministic IDs, template references, and validation locally. Add a token-budget mode that selects the smallest lossless representation. Continue using compact patches for revisions and return a concise feedback digest so the agent reads only open comments and affected nodes. Report initial, revision, and cumulative workflow tokens separately; never hide retries or skill-loading cost."
+      },
+      {
+        "id": "architecture-flow",
+        "type": "diagram",
+        "title": "Target architecture",
+        "text": "The model communicates intent and evidence; deterministic local systems provide visual quality and interaction. This keeps creative richness in reusable code instead of repeatedly spending model tokens on presentation markup.",
+        "data": {
+          "summary": "Prompt to compact intent, local compiler, semantic artifact, adaptive renderer, human review events, and compact patch",
+          "items": [
+            "User prompt + review goal",
+            "Compact intent document",
+            "Local artifact compiler and validator",
+            "Semantic artifact with stable IDs",
+            "Adaptive recipe-based renderer",
+            "Anchored comments and typed decisions",
+            "Feedback digest and compact patch"
+          ]
+        }
+      },
+      {
+        "id": "visual-acceptance-pack",
+        "type": "checklist",
+        "title": "Visual acceptance pack for the proof sprint",
+        "text": "The first implementation increment is complete only when one end-to-end review demonstrates the new design system and interaction depth across realistic states.",
+        "data": {
+          "items": [
+            "Desktop shell at 1440 and 1024 pixels with collapsible navigation and review rail",
+            "Tablet and mobile compositions at 768 and 375 pixels with a deliberate feedback sheet",
+            "Option Showdown recipe using modular comparison, risk, recommendation, and decision blocks",
+            "Explore, Review, and Decide states that are visually distinct without disabling comprehension",
+            "Empty, loading, saved, pending, failed, stale-anchor, conflict, offline, and resolved states",
+            "Light canvas and dark workspace themes with AA contrast and visible keyboard focus",
+            "Motion that explains selection and panel movement, with full reduced-motion behavior",
+            "Blind comparison against the Lavish reference using equal content and functionality"
+          ]
+        }
+      },
+      {
+        "id": "delivery-roadmap",
+        "type": "timeline",
+        "title": "Implementation roadmap",
+        "text": "Implement Facet sequentially through seven gated phases. Each phase must leave the repository buildable, preserve existing review behavior, and produce reviewable evidence. Estimates are working ranges for focused implementation, not calendar commitments. Publishing and hosted collaboration remain outside this plan until the local product passes Phase 6.",
+        "data": {
+          "items": [
+            "Phase 0 — Baseline and contracts (2–3 focused days): freeze competitive prompts, scoring rules, screenshots, current performance, token estimates, compatibility fixtures, and regression tests.",
+            "Phase 1 — Design foundation and shell (4–6 focused days): implement the neutral-plus-violet tokens, typography, spacing, accessible primitives, responsive application shell, navigation, review rail, command surface, and complete interaction states.",
+            "Phase 2 — Option Showdown vertical slice (5–7 focused days): build the adaptive recipe engine and redesign comparison, risk, recommendation, evidence, and decision blocks around one excellent end-to-end expense-tracker review.",
+            "Phase 3 — Review intelligence (6–8 focused days): add visible anchors, threaded feedback, review filters, guided progression, semantic change map, decision rationale, confidence, ownership, and supersession history.",
+            "Phase 4 — Token compiler and patch loop (5–7 focused days): compile compact intent locally, apply defaults and stable IDs, validate automatically, emit feedback digests, optimize patches, and display honest Token Receipts.",
+            "Phase 5 — Creative workspace modes (6–10 focused days): add Summary, Evidence, Risk, Change, Decision, Story, Board, and Focus lenses plus Decision Cockpit, Evidence Gravity, Revision Radar, and graceful legacy fallbacks.",
+            "Phase 6 — Competitive proof and release decision (7–10 focused days plus participant scheduling): run blind Facet-versus-Lavish comparisons, usability sessions, accessibility and performance audits, fix critical gaps, and decide whether a local alpha is ready."
+          ],
+          "summary": "Proof, compose, deepen review, compile compactly, expand selectively, validate with people"
+        }
+      },
+      {
+        "id": "phase-deliverables",
+        "type": "table",
+        "title": "Phase-by-phase delivery contract",
+        "text": "Every phase has one dominant outcome and a measurable exit gate. Work that belongs to a later phase is recorded but not pulled forward unless it blocks the current gate.",
+        "data": {
+          "headers": [
+            "Phase",
+            "Primary deliverable",
+            "Exit gate"
+          ],
+          "rows": [
+            [
+              "0 — Baseline",
+              "Reproducible current Facet/Lavish evidence pack and frozen contracts",
+              "Identical prompts, parity rubric, raw outputs, screenshots, and current test suite recorded"
+            ],
+            [
+              "1 — Foundation",
+              "Production-quality modular shell and design primitives",
+              "375/768/1024/1440 layouts pass; keyboard, contrast, reduced motion, and all state variants pass"
+            ],
+            [
+              "2 — Vertical slice",
+              "Option Showdown recipe with premium comparison and decision experience",
+              "Equal-content prototype is materially clearer than current Facet and wins internal side-by-side review"
+            ],
+            [
+              "3 — Review intelligence",
+              "End-to-end evidence, comments, changes, and decision workflow",
+              "Feedback survives two revisions; unresolved work is visible; all flows work by keyboard and after restart"
+            ],
+            [
+              "4 — Token system",
+              "Intent compiler, digest, optimized patching, and Token Receipt",
+              "No fidelity loss; median patch remains at or below 15%; full workflow accounting includes prompts and retries"
+            ],
+            [
+              "5 — Creative modes",
+              "Multiple lenses and workspace compositions from one artifact",
+              "Switching modes requires no regeneration; legacy artifacts remain readable; interaction p95 stays below target"
+            ],
+            [
+              "6 — Product proof",
+              "Competitive and human-validation report with release recommendation",
+              "At least 60% blind preference, 90% task completion, 40% workflow-token advantage, and zero critical accessibility failures"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "phase-operating-rules",
+        "type": "checklist",
+        "title": "Rules for phase-wise implementation",
+        "text": "These rules keep quality high and make rollback straightforward while the renderer, protocol, and skill evolve together.",
+        "data": {
+          "items": [
+            "Create a scoped implementation brief and acceptance checklist before each phase begins.",
+            "Keep every commit buildable and preserve unrelated user changes.",
+            "Add tests with each new primitive, block, recipe, state, and protocol behavior.",
+            "Compare desktop, tablet, and mobile screenshots before closing visual work.",
+            "Run keyboard, screen-reader semantics, contrast, reduced-motion, offline, restart, and export checks at the relevant gate.",
+            "Record token, bundle, latency, and compatibility changes without overwriting earlier evidence.",
+            "Do not add a new semantic block when an existing block plus a layout recipe can express the same meaning.",
+            "Do not move to the next phase with unresolved critical or high-severity defects.",
+            "Review and approve the phase result in Facet before beginning the next phase.",
+            "Keep publishing, marketplace release, accounts, and hosted collaboration out of scope until separately approved."
+          ]
+        }
+      },
+      {
+        "id": "first-sprint",
+        "type": "checklist",
+        "title": "First proof sprint",
+        "text": "Begin with Phase 0, then proceed to Phase 1 only after the baseline evidence and contracts are frozen. The first visible milestone is the redesigned Option Showdown vertical slice in Phase 2; the foundation phases exist to make that result reusable rather than a one-off mockup.",
+        "data": {
+          "items": [
+            "Phase 0.1 — Freeze five identical competitor prompts and the equal-content, equal-function scoring rubric.",
+            "Phase 0.2 — Capture untouched current outputs, screenshots, timings, failures, retries, and token estimates.",
+            "Phase 0.3 — Record current build, test, accessibility, responsive, offline, export, and patch baselines.",
+            "Phase 0.4 — Freeze compatibility fixtures and define which existing behaviors cannot regress.",
+            "Phase 0 gate — Review the evidence pack and approve the exact Phase 1 scope.",
+            "Phase 1.1 — Implement tokens and primitive states without changing artifact semantics.",
+            "Phase 1.2 — Build the responsive shell, collapsible navigation, review rail, command surface, and mode indicators.",
+            "Phase 1 gate — Complete visual, responsive, accessibility, performance, and regression review before Phase 2."
+          ]
+        }
+      },
+      {
+        "id": "success-gates",
+        "type": "table",
+        "title": "Definition of ‘better than Lavish’",
+        "text": "Facet should make the claim only when quality and efficiency pass together. A visually attractive result that loses review capability or comparable content does not pass.",
+        "data": {
+          "headers": [
+            "Gate",
+            "Target"
+          ],
+          "rows": [
+            [
+              "Blind visual preference",
+              "At least 60% prefer Facet across comparable tasks"
+            ],
+            [
+              "Review task completion",
+              "At least 90% complete comment and decision flows without assistance"
+            ],
+            [
+              "Total Codex efficiency",
+              "At least 40% lower measured or clearly labeled estimated workflow tokens"
+            ],
+            [
+              "Revision efficiency",
+              "Median patch at or below 15% of the full artifact"
+            ],
+            [
+              "Accessibility",
+              "Zero critical violations; complete keyboard path"
+            ],
+            [
+              "Interaction performance",
+              "Ordinary local interactions below 100 ms p95"
+            ],
+            [
+              "Content parity",
+              "No missing claims, evidence, controls, or decision options"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "execution-risks",
+        "type": "risk",
+        "title": "Risks to control",
+        "text": "The largest risks are copying surface aesthetics without a distinct product thesis, growing a schema too large for agents to use efficiently, optimizing token counts by dropping content, and creating layouts that look impressive only for curated examples. Backward compatibility and readable fallbacks must remain mandatory as creative blocks expand.",
+        "data": {
+          "severity": "High",
+          "mitigation": "Gate every new block and recipe on repeated workflow value, parity tests, compact encoding, responsive and accessibility QA, and graceful rendering in older viewers."
+        }
+      },
+      {
+        "id": "product-decision",
+        "type": "decision",
+        "title": "Approve the next direction",
+        "text": "Choose whether to start Phase 0 baseline work now or revise the phase boundaries before any implementation begins. Approval authorizes only Phase 0; later phases remain independently gated.",
+        "data": {
+          "options": [
+            "Approve Phase 0 only",
+            "Revise the phase breakdown"
+          ]
+        }
+      }
+    ]
+  },
+  "comments": [],
+  "decisions": [],
+  "revisionChanges": [
+    {
+      "revision": 1,
+      "nodeIds": [
+        "north-star",
+        "shadcn-direction",
+        "color-direction",
+        "modular-design-system",
+        "beyond-lavish-capabilities",
+        "creative-interaction-ideas",
+        "visual-acceptance-pack",
+        "delivery-roadmap",
+        "visual-engine"
+      ],
+      "operations": [
+        {
+          "op": "setText",
+          "id": "north-star",
+          "value": "Facet should become a full decision workspace with presentation quality that exceeds Lavish and review functionality that goes materially further. The goal is not decorative HTML volume: it is modular creative composition, excellent interaction design, durable collaboration, and substantially lower Codex usage. The product promise is: turn compact agent intent into a premium adaptive workspace, guide people from evidence to decision, then return precise feedback as tiny semantic changes."
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 4,
+          "node": {
+            "id": "shadcn-direction",
+            "type": "section",
+            "title": "Design reference — shadcn principles, Facet identity",
+            "text": "Use shadcn/ui as a quality reference for composable accessible primitives, thoughtful defaults, calm neutral surfaces, disciplined spacing, clear component states, responsive sidebars, dialogs, sheets, tables, charts, and command interfaces. Do not clone its site or make shadcn a runtime requirement. Facet should translate those principles into dependency-light semantic renderer primitives and retain its own violet-and-cyan identity, review modes, local-first security boundary, and artifact protocol.",
+            "data": {
+              "source": "https://ui.shadcn.com"
+            }
+          }
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 5,
+          "node": {
+            "id": "color-direction",
+            "type": "table",
+            "title": "Color direction — neutral precision with expressive signals",
+            "text": "Adopt a shadcn-inspired neutral foundation so content, evidence, and decisions carry the visual weight. Keep color purposeful: violet for primary action and active review state, cyan for keyboard focus and live location, and semantic colors for outcomes. These are proposed tokens and must pass automated and manual contrast checks before implementation.",
+            "data": {
+              "headers": [
+                "Token",
+                "Proposed value",
+                "Purpose"
+              ],
+              "rows": [
+                [
+                  "App background",
+                  "#09090B",
+                  "Deep neutral workspace"
+                ],
+                [
+                  "Panel surface",
+                  "#18181B",
+                  "Toolbar, navigation, review rail"
+                ],
+                [
+                  "Raised surface",
+                  "#27272A",
+                  "Menus, selected controls, overlays"
+                ],
+                [
+                  "Canvas",
+                  "#FAFAFA",
+                  "Calm readable artifact background"
+                ],
+                [
+                  "Card",
+                  "#FFFFFF",
+                  "Evidence and decision modules"
+                ],
+                [
+                  "Canvas ink",
+                  "#18181B",
+                  "Primary readable text"
+                ],
+                [
+                  "Muted text",
+                  "#52525B",
+                  "Secondary information"
+                ],
+                [
+                  "Border",
+                  "#E4E4E7",
+                  "Quiet structural separation"
+                ],
+                [
+                  "Facet violet",
+                  "#6D5CE7",
+                  "Primary actions, selected anchors, Decide mode"
+                ],
+                [
+                  "Focus cyan",
+                  "#0891B2",
+                  "Keyboard focus and active location"
+                ],
+                [
+                  "Success / warning / danger",
+                  "#15803D / #B45309 / #B91C1C",
+                  "Outcome states reinforced by icon and text"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 6,
+          "node": {
+            "id": "modular-design-system",
+            "type": "diagram",
+            "title": "Modular composition system",
+            "text": "Build the UI as replaceable layers. Primitives guarantee accessibility and states; semantic blocks express review meaning; layout recipes compose blocks for a task; visual lenses let the user change perspective without regenerating content. Each layer remains deterministic and locally rendered so visual richness costs almost no additional model output.",
+            "data": {
+              "summary": "Design tokens feed accessible primitives, semantic blocks, adaptive recipes, and user-selectable review lenses",
+              "items": [
+                "Tokens — color, type, spacing, radius, elevation, motion",
+                "Primitives — button, field, card, tabs, dialog, sheet, command, tooltip, table",
+                "Review primitives — anchor, thread, change marker, evidence badge, decision action",
+                "Semantic blocks — option, risk, evidence, recommendation, scorecard, timeline, diagram",
+                "Recipes — executive brief, option showdown, roadmap, review cockpit, incident room, dashboard",
+                "Lenses — summary, evidence, risks, changes, comments, decisions, presentation"
+              ]
+            }
+          }
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 9,
+          "node": {
+            "id": "beyond-lavish-capabilities",
+            "type": "comparison",
+            "title": "Functionality beyond Lavish",
+            "text": "Facet should pair premium composition with capabilities that improve the complete decision lifecycle. The differentiator is not the number of components; it is how evidence, discussion, change, and commitment remain connected.",
+            "data": {
+              "headers": [
+                "Capability",
+                "User value",
+                "Facet advantage"
+              ],
+              "rows": [
+                [
+                  "Adaptive layout recipes",
+                  "The same content becomes the right review experience for its purpose",
+                  "Intent token selects reusable local composition"
+                ],
+                [
+                  "Review lenses",
+                  "Switch among summary, evidence, risk, change, and decision views",
+                  "No content regeneration or duplicated artifact"
+                ],
+                [
+                  "Semantic change map",
+                  "Understand exactly what changed and why",
+                  "Stable IDs and compact revision history"
+                ],
+                [
+                  "Decision ledger",
+                  "Preserve choice, rationale, confidence, owner, and supersession",
+                  "Decision becomes durable structured data"
+                ],
+                [
+                  "Evidence graph",
+                  "Trace recommendations back to assumptions, citations, risks, and comments",
+                  "Review becomes explainable rather than merely attractive"
+                ],
+                [
+                  "Guided review path",
+                  "Know what must be read or resolved before deciding",
+                  "Completeness and unresolved concerns are visible"
+                ],
+                [
+                  "Feedback-to-patch loop",
+                  "Requested changes update only affected content",
+                  "Lower latency, context use, and revision tokens"
+                ],
+                [
+                  "Local-first portable review",
+                  "Private work without an account, plus durable export",
+                  "No hosted service required for the core workflow"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 10,
+          "node": {
+            "id": "creative-interaction-ideas",
+            "type": "section",
+            "title": "Creative interaction ideas",
+            "text": "Add a Decision Cockpit that condenses recommendation, unresolved risks, confidence, and next action into one focused surface. Introduce Evidence Gravity so strongly supported claims visually gain weight while uncertain assumptions remain visibly provisional. Offer Story mode for guided presentation, Board mode for spatial comparison, and Focus mode for deep reading from the same artifact. Add a Revision Radar that highlights semantic change by importance, a Devil's Advocate lens that foregrounds counterarguments already present in the artifact, and a Token Receipt that shows the cost of initial creation and each revision. These experiences must be derived from structured data—not generated decoration—and must remain readable without animation or color.",
+            "data": {}
+          }
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 13,
+          "node": {
+            "id": "visual-acceptance-pack",
+            "type": "checklist",
+            "title": "Visual acceptance pack for the proof sprint",
+            "text": "The first implementation increment is complete only when one end-to-end review demonstrates the new design system and interaction depth across realistic states.",
+            "data": {
+              "items": [
+                "Desktop shell at 1440 and 1024 pixels with collapsible navigation and review rail",
+                "Tablet and mobile compositions at 768 and 375 pixels with a deliberate feedback sheet",
+                "Option Showdown recipe using modular comparison, risk, recommendation, and decision blocks",
+                "Explore, Review, and Decide states that are visually distinct without disabling comprehension",
+                "Empty, loading, saved, pending, failed, stale-anchor, conflict, offline, and resolved states",
+                "Light canvas and dark workspace themes with AA contrast and visible keyboard focus",
+                "Motion that explains selection and panel movement, with full reduced-motion behavior",
+                "Blind comparison against the Lavish reference using equal content and functionality"
+              ]
+            }
+          }
+        },
+        {
+          "op": "setData",
+          "id": "delivery-roadmap",
+          "key": "items",
+          "value": [
+            "Stage 0 — Proof baseline: capture identical Facet and Lavish outputs, revisions, screenshots, timing, parity, and token estimates across five workflows.",
+            "Stage 1 — Design foundation: formalize the neutral-plus-violet token system and build accessible modular primitives inspired by shadcn's composability, without adding a mandatory framework dependency.",
+            "Stage 2 — Composition engine: ship executive brief, option showdown, and roadmap recipes plus summary bands, evidence clusters, scorecards, and premium decision controls.",
+            "Stage 3 — Review depth: add annotation pins, threads, guided review, evidence graph, change map, semantic before/after, decision rationale, and review lenses.",
+            "Stage 4 — Token compiler: shorten skill instructions, compile intent locally, apply defaults, validate automatically, and generate minimal patches, inbox digests, and token receipts.",
+            "Stage 5 — Creative expansion: add Story, Board, Focus, Decision Cockpit, Revision Radar, and only those semantic blocks validated by real workflows.",
+            "Stage 6 — Product proof: run blind visual-preference and task-completion studies, fix the largest failures, and claim superiority only after quality and efficiency gates pass."
+          ]
+        },
+        {
+          "op": "spliceText",
+          "id": "visual-engine",
+          "start": 577,
+          "deleteCount": 0,
+          "value": " Use the shadcn reference as a compositional benchmark: quiet neutral foundations, crisp typography, deliberate borders, confident control states, and modular blocks. Facet must exceed it through task-aware composition and integrated review intelligence rather than ornamental effects."
+        }
+      ],
+      "details": [
+        {
+          "nodeId": "north-star",
+          "before": "{\n  \"parent\": null,\n  \"index\": 0,\n  \"id\": \"north-star\",\n  \"type\": \"callout\",\n  \"title\": \"North star\",\n  \"text\": \"Facet should not try to win by generating more decorative HTML. It should deliver Lavish-level presentation while becoming substantially better at review, decisions, revisions, privacy, and total Codex efficiency. The product promise is: turn compact agent intent into a polished decision workspace, then return precise human feedback as tiny semantic changes.\",\n  \"data\": {\n    \"status\": \"Decision quality per token\"\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 0,\n  \"id\": \"north-star\",\n  \"type\": \"callout\",\n  \"title\": \"North star\",\n  \"text\": \"Facet should become a full decision workspace with presentation quality that exceeds Lavish and review functionality that goes materially further. The goal is not decorative HTML volume: it is modular creative composition, excellent interaction design, durable collaboration, and substantially lower Codex usage. The product promise is: turn compact agent intent into a premium adaptive workspace, guide people from evidence to decision, then return precise feedback as tiny semantic changes.\",\n  \"data\": {\n    \"status\": \"Decision quality per token\"\n  }\n}\n"
+        },
+        {
+          "nodeId": "shadcn-direction",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 4,\n  \"id\": \"shadcn-direction\",\n  \"type\": \"section\",\n  \"title\": \"Design reference — shadcn principles, Facet identity\",\n  \"text\": \"Use shadcn/ui as a quality reference for composable accessible primitives, thoughtful defaults, calm neutral surfaces, disciplined spacing, clear component states, responsive sidebars, dialogs, sheets, tables, charts, and command interfaces. Do not clone its site or make shadcn a runtime requirement. Facet should translate those principles into dependency-light semantic renderer primitives and retain its own violet-and-cyan identity, review modes, local-first security boundary, and artifact protocol.\",\n  \"data\": {\n    \"source\": \"https://ui.shadcn.com\"\n  }\n}\n"
+        },
+        {
+          "nodeId": "color-direction",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 5,\n  \"id\": \"color-direction\",\n  \"type\": \"table\",\n  \"title\": \"Color direction — neutral precision with expressive signals\",\n  \"text\": \"Adopt a shadcn-inspired neutral foundation so content, evidence, and decisions carry the visual weight. Keep color purposeful: violet for primary action and active review state, cyan for keyboard focus and live location, and semantic colors for outcomes. These are proposed tokens and must pass automated and manual contrast checks before implementation.\",\n  \"data\": {\n    \"headers\": [\n      \"Token\",\n      \"Proposed value\",\n      \"Purpose\"\n    ],\n    \"rows\": [\n      [\n        \"App background\",\n        \"#09090B\",\n        \"Deep neutral workspace\"\n      ],\n      [\n        \"Panel surface\",\n        \"#18181B\",\n        \"Toolbar, navigation, review rail\"\n      ],\n      [\n        \"Raised surface\",\n        \"#27272A\",\n        \"Menus, selected controls, overlays\"\n      ],\n      [\n        \"Canvas\",\n        \"#FAFAFA\",\n        \"Calm readable artifact background\"\n      ],\n      [\n        \"Card\",\n        \"#FFFFFF\",\n        \"Evidence and decision modules\"\n      ],\n      [\n        \"Canvas ink\",\n        \"#18181B\",\n        \"Primary readable text\"\n      ],\n      [\n        \"Muted text\",\n        \"#52525B\",\n        \"Secondary information\"\n      ],\n      [\n        \"Border\",\n        \"#E4E4E7\",\n        \"Quiet structural separation\"\n      ],\n      [\n        \"Facet violet\",\n        \"#6D5CE7\",\n        \"Primary actions, selected anchors, Decide mode\"\n      ],\n      [\n        \"Focus cyan\",\n        \"#0891B2\",\n        \"Keyboard focus and active location\"\n      ],\n      [\n        \"Success / warning / danger\",\n        \"#15803D / #B45309 / #B91C1C\",\n        \"Outcome states reinforced by icon and text\"\n      ]\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "modular-design-system",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 6,\n  \"id\": \"modular-design-system\",\n  \"type\": \"diagram\",\n  \"title\": \"Modular composition system\",\n  \"text\": \"Build the UI as replaceable layers. Primitives guarantee accessibility and states; semantic blocks express review meaning; layout recipes compose blocks for a task; visual lenses let the user change perspective without regenerating content. Each layer remains deterministic and locally rendered so visual richness costs almost no additional model output.\",\n  \"data\": {\n    \"summary\": \"Design tokens feed accessible primitives, semantic blocks, adaptive recipes, and user-selectable review lenses\",\n    \"items\": [\n      \"Tokens — color, type, spacing, radius, elevation, motion\",\n      \"Primitives — button, field, card, tabs, dialog, sheet, command, tooltip, table\",\n      \"Review primitives — anchor, thread, change marker, evidence badge, decision action\",\n      \"Semantic blocks — option, risk, evidence, recommendation, scorecard, timeline, diagram\",\n      \"Recipes — executive brief, option showdown, roadmap, review cockpit, incident room, dashboard\",\n      \"Lenses — summary, evidence, risks, changes, comments, decisions, presentation\"\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "beyond-lavish-capabilities",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 9,\n  \"id\": \"beyond-lavish-capabilities\",\n  \"type\": \"comparison\",\n  \"title\": \"Functionality beyond Lavish\",\n  \"text\": \"Facet should pair premium composition with capabilities that improve the complete decision lifecycle. The differentiator is not the number of components; it is how evidence, discussion, change, and commitment remain connected.\",\n  \"data\": {\n    \"headers\": [\n      \"Capability\",\n      \"User value\",\n      \"Facet advantage\"\n    ],\n    \"rows\": [\n      [\n        \"Adaptive layout recipes\",\n        \"The same content becomes the right review experience for its purpose\",\n        \"Intent token selects reusable local composition\"\n      ],\n      [\n        \"Review lenses\",\n        \"Switch among summary, evidence, risk, change, and decision views\",\n        \"No content regeneration or duplicated artifact\"\n      ],\n      [\n        \"Semantic change map\",\n        \"Understand exactly what changed and why\",\n        \"Stable IDs and compact revision history\"\n      ],\n      [\n        \"Decision ledger\",\n        \"Preserve choice, rationale, confidence, owner, and supersession\",\n        \"Decision becomes durable structured data\"\n      ],\n      [\n        \"Evidence graph\",\n        \"Trace recommendations back to assumptions, citations, risks, and comments\",\n        \"Review becomes explainable rather than merely attractive\"\n      ],\n      [\n        \"Guided review path\",\n        \"Know what must be read or resolved before deciding\",\n        \"Completeness and unresolved concerns are visible\"\n      ],\n      [\n        \"Feedback-to-patch loop\",\n        \"Requested changes update only affected content\",\n        \"Lower latency, context use, and revision tokens\"\n      ],\n      [\n        \"Local-first portable review\",\n        \"Private work without an account, plus durable export\",\n        \"No hosted service required for the core workflow\"\n      ]\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "creative-interaction-ideas",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 10,\n  \"id\": \"creative-interaction-ideas\",\n  \"type\": \"section\",\n  \"title\": \"Creative interaction ideas\",\n  \"text\": \"Add a Decision Cockpit that condenses recommendation, unresolved risks, confidence, and next action into one focused surface. Introduce Evidence Gravity so strongly supported claims visually gain weight while uncertain assumptions remain visibly provisional. Offer Story mode for guided presentation, Board mode for spatial comparison, and Focus mode for deep reading from the same artifact. Add a Revision Radar that highlights semantic change by importance, a Devil's Advocate lens that foregrounds counterarguments already present in the artifact, and a Token Receipt that shows the cost of initial creation and each revision. These experiences must be derived from structured data—not generated decoration—and must remain readable without animation or color.\",\n  \"data\": {}\n}\n"
+        },
+        {
+          "nodeId": "visual-acceptance-pack",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 13,\n  \"id\": \"visual-acceptance-pack\",\n  \"type\": \"checklist\",\n  \"title\": \"Visual acceptance pack for the proof sprint\",\n  \"text\": \"The first implementation increment is complete only when one end-to-end review demonstrates the new design system and interaction depth across realistic states.\",\n  \"data\": {\n    \"items\": [\n      \"Desktop shell at 1440 and 1024 pixels with collapsible navigation and review rail\",\n      \"Tablet and mobile compositions at 768 and 375 pixels with a deliberate feedback sheet\",\n      \"Option Showdown recipe using modular comparison, risk, recommendation, and decision blocks\",\n      \"Explore, Review, and Decide states that are visually distinct without disabling comprehension\",\n      \"Empty, loading, saved, pending, failed, stale-anchor, conflict, offline, and resolved states\",\n      \"Light canvas and dark workspace themes with AA contrast and visible keyboard focus\",\n      \"Motion that explains selection and panel movement, with full reduced-motion behavior\",\n      \"Blind comparison against the Lavish reference using equal content and functionality\"\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "delivery-roadmap",
+          "before": "{\n  \"parent\": null,\n  \"index\": 8,\n  \"id\": \"delivery-roadmap\",\n  \"type\": \"timeline\",\n  \"title\": \"Implementation roadmap\",\n  \"text\": \"Sequence work so visual ambition and token efficiency improve together. Do not expand the schema until a benchmark or pilot demonstrates a real review need.\",\n  \"data\": {\n    \"items\": [\n      \"Stage 0 — Proof baseline: capture identical Facet and Lavish outputs, revisions, screenshots, timing, parity, and token estimates across five workflows.\",\n      \"Stage 1 — Composition foundation: introduce layout recipes, visual tokens, responsive grid primitives, and redesigned comparison and decision components.\",\n      \"Stage 2 — Review depth: add annotation pins, threads, change map, semantic before/after, decision rationale, and guided review progression.\",\n      \"Stage 3 — Token compiler: shorten skill instructions, compile intent locally, apply defaults, validate automatically, and generate minimal patches and inbox digests.\",\n      \"Stage 4 — Creative expansion: ship only the native blocks proven valuable by benchmark gaps and pilot requests.\",\n      \"Stage 5 — Product proof: run blind preference tests and end-to-end task studies, fix the top failures, then decide whether the alpha is ready.\"\n    ],\n    \"summary\": \"Proof, compose, deepen review, compile compactly, expand selectively, validate with people\"\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 14,\n  \"id\": \"delivery-roadmap\",\n  \"type\": \"timeline\",\n  \"title\": \"Implementation roadmap\",\n  \"text\": \"Sequence work so visual ambition and token efficiency improve together. Do not expand the schema until a benchmark or pilot demonstrates a real review need.\",\n  \"data\": {\n    \"items\": [\n      \"Stage 0 — Proof baseline: capture identical Facet and Lavish outputs, revisions, screenshots, timing, parity, and token estimates across five workflows.\",\n      \"Stage 1 — Design foundation: formalize the neutral-plus-violet token system and build accessible modular primitives inspired by shadcn's composability, without adding a mandatory framework dependency.\",\n      \"Stage 2 — Composition engine: ship executive brief, option showdown, and roadmap recipes plus summary bands, evidence clusters, scorecards, and premium decision controls.\",\n      \"Stage 3 — Review depth: add annotation pins, threads, guided review, evidence graph, change map, semantic before/after, decision rationale, and review lenses.\",\n      \"Stage 4 — Token compiler: shorten skill instructions, compile intent locally, apply defaults, validate automatically, and generate minimal patches, inbox digests, and token receipts.\",\n      \"Stage 5 — Creative expansion: add Story, Board, Focus, Decision Cockpit, Revision Radar, and only those semantic blocks validated by real workflows.\",\n      \"Stage 6 — Product proof: run blind visual-preference and task-completion studies, fix the largest failures, and claim superiority only after quality and efficiency gates pass.\"\n    ],\n    \"summary\": \"Proof, compose, deepen review, compile compactly, expand selectively, validate with people\"\n  }\n}\n"
+        },
+        {
+          "nodeId": "visual-engine",
+          "before": "{\n  \"parent\": null,\n  \"index\": 3,\n  \"id\": \"visual-engine\",\n  \"type\": \"section\",\n  \"title\": \"Pillar 1 — Visual Engine 2.0\",\n  \"text\": \"Introduce deterministic layout recipes selected from artifact semantics: executive brief, option showdown, evidence board, implementation roadmap, incident room, code-review cockpit, and metric dashboard. Add summary bands, weighted scorecards, side-by-side option cards, evidence/risk clusters, sticky decision summaries, and progressive disclosure. Preserve quiet chrome, one icon family, accessible contrast, 44-pixel touch targets, responsive reading widths, and reduced-motion support. The model chooses intent and emphasis; the renderer chooses responsive layout details.\"\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 3,\n  \"id\": \"visual-engine\",\n  \"type\": \"section\",\n  \"title\": \"Pillar 1 — Visual Engine 2.0\",\n  \"text\": \"Introduce deterministic layout recipes selected from artifact semantics: executive brief, option showdown, evidence board, implementation roadmap, incident room, code-review cockpit, and metric dashboard. Add summary bands, weighted scorecards, side-by-side option cards, evidence/risk clusters, sticky decision summaries, and progressive disclosure. Preserve quiet chrome, one icon family, accessible contrast, 44-pixel touch targets, responsive reading widths, and reduced-motion support. The model chooses intent and emphasis; the renderer chooses responsive layout details. Use the shadcn reference as a compositional benchmark: quiet neutral foundations, crisp typography, deliberate borders, confident control states, and modular blocks. Facet must exceed it through task-aware composition and integrated review intelligence rather than ornamental effects.\"\n}\n"
+        }
+      ]
+    },
+    {
+      "revision": 2,
+      "nodeIds": [
+        "delivery-roadmap",
+        "phase-deliverables",
+        "phase-operating-rules",
+        "first-sprint",
+        "product-decision"
+      ],
+      "operations": [
+        {
+          "op": "setText",
+          "id": "delivery-roadmap",
+          "value": "Implement Facet sequentially through seven gated phases. Each phase must leave the repository buildable, preserve existing review behavior, and produce reviewable evidence. Estimates are working ranges for focused implementation, not calendar commitments. Publishing and hosted collaboration remain outside this plan until the local product passes Phase 6."
+        },
+        {
+          "op": "setData",
+          "id": "delivery-roadmap",
+          "key": "items",
+          "value": [
+            "Phase 0 — Baseline and contracts (2–3 focused days): freeze competitive prompts, scoring rules, screenshots, current performance, token estimates, compatibility fixtures, and regression tests.",
+            "Phase 1 — Design foundation and shell (4–6 focused days): implement the neutral-plus-violet tokens, typography, spacing, accessible primitives, responsive application shell, navigation, review rail, command surface, and complete interaction states.",
+            "Phase 2 — Option Showdown vertical slice (5–7 focused days): build the adaptive recipe engine and redesign comparison, risk, recommendation, evidence, and decision blocks around one excellent end-to-end expense-tracker review.",
+            "Phase 3 — Review intelligence (6–8 focused days): add visible anchors, threaded feedback, review filters, guided progression, semantic change map, decision rationale, confidence, ownership, and supersession history.",
+            "Phase 4 — Token compiler and patch loop (5–7 focused days): compile compact intent locally, apply defaults and stable IDs, validate automatically, emit feedback digests, optimize patches, and display honest Token Receipts.",
+            "Phase 5 — Creative workspace modes (6–10 focused days): add Summary, Evidence, Risk, Change, Decision, Story, Board, and Focus lenses plus Decision Cockpit, Evidence Gravity, Revision Radar, and graceful legacy fallbacks.",
+            "Phase 6 — Competitive proof and release decision (7–10 focused days plus participant scheduling): run blind Facet-versus-Lavish comparisons, usability sessions, accessibility and performance audits, fix critical gaps, and decide whether a local alpha is ready."
+          ]
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 15,
+          "node": {
+            "id": "phase-deliverables",
+            "type": "table",
+            "title": "Phase-by-phase delivery contract",
+            "text": "Every phase has one dominant outcome and a measurable exit gate. Work that belongs to a later phase is recorded but not pulled forward unless it blocks the current gate.",
+            "data": {
+              "headers": [
+                "Phase",
+                "Primary deliverable",
+                "Exit gate"
+              ],
+              "rows": [
+                [
+                  "0 — Baseline",
+                  "Reproducible current Facet/Lavish evidence pack and frozen contracts",
+                  "Identical prompts, parity rubric, raw outputs, screenshots, and current test suite recorded"
+                ],
+                [
+                  "1 — Foundation",
+                  "Production-quality modular shell and design primitives",
+                  "375/768/1024/1440 layouts pass; keyboard, contrast, reduced motion, and all state variants pass"
+                ],
+                [
+                  "2 — Vertical slice",
+                  "Option Showdown recipe with premium comparison and decision experience",
+                  "Equal-content prototype is materially clearer than current Facet and wins internal side-by-side review"
+                ],
+                [
+                  "3 — Review intelligence",
+                  "End-to-end evidence, comments, changes, and decision workflow",
+                  "Feedback survives two revisions; unresolved work is visible; all flows work by keyboard and after restart"
+                ],
+                [
+                  "4 — Token system",
+                  "Intent compiler, digest, optimized patching, and Token Receipt",
+                  "No fidelity loss; median patch remains at or below 15%; full workflow accounting includes prompts and retries"
+                ],
+                [
+                  "5 — Creative modes",
+                  "Multiple lenses and workspace compositions from one artifact",
+                  "Switching modes requires no regeneration; legacy artifacts remain readable; interaction p95 stays below target"
+                ],
+                [
+                  "6 — Product proof",
+                  "Competitive and human-validation report with release recommendation",
+                  "At least 60% blind preference, 90% task completion, 40% workflow-token advantage, and zero critical accessibility failures"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "op": "insert",
+          "parentId": null,
+          "index": 16,
+          "node": {
+            "id": "phase-operating-rules",
+            "type": "checklist",
+            "title": "Rules for phase-wise implementation",
+            "text": "These rules keep quality high and make rollback straightforward while the renderer, protocol, and skill evolve together.",
+            "data": {
+              "items": [
+                "Create a scoped implementation brief and acceptance checklist before each phase begins.",
+                "Keep every commit buildable and preserve unrelated user changes.",
+                "Add tests with each new primitive, block, recipe, state, and protocol behavior.",
+                "Compare desktop, tablet, and mobile screenshots before closing visual work.",
+                "Run keyboard, screen-reader semantics, contrast, reduced-motion, offline, restart, and export checks at the relevant gate.",
+                "Record token, bundle, latency, and compatibility changes without overwriting earlier evidence.",
+                "Do not add a new semantic block when an existing block plus a layout recipe can express the same meaning.",
+                "Do not move to the next phase with unresolved critical or high-severity defects.",
+                "Review and approve the phase result in Facet before beginning the next phase.",
+                "Keep publishing, marketplace release, accounts, and hosted collaboration out of scope until separately approved."
+              ]
+            }
+          }
+        },
+        {
+          "op": "setText",
+          "id": "first-sprint",
+          "value": "Begin with Phase 0, then proceed to Phase 1 only after the baseline evidence and contracts are frozen. The first visible milestone is the redesigned Option Showdown vertical slice in Phase 2; the foundation phases exist to make that result reusable rather than a one-off mockup."
+        },
+        {
+          "op": "setData",
+          "id": "first-sprint",
+          "key": "items",
+          "value": [
+            "Phase 0.1 — Freeze five identical competitor prompts and the equal-content, equal-function scoring rubric.",
+            "Phase 0.2 — Capture untouched current outputs, screenshots, timings, failures, retries, and token estimates.",
+            "Phase 0.3 — Record current build, test, accessibility, responsive, offline, export, and patch baselines.",
+            "Phase 0.4 — Freeze compatibility fixtures and define which existing behaviors cannot regress.",
+            "Phase 0 gate — Review the evidence pack and approve the exact Phase 1 scope.",
+            "Phase 1.1 — Implement tokens and primitive states without changing artifact semantics.",
+            "Phase 1.2 — Build the responsive shell, collapsible navigation, review rail, command surface, and mode indicators.",
+            "Phase 1 gate — Complete visual, responsive, accessibility, performance, and regression review before Phase 2."
+          ]
+        },
+        {
+          "op": "setText",
+          "id": "product-decision",
+          "value": "Choose whether to start Phase 0 baseline work now or revise the phase boundaries before any implementation begins. Approval authorizes only Phase 0; later phases remain independently gated."
+        },
+        {
+          "op": "setData",
+          "id": "product-decision",
+          "key": "options",
+          "value": [
+            "Approve Phase 0 only",
+            "Revise the phase breakdown"
+          ]
+        }
+      ],
+      "details": [
+        {
+          "nodeId": "delivery-roadmap",
+          "before": "{\n  \"parent\": null,\n  \"index\": 14,\n  \"id\": \"delivery-roadmap\",\n  \"type\": \"timeline\",\n  \"title\": \"Implementation roadmap\",\n  \"text\": \"Sequence work so visual ambition and token efficiency improve together. Do not expand the schema until a benchmark or pilot demonstrates a real review need.\",\n  \"data\": {\n    \"items\": [\n      \"Stage 0 — Proof baseline: capture identical Facet and Lavish outputs, revisions, screenshots, timing, parity, and token estimates across five workflows.\",\n      \"Stage 1 — Design foundation: formalize the neutral-plus-violet token system and build accessible modular primitives inspired by shadcn's composability, without adding a mandatory framework dependency.\",\n      \"Stage 2 — Composition engine: ship executive brief, option showdown, and roadmap recipes plus summary bands, evidence clusters, scorecards, and premium decision controls.\",\n      \"Stage 3 — Review depth: add annotation pins, threads, guided review, evidence graph, change map, semantic before/after, decision rationale, and review lenses.\",\n      \"Stage 4 — Token compiler: shorten skill instructions, compile intent locally, apply defaults, validate automatically, and generate minimal patches, inbox digests, and token receipts.\",\n      \"Stage 5 — Creative expansion: add Story, Board, Focus, Decision Cockpit, Revision Radar, and only those semantic blocks validated by real workflows.\",\n      \"Stage 6 — Product proof: run blind visual-preference and task-completion studies, fix the largest failures, and claim superiority only after quality and efficiency gates pass.\"\n    ],\n    \"summary\": \"Proof, compose, deepen review, compile compactly, expand selectively, validate with people\"\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 14,\n  \"id\": \"delivery-roadmap\",\n  \"type\": \"timeline\",\n  \"title\": \"Implementation roadmap\",\n  \"text\": \"Implement Facet sequentially through seven gated phases. Each phase must leave the repository buildable, preserve existing review behavior, and produce reviewable evidence. Estimates are working ranges for focused implementation, not calendar commitments. Publishing and hosted collaboration remain outside this plan until the local product passes Phase 6.\",\n  \"data\": {\n    \"items\": [\n      \"Phase 0 — Baseline and contracts (2–3 focused days): freeze competitive prompts, scoring rules, screenshots, current performance, token estimates, compatibility fixtures, and regression tests.\",\n      \"Phase 1 — Design foundation and shell (4–6 focused days): implement the neutral-plus-violet tokens, typography, spacing, accessible primitives, responsive application shell, navigation, review rail, command surface, and complete interaction states.\",\n      \"Phase 2 — Option Showdown vertical slice (5–7 focused days): build the adaptive recipe engine and redesign comparison, risk, recommendation, evidence, and decision blocks around one excellent end-to-end expense-tracker review.\",\n      \"Phase 3 — Review intelligence (6–8 focused days): add visible anchors, threaded feedback, review filters, guided progression, semantic change map, decision rationale, confidence, ownership, and supersession history.\",\n      \"Phase 4 — Token compiler and patch loop (5–7 focused days): compile compact intent locally, apply defaults and stable IDs, validate automatically, emit feedback digests, optimize patches, and display honest Token Receipts.\",\n      \"Phase 5 — Creative workspace modes (6–10 focused days): add Summary, Evidence, Risk, Change, Decision, Story, Board, and Focus lenses plus Decision Cockpit, Evidence Gravity, Revision Radar, and graceful legacy fallbacks.\",\n      \"Phase 6 — Competitive proof and release decision (7–10 focused days plus participant scheduling): run blind Facet-versus-Lavish comparisons, usability sessions, accessibility and performance audits, fix critical gaps, and decide whether a local alpha is ready.\"\n    ],\n    \"summary\": \"Proof, compose, deepen review, compile compactly, expand selectively, validate with people\"\n  }\n}\n"
+        },
+        {
+          "nodeId": "phase-deliverables",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 15,\n  \"id\": \"phase-deliverables\",\n  \"type\": \"table\",\n  \"title\": \"Phase-by-phase delivery contract\",\n  \"text\": \"Every phase has one dominant outcome and a measurable exit gate. Work that belongs to a later phase is recorded but not pulled forward unless it blocks the current gate.\",\n  \"data\": {\n    \"headers\": [\n      \"Phase\",\n      \"Primary deliverable\",\n      \"Exit gate\"\n    ],\n    \"rows\": [\n      [\n        \"0 — Baseline\",\n        \"Reproducible current Facet/Lavish evidence pack and frozen contracts\",\n        \"Identical prompts, parity rubric, raw outputs, screenshots, and current test suite recorded\"\n      ],\n      [\n        \"1 — Foundation\",\n        \"Production-quality modular shell and design primitives\",\n        \"375/768/1024/1440 layouts pass; keyboard, contrast, reduced motion, and all state variants pass\"\n      ],\n      [\n        \"2 — Vertical slice\",\n        \"Option Showdown recipe with premium comparison and decision experience\",\n        \"Equal-content prototype is materially clearer than current Facet and wins internal side-by-side review\"\n      ],\n      [\n        \"3 — Review intelligence\",\n        \"End-to-end evidence, comments, changes, and decision workflow\",\n        \"Feedback survives two revisions; unresolved work is visible; all flows work by keyboard and after restart\"\n      ],\n      [\n        \"4 — Token system\",\n        \"Intent compiler, digest, optimized patching, and Token Receipt\",\n        \"No fidelity loss; median patch remains at or below 15%; full workflow accounting includes prompts and retries\"\n      ],\n      [\n        \"5 — Creative modes\",\n        \"Multiple lenses and workspace compositions from one artifact\",\n        \"Switching modes requires no regeneration; legacy artifacts remain readable; interaction p95 stays below target\"\n      ],\n      [\n        \"6 — Product proof\",\n        \"Competitive and human-validation report with release recommendation\",\n        \"At least 60% blind preference, 90% task completion, 40% workflow-token advantage, and zero critical accessibility failures\"\n      ]\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "phase-operating-rules",
+          "before": "Not present",
+          "after": "{\n  \"parent\": null,\n  \"index\": 16,\n  \"id\": \"phase-operating-rules\",\n  \"type\": \"checklist\",\n  \"title\": \"Rules for phase-wise implementation\",\n  \"text\": \"These rules keep quality high and make rollback straightforward while the renderer, protocol, and skill evolve together.\",\n  \"data\": {\n    \"items\": [\n      \"Create a scoped implementation brief and acceptance checklist before each phase begins.\",\n      \"Keep every commit buildable and preserve unrelated user changes.\",\n      \"Add tests with each new primitive, block, recipe, state, and protocol behavior.\",\n      \"Compare desktop, tablet, and mobile screenshots before closing visual work.\",\n      \"Run keyboard, screen-reader semantics, contrast, reduced-motion, offline, restart, and export checks at the relevant gate.\",\n      \"Record token, bundle, latency, and compatibility changes without overwriting earlier evidence.\",\n      \"Do not add a new semantic block when an existing block plus a layout recipe can express the same meaning.\",\n      \"Do not move to the next phase with unresolved critical or high-severity defects.\",\n      \"Review and approve the phase result in Facet before beginning the next phase.\",\n      \"Keep publishing, marketplace release, accounts, and hosted collaboration out of scope until separately approved.\"\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "first-sprint",
+          "before": "{\n  \"parent\": null,\n  \"index\": 15,\n  \"id\": \"first-sprint\",\n  \"type\": \"checklist\",\n  \"title\": \"First proof sprint\",\n  \"text\": \"The first sprint should produce evidence and one visibly stronger vertical slice before broad implementation.\",\n  \"data\": {\n    \"items\": [\n      \"Freeze five competitor prompts and an equal-content scoring rubric.\",\n      \"Capture the current Facet and Lavish baseline without tuning either result after generation.\",\n      \"Design three layout recipes: executive brief, option showdown, and implementation roadmap.\",\n      \"Redesign comparison, recommendation, risk, and decision components using existing semantic data where possible.\",\n      \"Prototype the expense-tracker review with the new option-showdown recipe.\",\n      \"Measure output representation, estimated full-context tokens, retries, time to review, accessibility, and revision cost.\",\n      \"Run five blind preference reviews and record comprehension, confidence, and preferred design.\"\n    ]\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 17,\n  \"id\": \"first-sprint\",\n  \"type\": \"checklist\",\n  \"title\": \"First proof sprint\",\n  \"text\": \"Begin with Phase 0, then proceed to Phase 1 only after the baseline evidence and contracts are frozen. The first visible milestone is the redesigned Option Showdown vertical slice in Phase 2; the foundation phases exist to make that result reusable rather than a one-off mockup.\",\n  \"data\": {\n    \"items\": [\n      \"Phase 0.1 — Freeze five identical competitor prompts and the equal-content, equal-function scoring rubric.\",\n      \"Phase 0.2 — Capture untouched current outputs, screenshots, timings, failures, retries, and token estimates.\",\n      \"Phase 0.3 — Record current build, test, accessibility, responsive, offline, export, and patch baselines.\",\n      \"Phase 0.4 — Freeze compatibility fixtures and define which existing behaviors cannot regress.\",\n      \"Phase 0 gate — Review the evidence pack and approve the exact Phase 1 scope.\",\n      \"Phase 1.1 — Implement tokens and primitive states without changing artifact semantics.\",\n      \"Phase 1.2 — Build the responsive shell, collapsible navigation, review rail, command surface, and mode indicators.\",\n      \"Phase 1 gate — Complete visual, responsive, accessibility, performance, and regression review before Phase 2.\"\n    ]\n  }\n}\n"
+        },
+        {
+          "nodeId": "product-decision",
+          "before": "{\n  \"parent\": null,\n  \"index\": 18,\n  \"id\": \"product-decision\",\n  \"type\": \"decision\",\n  \"title\": \"Approve the next direction\",\n  \"text\": \"Choose whether to begin with the visual-plus-measurement proof sprint or revise this roadmap before implementation.\",\n  \"data\": {\n    \"options\": [\n      \"Approve the proof sprint\",\n      \"Revise the roadmap first\"\n    ]\n  }\n}\n",
+          "after": "{\n  \"parent\": null,\n  \"index\": 20,\n  \"id\": \"product-decision\",\n  \"type\": \"decision\",\n  \"title\": \"Approve the next direction\",\n  \"text\": \"Choose whether to start Phase 0 baseline work now or revise the phase boundaries before any implementation begins. Approval authorizes only Phase 0; later phases remain independently gated.\",\n  \"data\": {\n    \"options\": [\n      \"Approve Phase 0 only\",\n      \"Revise the phase breakdown\"\n    ]\n  }\n}\n"
+        }
+      ]
+    }
+  ],
+  "sequence": 2,
+  "createdAt": "2026-09-05T11:18:33.859Z",
+  "updatedAt": "2026-09-05T11:37:57.646Z"
+}

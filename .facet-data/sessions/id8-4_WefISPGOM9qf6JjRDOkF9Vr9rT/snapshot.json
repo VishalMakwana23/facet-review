@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "id": "id8-4_WefISPGOM9qf6JjRDOkF9Vr9rT",
+  "state": "open",
+  "artifact": {
+    "protocol": "facet",
+    "version": 1,
+    "revision": 0,
+    "id": "world-class-storage-review",
+    "title": "Personal expense tracker: launch storage decision",
+    "theme": "precision-canvas",
+    "capabilities": [
+      "annotate sections",
+      "compare approaches",
+      "inspect evidence",
+      "record decision"
+    ],
+    "nodes": [
+      {
+        "id": "decision-brief",
+        "type": "section",
+        "title": "Decision brief",
+        "text": "Select a launch architecture for sensitive financial records. Seamless phone-and-laptop access is mandatory; offline continuity, recovery, privacy, and operational cost remain important."
+      },
+      {
+        "id": "at-a-glance-comparison",
+        "type": "comparison",
+        "title": "At-a-glance comparison",
+        "text": "Cloud sync meets the mandatory access requirement; local-only offers the smallest security and operating surface.",
+        "data": {
+          "headers": [
+            "Criterion",
+            "Local-only",
+            "Cloud sync"
+          ],
+          "rows": [
+            [
+              "Cross-device access",
+              "Manual transfer; requirement not met",
+              "Automatic after authentication and sync"
+            ],
+            [
+              "Offline use",
+              "Native",
+              "Offline-first cache plus reconciliation"
+            ],
+            [
+              "Privacy surface",
+              "Single device by default",
+              "Remote identity, storage, and access controls"
+            ],
+            [
+              "Recovery",
+              "User-managed export and backup",
+              "Central backup plus encrypted export"
+            ],
+            [
+              "Failure modes",
+              "Loss, corruption, accidental deletion",
+              "Outage, lockout, conflict, breach, plus local failures"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "weighted-decision-scorecard",
+        "type": "chart",
+        "title": "Weighted decision scorecard",
+        "text": "Mandatory requirements have greater weight than convenience.",
+        "data": {
+          "kind": "scorecard",
+          "summary": "Cloud sync leads because cross-device access is mandatory, while local safeguards preserve offline resilience.",
+          "options": [
+            "Local-only",
+            "Cloud sync"
+          ],
+          "rows": [
+            [
+              "Cross-device access",
+              1,
+              5
+            ],
+            [
+              "Offline continuity",
+              5,
+              4
+            ],
+            [
+              "Privacy control",
+              5,
+              3
+            ],
+            [
+              "Recovery",
+              3,
+              5
+            ],
+            [
+              "Delivery simplicity",
+              5,
+              2
+            ]
+          ],
+          "max": 5
+        }
+      },
+      {
+        "id": "local-only-benefits",
+        "type": "section",
+        "title": "Local-only: benefits",
+        "text": "No account or connection is required. Sensitive records remain under direct device control, delivery scope is smaller, and behavior is predictable because distributed state is absent."
+      },
+      {
+        "id": "local-only-risks",
+        "type": "risk",
+        "title": "Local-only: risks",
+        "text": "It cannot satisfy seamless launch access across phone and laptop. Device loss or corruption can also destroy records.",
+        "data": {
+          "severity": "Critical against launch requirement",
+          "mitigation": "Encrypted export/import, backup reminders, atomic writes, and tested recovery reduce loss but do not provide seamless access."
+        }
+      },
+      {
+        "id": "cloud-sync-benefits",
+        "type": "section",
+        "title": "Cloud sync: benefits",
+        "text": "Records follow the user across phone and laptop. Central backup improves device replacement, while an offline-first cache preserves everyday entry during connectivity loss."
+      },
+      {
+        "id": "cloud-sync-risks",
+        "type": "risk",
+        "title": "Cloud sync: risks",
+        "text": "Remote financial data and distributed state introduce account compromise, outages, conflicts, lockout, and continuing operational responsibility.",
+        "data": {
+          "severity": "High",
+          "mitigation": "Mature identity, least privilege, encryption, idempotent conflict-safe sync, auditable deletion, monitoring, and tested backup/account recovery."
+        }
+      },
+      {
+        "id": "risk-exposure-map",
+        "type": "chart",
+        "title": "Risk exposure map",
+        "text": "Prioritize safeguards by likelihood and impact.",
+        "data": {
+          "kind": "risk-matrix",
+          "summary": "Account compromise and silent sync conflict require the strongest preventive and recovery controls.",
+          "items": [
+            {
+              "label": "Account compromise",
+              "likelihood": 2,
+              "impact": 5
+            },
+            {
+              "label": "Silent sync conflict",
+              "likelihood": 3,
+              "impact": 4
+            },
+            {
+              "label": "Service outage",
+              "likelihood": 3,
+              "impact": 3
+            },
+            {
+              "label": "Device loss",
+              "likelihood": 3,
+              "impact": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "safety-chain",
+        "type": "dependency",
+        "title": "Safety chain",
+        "text": "The recommendation depends on a complete safety chain.",
+        "data": {
+          "items": [
+            {
+              "from": "Offline-first cache",
+              "to": "Continuity"
+            },
+            {
+              "from": "Strong authentication",
+              "to": "Account safety"
+            },
+            {
+              "from": "Conflict-safe sync",
+              "to": "Data integrity"
+            },
+            {
+              "from": "Backup and export",
+              "to": "Recovery"
+            }
+          ]
+        }
+      },
+      {
+        "id": "recommendation",
+        "type": "callout",
+        "title": "Recommendation",
+        "text": "Choose cloud sync for launch because it uniquely satisfies mandatory phone-and-laptop access. Ship it with an offline-first local cache, encrypted export, strong authentication, conflict-safe synchronization, and tested backup and recovery.",
+        "data": {
+          "status": "Recommended: cloud sync with offline-first safeguards"
+        }
+      },
+      {
+        "id": "storage-architecture-decision",
+        "type": "decision",
+        "title": "Storage architecture decision",
+        "text": "Record the direction after reviewing evidence and risks.",
+        "data": {
+          "options": [
+            "Approve cloud sync with safeguards",
+            "Request revision before approval"
+          ]
+        }
+      }
+    ]
+  },
+  "comments": [],
+  "decisions": [],
+  "revisionChanges": [],
+  "sequence": 0,
+  "createdAt": "2026-09-05T12:55:55.282Z",
+  "updatedAt": "2026-09-05T12:55:55.282Z"
+}

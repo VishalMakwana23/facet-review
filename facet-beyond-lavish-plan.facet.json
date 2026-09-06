@@ -1,0 +1,214 @@
+[
+  "ft1",
+  "facet-beyond-lavish-plan",
+  0,
+  "Facet Next: from review canvas to decision workspace",
+  "p",
+  [
+    "annotate roadmap",
+    "compare priorities",
+    "approve proof sprint"
+  ],
+  [
+    [
+      "north-star",
+      1,
+      "North star",
+      "Facet should not try to win by generating more decorative HTML. It should deliver Lavish-level presentation while becoming substantially better at review, decisions, revisions, privacy, and total Codex efficiency. The product promise is: turn compact agent intent into a polished decision workspace, then return precise human feedback as tiny semantic changes.",
+      {
+        "status": "Decision quality per token"
+      }
+    ],
+    [
+      "honest-baseline",
+      10,
+      "What the first comparison tells us",
+      "Lavish currently wins visual hierarchy and presentation. Facet already has the stronger structured review foundation. The next release must close the visual gap without weakening its durable feedback loop or compact protocol.",
+      {
+        "headers": [
+          "Capability",
+          "Current signal",
+          "Required outcome"
+        ],
+        "rows": [
+          [
+            "Visual clarity",
+            "Facet feels document-like and crowded",
+            "Decision-first layouts with stronger hierarchy and breathing room"
+          ],
+          [
+            "Creative presentation",
+            "Mostly one vertical document treatment",
+            "Multiple deterministic compositions chosen from semantic intent"
+          ],
+          [
+            "Decision controls",
+            "Correct but visually weak outside Decide mode",
+            "Clear state, rationale, consequences, and confident primary action"
+          ],
+          [
+            "Review workflow",
+            "Comments, modes, anchors, history, and revisions are strong",
+            "Keep and deepen this advantage"
+          ],
+          [
+            "Token efficiency",
+            "Strong synthetic output results",
+            "Prove full workflow savings directly against Lavish"
+          ]
+        ]
+      }
+    ],
+    [
+      "experience-pillars",
+      0,
+      "Four product pillars",
+      "1. Composed clarity: every artifact receives an intentional visual hierarchy rather than identical stacked sections. 2. Review intelligence: comments, evidence, revisions, and decisions remain connected through stable semantic identity. 3. Creative range: the renderer offers premium native compositions without asking the model to emit CSS or JavaScript. 4. Token discipline: agents express meaning and changes; the host owns layout, behavior, accessibility, and polish.",
+      0
+    ],
+    [
+      "visual-engine",
+      0,
+      "Pillar 1 — Visual Engine 2.0",
+      "Introduce deterministic layout recipes selected from artifact semantics: executive brief, option showdown, evidence board, implementation roadmap, incident room, code-review cockpit, and metric dashboard. Add summary bands, weighted scorecards, side-by-side option cards, evidence/risk clusters, sticky decision summaries, and progressive disclosure. Preserve quiet chrome, one icon family, accessible contrast, 44-pixel touch targets, responsive reading widths, and reduced-motion support. The model chooses intent and emphasis; the renderer chooses responsive layout details.",
+      0
+    ],
+    [
+      "review-superpowers",
+      0,
+      "Pillar 2 — Review superpowers",
+      "Add threaded anchored comments, visible annotation pins, reviewer status, a change map, side-by-side semantic revisions, unresolved-feedback filters, decision rationale, confidence, owner, due date, and superseded-decision history. Create a guided review flow: understand the brief, inspect evidence, compare options, resolve concerns, then decide. Keep Explore, Review, and Decide modes, but make their purpose immediately legible and preserve reading position between modes.",
+      0
+    ],
+    [
+      "creative-blocks",
+      0,
+      "Pillar 3 — Native creative blocks",
+      "Expand the renderer with high-value semantic primitives rather than arbitrary markup: option cards, score matrix, evidence card, quote, key takeaway, assumption, constraint, recommendation banner, decision summary, before/after view, milestone lane, dependency map, and annotated media. Each block must define compact data, loading and error states, keyboard behavior, mobile composition, print/export output, and a readable fallback for older viewers.",
+      0
+    ],
+    [
+      "token-architecture",
+      0,
+      "Pillar 4 — Token intelligence",
+      "Build an artifact compiler so the skill can send a short intent-oriented source format instead of hand-authoring full tuple structures. Apply schema defaults, reusable vocabulary, deterministic IDs, template references, and validation locally. Add a token-budget mode that selects the smallest lossless representation. Continue using compact patches for revisions and return a concise feedback digest so the agent reads only open comments and affected nodes. Report initial, revision, and cumulative workflow tokens separately; never hide retries or skill-loading cost.",
+      0
+    ],
+    [
+      "architecture-flow",
+      8,
+      "Target architecture",
+      "The model communicates intent and evidence; deterministic local systems provide visual quality and interaction. This keeps creative richness in reusable code instead of repeatedly spending model tokens on presentation markup.",
+      {
+        "summary": "Prompt to compact intent, local compiler, semantic artifact, adaptive renderer, human review events, and compact patch",
+        "items": [
+          "User prompt + review goal",
+          "Compact intent document",
+          "Local artifact compiler and validator",
+          "Semantic artifact with stable IDs",
+          "Adaptive recipe-based renderer",
+          "Anchored comments and typed decisions",
+          "Feedback digest and compact patch"
+        ]
+      }
+    ],
+    [
+      "delivery-roadmap",
+      3,
+      "Implementation roadmap",
+      "Sequence work so visual ambition and token efficiency improve together. Do not expand the schema until a benchmark or pilot demonstrates a real review need.",
+      {
+        "items": [
+          "Stage 0 — Proof baseline: capture identical Facet and Lavish outputs, revisions, screenshots, timing, parity, and token estimates across five workflows.",
+          "Stage 1 — Composition foundation: introduce layout recipes, visual tokens, responsive grid primitives, and redesigned comparison and decision components.",
+          "Stage 2 — Review depth: add annotation pins, threads, change map, semantic before/after, decision rationale, and guided review progression.",
+          "Stage 3 — Token compiler: shorten skill instructions, compile intent locally, apply defaults, validate automatically, and generate minimal patches and inbox digests.",
+          "Stage 4 — Creative expansion: ship only the native blocks proven valuable by benchmark gaps and pilot requests.",
+          "Stage 5 — Product proof: run blind preference tests and end-to-end task studies, fix the top failures, then decide whether the alpha is ready."
+        ],
+        "summary": "Proof, compose, deepen review, compile compactly, expand selectively, validate with people"
+      }
+    ],
+    [
+      "first-sprint",
+      4,
+      "First proof sprint",
+      "The first sprint should produce evidence and one visibly stronger vertical slice before broad implementation.",
+      {
+        "items": [
+          "Freeze five competitor prompts and an equal-content scoring rubric.",
+          "Capture the current Facet and Lavish baseline without tuning either result after generation.",
+          "Design three layout recipes: executive brief, option showdown, and implementation roadmap.",
+          "Redesign comparison, recommendation, risk, and decision components using existing semantic data where possible.",
+          "Prototype the expense-tracker review with the new option-showdown recipe.",
+          "Measure output representation, estimated full-context tokens, retries, time to review, accessibility, and revision cost.",
+          "Run five blind preference reviews and record comprehension, confidence, and preferred design."
+        ]
+      }
+    ],
+    [
+      "success-gates",
+      11,
+      "Definition of ‘better than Lavish’",
+      "Facet should make the claim only when quality and efficiency pass together. A visually attractive result that loses review capability or comparable content does not pass.",
+      {
+        "headers": [
+          "Gate",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Blind visual preference",
+            "At least 60% prefer Facet across comparable tasks"
+          ],
+          [
+            "Review task completion",
+            "At least 90% complete comment and decision flows without assistance"
+          ],
+          [
+            "Total Codex efficiency",
+            "At least 40% lower measured or clearly labeled estimated workflow tokens"
+          ],
+          [
+            "Revision efficiency",
+            "Median patch at or below 15% of the full artifact"
+          ],
+          [
+            "Accessibility",
+            "Zero critical violations; complete keyboard path"
+          ],
+          [
+            "Interaction performance",
+            "Ordinary local interactions below 100 ms p95"
+          ],
+          [
+            "Content parity",
+            "No missing claims, evidence, controls, or decision options"
+          ]
+        ]
+      }
+    ],
+    [
+      "execution-risks",
+      16,
+      "Risks to control",
+      "The largest risks are copying surface aesthetics without a distinct product thesis, growing a schema too large for agents to use efficiently, optimizing token counts by dropping content, and creating layouts that look impressive only for curated examples. Backward compatibility and readable fallbacks must remain mandatory as creative blocks expand.",
+      {
+        "severity": "High",
+        "mitigation": "Gate every new block and recipe on repeated workflow value, parity tests, compact encoding, responsive and accessibility QA, and graceful rendering in older viewers."
+      }
+    ],
+    [
+      "product-decision",
+      5,
+      "Approve the next direction",
+      "Choose whether to begin with the visual-plus-measurement proof sprint or revise this roadmap before implementation.",
+      {
+        "options": [
+          "Approve the proof sprint",
+          "Revise the roadmap first"
+        ]
+      }
+    ]
+  ]
+]

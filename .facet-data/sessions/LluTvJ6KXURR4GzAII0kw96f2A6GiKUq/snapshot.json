@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "LluTvJ6KXURR4GzAII0kw96f2A6GiKUq",
+  "state": "open",
+  "artifact": {
+    "protocol": "facet",
+    "version": 1,
+    "revision": 0,
+    "id": "checkout-incident-retrospective",
+    "title": "Checkout outage: retrospective and closure review",
+    "theme": "precision-canvas",
+    "capabilities": [
+      "annotate evidence",
+      "inspect timeline",
+      "review actions",
+      "record closure decision"
+    ],
+    "nodes": [
+      {
+        "id": "executive-summary",
+        "type": "callout",
+        "title": "Executive summary",
+        "text": "Checkout was unavailable for 47 minutes after a service credential expired. The warning fired seven days earlier but was routed to an unowned channel, leaving the team without an actionable signal.",
+        "data": {
+          "status": "Severity 1 · customer-impacting"
+        }
+      },
+      {
+        "id": "customer-impact",
+        "type": "metric",
+        "title": "Customer impact",
+        "text": "1,842 checkout attempts failed during the incident window.",
+        "data": {
+          "value": "1,842",
+          "label": "Failed checkout attempts"
+        }
+      },
+      {
+        "id": "time-to-recovery",
+        "type": "metric",
+        "title": "Time to recovery",
+        "text": "Service recovered 47 minutes after the first failed request.",
+        "data": {
+          "value": "47 min",
+          "label": "Detection to recovery"
+        }
+      },
+      {
+        "id": "incident-timeline",
+        "type": "timeline",
+        "title": "Incident timeline",
+        "text": "The sequence distinguishes the first technical failure from detection and recovery.",
+        "data": {
+          "items": [
+            {
+              "label": "09:00 · Credential expires",
+              "detail": "Payment-service authentication begins failing."
+            },
+            {
+              "label": "09:04 · Error rate rises",
+              "detail": "Checkout failures cross the customer-impact threshold."
+            },
+            {
+              "label": "09:19 · Support escalates",
+              "detail": "Customer reports reach the incident commander."
+            },
+            {
+              "label": "09:31 · Cause isolated",
+              "detail": "On-call identifies the expired credential."
+            },
+            {
+              "label": "09:47 · Service restored",
+              "detail": "Credential rotation completes and checkout succeeds."
+            }
+          ]
+        }
+      },
+      {
+        "id": "causal-chain",
+        "type": "dependency",
+        "title": "Causal chain",
+        "text": "The outage required both a technical trigger and a monitoring ownership failure.",
+        "data": {
+          "items": [
+            {
+              "from": "Credential expiration",
+              "to": "Authentication failures"
+            },
+            {
+              "from": "Warning routed to unowned channel",
+              "to": "No preventive rotation"
+            },
+            {
+              "from": "No synthetic checkout alert",
+              "to": "Delayed detection"
+            },
+            {
+              "from": "Manual credential process",
+              "to": "Slow recovery"
+            }
+          ]
+        }
+      },
+      {
+        "id": "evidence-reviewed",
+        "type": "table",
+        "title": "Evidence reviewed",
+        "text": "Separate verified observations from conclusions.",
+        "data": {
+          "headers": [
+            "Evidence",
+            "Observation",
+            "Confidence"
+          ],
+          "rows": [
+            [
+              "Authentication logs",
+              "Failures began within one minute of credential expiry",
+              "High"
+            ],
+            [
+              "Alert history",
+              "Seven-day warning delivered to an unowned channel",
+              "High"
+            ],
+            [
+              "Incident timeline",
+              "Support escalation preceded monitoring escalation",
+              "High"
+            ],
+            [
+              "Runbook review",
+              "Credential rotation required undocumented manual steps",
+              "Medium"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "residual-operational-risk",
+        "type": "risk",
+        "title": "Residual operational risk",
+        "text": "A replacement credential can still expire without ownership, testing, and escalation controls.",
+        "data": {
+          "severity": "High until preventive controls ship",
+          "mitigation": "Assign service ownership, alert on multiple channels, automate rotation, add synthetic checkout monitoring, and rehearse recovery quarterly."
+        }
+      },
+      {
+        "id": "corrective-actions",
+        "type": "checklist",
+        "title": "Corrective actions",
+        "text": "Closure requires preventive, detective, and recovery controls—not only a new credential.",
+        "data": {
+          "items": [
+            "Assign a named owner and backup for payment credentials",
+            "Automate rotation with a 14-day validation window",
+            "Route expiry warnings to the owned on-call service",
+            "Add end-to-end synthetic checkout monitoring",
+            "Document and rehearse credential rollback",
+            "Verify all controls with failure-injection testing"
+          ]
+        }
+      },
+      {
+        "id": "closure-recommendation",
+        "type": "callout",
+        "title": "Closure recommendation",
+        "text": "Keep the incident open until alert ownership, synthetic monitoring, and automated rotation are verified in production-like testing. Documentation alone does not sufficiently reduce recurrence risk.",
+        "data": {
+          "status": "Recommended: conditional closure after verification"
+        }
+      },
+      {
+        "id": "incident-closure-decision",
+        "type": "decision",
+        "title": "Incident closure decision",
+        "text": "Choose the current disposition after reviewing evidence and corrective actions.",
+        "data": {
+          "options": [
+            "Approve conditional closure",
+            "Keep incident open"
+          ]
+        }
+      }
+    ]
+  },
+  "comments": [],
+  "decisions": [],
+  "revisionChanges": [],
+  "sequence": 0,
+  "createdAt": "2026-09-05T14:58:17.071Z",
+  "updatedAt": "2026-09-05T14:58:17.071Z"
+}
