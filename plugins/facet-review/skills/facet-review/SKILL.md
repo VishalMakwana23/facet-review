@@ -17,7 +17,7 @@ Create an accessible local review session while keeping agent-authored output co
 5. Keep the returned session ID and browser process running. Start `facet poll <session-id>` with the same `--data-dir` and keep that poll attached to the active agent turn. Tell the user the direct-send connection is ready only after the UI reports **Agent is listening**.
 6. When **Send to Agent** returns an `fs1` packet, apply only its requested changes with an `fp1` patch, resolve handled comments individually, then run `facet poll <session-id> --after <submission-sequence>` again. The tuple already contains the compact open-comment digest; do not reread or replay the full artifact unless the requested change requires it.
 7. Continue the poll → patch → resolve loop without asking the user to repeat feedback in chat. Stop polling only when the user ends the review, the session is resolved, or the task becomes genuinely blocked.
-8. Resolve the session only after every open comment is handled. Export a review bundle when the user requests a durable handoff.
+8. Resolve the session only after every open comment is handled. For a human-readable snapshot, use **Review actions → Export standalone HTML** in the browser. For machine-readable recovery or archival handoff, use `facet export <session-id> <new-directory>`.
 
 For selection anchors, stale feedback, exports, or interrupted sessions, read [references/review-lifecycle.md](references/review-lifecycle.md). Do not load this reference for initial artifact authoring alone.
 

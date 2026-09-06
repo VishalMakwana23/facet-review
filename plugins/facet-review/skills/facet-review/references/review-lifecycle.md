@@ -14,6 +14,8 @@ Do not assume an old selection still matches after a patch. The viewer labels st
 
 ## Export and recovery
 
+Use **Review actions → Export standalone HTML** in the browser when the user needs one portable report. The download captures the current revision, comments, decisions, and change history in a self-contained, read-only HTML file. It makes no network requests, cannot modify the original session, and does not publish anything.
+
 `facet export <session-id> <new-directory>` requires an absent destination under an existing parent. It does not overwrite existing directories. The bundle includes artifact, feedback, session snapshot, read-only HTML, and a final SHA-256 manifest from one sequence. A missing manifest indicates an incomplete export: preserve it for diagnosis and retry into a different directory. Exported HTML cannot save feedback or contact the local service.
 
 If a save is not confirmed, inspect `facet inbox <session-id>` before retrying; do not assume it failed before reaching disk. No automatic mutation retries are performed.

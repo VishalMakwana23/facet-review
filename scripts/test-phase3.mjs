@@ -83,6 +83,23 @@ try {
     assert.match(intelligentHtml, /data-feedback-filter="open"/);
     assert.match(intelligentHtml, /class="reply-list"/);
     assert.match(intelligentHtml, /Decision ledger/);
+    assert.match(intelligentHtml, /Export standalone HTML/);
+    assert.match(intelligentHtml, new RegExp(`/api/s/${created.id}/export/html`));
+
+    const standaloneResponse = await fetch(`${origin}/api/s/${created.id}/export/html`);
+    assert.equal(standaloneResponse.status, 200);
+    assert.equal(standaloneResponse.headers.get("content-type"), "text/html; charset=utf-8");
+    assert.match(standaloneResponse.headers.get("content-disposition") ?? "", /attachment; filename="phase3-test-revision-2\.html"/);
+    const standaloneHtml = await standaloneResponse.text();
+    assert.match(standaloneHtml, /<!doctype html>/);
+    assert.match(standaloneHtml, /http-equiv="Content-Security-Policy"/);
+    assert.match(standaloneHtml, /connect-src 'none'/);
+    assert.match(standaloneHtml, /Add a measurable success condition/);
+    assert.match(standaloneHtml, /The success condition is not measurable yet/);
+    assert.match(standaloneHtml, /What changed across 2 revisions/);
+    assert.match(standaloneHtml, /"apiBase":null/);
+    assert.doesNotMatch(standaloneHtml, /Export standalone HTML/);
+    assert.doesNotMatch(standaloneHtml, new RegExp(`/api/s/${created.id}`));
 
     assert.equal((await post(`${origin}/api/s/${created.id}/comments/${comment.id}/resolve`, origin, {})).status, 200);
     assert.equal((await post(`${origin}/api/s/${created.id}/comments/${reply.id}/resolve`, origin, {})).status, 200);

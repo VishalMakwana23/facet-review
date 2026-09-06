@@ -41,6 +41,13 @@ async function handleRequest(store: FileSessionStore, sessionId: string, request
     if (request.method === "GET" && action === "") return sendJson(response, 200, await store.load(sessionId));
     if (request.method === "GET" && action === "/inbox") return sendJson(response, 200, await store.inbox(sessionId));
     if (request.method === "GET" && action === "/presence") return sendJson(response, 200, { listening: await store.agentListening(sessionId) });
+    if (request.method === "GET" && action === "/export/html") {
+      const session = await store.load(sessionId);
+      const html = standaloneReviewHtml(renderProductArtifact(session.artifact, { comments: session.comments, decisions: session.decisions, changes: session.revisionChanges, sessionState: session.state, sequence: session.sequence }));
+      response.setHeader("Content-Disposition", `attachment; filename="${exportFilename(session.artifact.id, session.artifact.revision)}"`);
+      response.setHeader("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'");
+      return send(response, 200, html, "text/html; charset=utf-8");
+    }
     if (request.method === "POST" && action === "/comments") {
       const body = await jsonBody(request);
       const input: { nodeId: string; body: string; anchorRevision?: number; anchor?: ReviewAnchor; parentId?: string } = { nodeId: stringField(body, "nodeId"), body: stringField(body, "body") };
@@ -137,6 +144,15 @@ function objectField(body: Record<string, unknown> | unknown[], key: string): Re
   if (value === undefined) return undefined;
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${key} must be an object`);
   return value as Record<string, unknown>;
+}
+function standaloneReviewHtml(html: string): string {
+  const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((match) => `'sha256-${createHash("sha256").update(match[1] ?? "").digest("base64")}'`).join(" ");
+  const policy = `default-src 'none'; style-src 'unsafe-inline'; script-src ${hashes}; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'`;
+  return html.replace("<head>", `<head><meta http-equiv="Content-Security-Policy" content="${policy}">`);
+}
+function exportFilename(artifactId: string, revision: number): string {
+  const safeId = artifactId.replace(/[^A-Za-z0-9._-]+/g, "-").replace(/^-+|-+$/g, "") || "facet-review";
+  return `${safeId}-revision-${revision}.html`;
 }
 function sendJson(response: ServerResponse, status: number, body: unknown): void { send(response, status, `${JSON.stringify(body)}\n`, "application/json; charset=utf-8") }
 function send(response: ServerResponse, status: number, body: string, contentType: string): void { response.statusCode = status; response.setHeader("Content-Type", contentType); response.end(body) }

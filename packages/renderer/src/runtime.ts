@@ -155,6 +155,10 @@ export const productBehavior = String.raw`
     all('[data-command]').forEach(b => b.hidden = false); $('#command-search').focus();
   }
   document.addEventListener('click', async event => {
+    const artifactMenu = $('.artifact-menu');
+    if (artifactMenu?.open && !event.target.closest('.artifact-menu')) artifactMenu.open = false;
+    const exportLink = event.target.closest('.artifact-menu a[href$="/export/html"]');
+    if (exportLink) { announce('Preparing standalone HTML export…'); artifactMenu.open = false; }
     if (overlayReview.matches && !document.body.classList.contains('review-collapsed') && !event.target.closest('#review-panel,[data-toggle-review]')) { togglePanel(false); return; }
     if (overlayNav.matches && !document.body.classList.contains('section-collapsed') && !event.target.closest('#section-navigator,[data-toggle-sections]')) { toggleSections(false); return; }
     const button = event.target.closest('button');
@@ -236,6 +240,7 @@ export const productBehavior = String.raw`
   document.addEventListener('keyup',event => { if (event.shiftKey) captureSelection(); });
   document.addEventListener('keydown',event => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); openPalette(document.activeElement); return; }
+    if (event.key === 'Escape' && $('.artifact-menu')?.open) { $('.artifact-menu').open = false; $('.artifact-menu summary')?.focus(); return; }
     if (event.key === 'Escape' && !palette.open && ((mobile.matches && panel.classList.contains('open')) || (overlayReview.matches && !document.body.classList.contains('review-collapsed')))) { togglePanel(false); return; }
     if (event.key === 'Escape' && overlayNav.matches && !document.body.classList.contains('section-collapsed')) { toggleSections(false); sectionOpener?.focus?.(); return; }
     if ((mobile.matches || overlayReview.matches) && !panel.inert && !palette.open && event.key === 'Tab') {
