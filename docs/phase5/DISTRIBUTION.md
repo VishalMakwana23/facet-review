@@ -1,6 +1,6 @@
 # Phase 5 — distribution engineering
 
-Status: public alpha available. `facet-review@0.1.0-alpha.2` was published to npm on 2026-09-06 and verified through a fresh public-registry `npm exec` run. The repository marketplace and `facet-review@personal` installation were also verified. The first local release candidate and isolated-consumer tests were implemented in commit `dc63dd4`; all six jobs in [GitHub Actions run 33857030587](https://github.com/VishalMakwana23/facet-review/actions/runs/33857030587) passed on 2026-09-04. Universal Codex plugin-directory review remains pending. The repository is `https://github.com/VishalMakwana23/facet-review.git`, repository ID `1356915242`, default branch `master`; initial commit `d4ba1a3` is preserved.
+Status: public alpha available. `facet-review@0.1.0-alpha.3` was published to npm on 2026-09-06 after an isolated archive test and verified through a fresh public-registry `npm exec` run. The repository marketplace and `facet-review@personal` installation were also verified. The first local release candidate and isolated-consumer tests were implemented in commit `dc63dd4`; all six jobs in [GitHub Actions run 33857030587](https://github.com/VishalMakwana23/facet-review/actions/runs/33857030587) passed on 2026-09-04. Universal Codex plugin-directory review remains pending. The repository is `https://github.com/VishalMakwana23/facet-review.git`, repository ID `1356915242`, default branch `master`; initial commit `d4ba1a3` is preserved.
 
 ## Package architecture
 
@@ -41,7 +41,7 @@ Do not equate configured CI with passing remote runs. The under-three-minute res
 
 ## Publication evidence and next-release requirements
 
-The package was published by the authenticated npm account `vishalmakwanaa` after npm's browser-based second-factor approval. Registry metadata resolves `alpha` and `latest` to `0.1.0-alpha.2`; the public package exposes the `facet` binary and the expected GitHub repository URL. The alpha.2 tarball contained 39 allowlisted files, was 488,097 bytes, and matched local SHA-256 `d7a4a2d098ce0ab25fac77623e6e5dcda613aea4a323392325ef7f426f83ea67` before upload. npm trusted publishing is configured for `VishalMakwana23/facet-review`, workflow `publish.yml`, environment `npm`, and publish/staged-publish permissions.
+The package was published by the authenticated npm account `vishalmakwanaa` after npm's browser-based second-factor approval. Registry metadata resolves `alpha` and `latest` to `0.1.0-alpha.3`; the public package exposes the `facet` binary and the expected GitHub repository URL. The alpha.3 tarball contained 39 allowlisted files, was 488,097 bytes, and matched local SHA-256 `5fa40ecad44e62ede15bf7f066e56b782b44d0dbe7ec0d5171e468bf74635bb2` before upload. npm trusted publishing is configured for `VishalMakwana23/facet-review`, workflow `publish.yml`, environment `npm`, and publish/staged-publish permissions.
 
 For subsequent releases:
 
@@ -51,7 +51,7 @@ For subsequent releases:
 4. Prepare versioned release notes, provenance, and signed release evidence. The current SHA-256 manifest detects changed bytes; it is **not** a signature or proof of publisher identity.
 5. Publish only with explicit owner authorization and an approved release tag. Never make the private development workspaces publishable as an incidental build step.
 
-Remaining Phase 5 deliverables: universal plugin-directory review, signed release evidence from the first OIDC workflow publication, and the documentation website and its deployment. Alpha notes are in `release/NOTES-0.1.0-alpha.2.md`. Human acceptance remains deferred per the user's Phase 4 decision, not marked passed.
+Remaining Phase 5 deliverables: universal plugin-directory review, signed release evidence from the first OIDC workflow publication, and the documentation website and its deployment. Alpha notes are in `release/NOTES-0.1.0-alpha.3.md`. Human acceptance remains deferred per the user's Phase 4 decision, not marked passed.
 
 ## Diagnostics, cleanup and rollback
 
