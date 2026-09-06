@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import { readFile } from "node:fs/promises";
 import { realpathSync } from "node:fs";
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { homedir } from "node:os";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { setTimeout as delay } from "node:timers/promises";
 import { FileSessionStore } from "@facet-review/core";
 import {
   decodeCandidate,
@@ -45,7 +46,7 @@ export async function runCli(argv = process.argv.slice(2)): Promise<number> {
     return supported ? 0 : 1;
   }
   if (command === "--help" || command === "help" || command === "-h") {
-    process.stdout.write("Facet: compile <fi1|->, lint <artifact|->, render <artifact|->, open <artifact>, resume <session>, inbox <session>, digest <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <new-directory>, repair-journal <session> --confirm, doctor, mcp\nOptions: --data-dir <directory>, open/resume: --no-browser --port <port>\n");
+    process.stdout.write("Facet: compile <fi1|->, lint <artifact|->, render <artifact|->, open <artifact>, resume <session>, poll <session>, inbox <session>, digest <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <new-directory>, repair-journal <session> --confirm, doctor, mcp\nOptions: --data-dir <directory>, poll: --after <sequence>, open/resume: --no-browser --port <port>\n");
     return 0;
   }
   if (command === "compile") {
@@ -105,6 +106,26 @@ export async function runCli(argv = process.argv.slice(2)): Promise<number> {
     return 0;
   }
 
+  if (command === "poll") {
+    if (!subject) return usage("Missing session ID");
+    const after = Number(option(rest, "--after") ?? "0");
+    if (!Number.isSafeInteger(after) || after < 0) return usage("--after must be a non-negative integer");
+    const token = randomUUID();
+    await store.setAgentPresence(subject, token);
+    const heartbeat = setInterval(() => { void store.setAgentPresence(subject, token).catch(() => undefined); }, 2_000);
+    heartbeat.unref();
+    try {
+      while (true) {
+        const submission = await store.feedbackSubmission(subject, after);
+        if (submission) { process.stdout.write(`${JSON.stringify(submission)}\n`); return 0; }
+        await delay(250);
+      }
+    } finally {
+      clearInterval(heartbeat);
+      await store.clearAgentPresence(subject, token);
+    }
+  }
+
   if (command === "repair-journal") {
     if (!subject || !rest.includes("--confirm")) return usage("Usage: facet repair-journal <session-id> --confirm [--data-dir <path>]. Backs up the journal before removing its unterminated tail.");
     process.stdout.write(`${JSON.stringify(await store.repairJournal(subject))}\n`);
@@ -161,7 +182,7 @@ function positional(args: string[]): string | undefined {
 }
 function usage(error?: string): number {
   if (error) process.stderr.write(`${error}\n`);
-  process.stderr.write("Facet commands: compile <fi1|->, lint <artifact|->, render <artifact|->, open <artifact>, resume <session>, inbox <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <directory>, mcp\n");
+  process.stderr.write("Facet commands: compile <fi1|->, lint <artifact|->, render <artifact|->, open <artifact>, resume <session>, poll <session>, inbox <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <directory>, mcp\n");
   return 2;
 }
 async function readInput(subject: string): Promise<string> {

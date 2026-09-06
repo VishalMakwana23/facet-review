@@ -2,6 +2,10 @@
 
 Explore enables local artifact controls. Review enables section/text selection and comments while disabling artifact actions. Decide enables declared choices with confirmation before submission. The desktop command palette uses Ctrl/Cmd+K; the mobile Feedback button opens a keyboard-contained sheet.
 
+## Direct agent handoff
+
+Keep `facet poll <session-id>` attached while the user reviews. The UI shows whether that listener is active. **Save comment** queues multiple anchored notes; **Send to Agent** saves the current note when present and submits the complete compact batch in one action. A submission remains available if the poll is interrupted, so resume with the last delivered `--after <submission-sequence>` value rather than asking the user to paste feedback into chat.
+
 ## Anchor integrity
 
 Comments retain the original revision and quote. Text offsets are UTF-16 offsets into `node.text` only, not headings or rendered HTML. Code anchors use one-based inclusive lines from `data.code` (or `data.value`) and quote complete lines. Selections are limited to 2,000 characters; select the section for longer feedback.

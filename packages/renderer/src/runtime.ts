@@ -4,7 +4,7 @@ export const productBehavior = String.raw`
   const runtime = window.__FACET_SESSION__;
   const $ = selector => document.querySelector(selector);
   const all = selector => [...document.querySelectorAll(selector)];
-  const comment = $('#comment'), panel = $('#review-panel'), palette = $('#command-palette');
+  const comment = $('#comment'), panel = $('#review-panel'), palette = $('#command-palette'), agentStatus = $('#agent-status');
   const mobile = matchMedia('(max-width:760px)');
   // Navigation is always on demand so the artifact keeps the full reading width.
   const overlayNav = matchMedia('(min-width:0px)');
@@ -12,7 +12,7 @@ export const productBehavior = String.raw`
   const narrow = matchMedia('(max-width:1320px)');
   const writable = !!runtime.apiBase && runtime.state === 'open';
   let mode = writable ? 'review' : 'explore', nodeId = null, anchor = null, replyParentId = null;
-  let pending = false, opener = null, panelOpener = null, sectionOpener = null, updated = false, saveFailure = false;
+  let pending = false, opener = null, panelOpener = null, sectionOpener = null, updated = false, saveFailure = false, agentListening = null;
   let pinnedNavId = null, pinGraceUntil = 0, spyFrame = 0;
   const draftKey = 'facet-draft:' + runtime.apiBase;
   const announce = text => { $('#status').textContent = text; $('#status').style.display = 'block'; };
@@ -31,6 +31,7 @@ export const productBehavior = String.raw`
     });
     comment.disabled = !writable || mode !== 'review';
     $('#save-comment').disabled = !writable || mode !== 'review' || pending;
+    $('#send-feedback').disabled = !writable || mode !== 'review' || pending;
     all('[data-resolve-comment]').forEach(b => b.disabled = !writable || mode !== 'review' || pending);
     all('[data-reply-comment]').forEach(b => b.disabled = !writable || mode !== 'review' || pending);
     all('[data-node-id]').forEach(n => n.tabIndex = mode === 'review' ? 0 : -1);
@@ -165,6 +166,19 @@ export const productBehavior = String.raw`
         if (mode !== 'review' || !nodeId || !comment.value.trim()) { announce('Select a section and write a comment first.'); return; }
         try { await post('/comments',{nodeId,anchor,body:comment.value,anchorRevision:runtime.revision,...(replyParentId ? {parentId:replyParentId} : {})}); comment.value = ''; replyParentId = null; reloadAfterSave(); } catch {} return;
       }
+      if (button.dataset.action === 'send') {
+        if (mode !== 'review') { announce('Enter Review mode before sending feedback.'); return; }
+        const body = comment.value.trim();
+        if (body && !nodeId) { announce('Select a section or text before sending this feedback.'); return; }
+        if (!body && !runtime.pendingFeedback) { announce('Write feedback or save at least one comment before sending.'); return; }
+        try {
+          if (body) await post('/comments',{nodeId,anchor,body,anchorRevision:runtime.revision,...(replyParentId ? {parentId:replyParentId} : {})});
+          await post('/submit',{end:false});
+          comment.value = ''; replyParentId = null;
+          try { sessionStorage.removeItem(draftKey); sessionStorage.setItem(draftKey + ':flash','Feedback sent to agent'); } catch {}
+          reloadAfterSave();
+        } catch {} return;
+      }
       if (button.dataset.replyComment) {
         const node = all('[data-node-id]').find(item => item.dataset.nodeId === button.dataset.replyNode);
         if (!node) return;
@@ -274,6 +288,7 @@ export const productBehavior = String.raw`
   scheduleScrollSpy();
   setMode(mode,false); syncPanel();
   connection(runtime.apiBase ? runtime.state === 'resolved' ? 'Resolved review — read-only' : 'Changes saved locally' : 'Read-only export — no changes are saved');
+  try { const flash = sessionStorage.getItem(draftKey + ':flash'); if (flash) { sessionStorage.removeItem(draftKey + ':flash'); announce(flash); } } catch {}
   if (writable) try {
     const draft = JSON.parse(sessionStorage.getItem(draftKey) || 'null');
     if (draft?.body) {
@@ -293,6 +308,25 @@ export const productBehavior = String.raw`
     } catch { if (!pending) connection('Local service unavailable — draft retained',true); }
     setTimeout(poll,2000);
   }
-  if (runtime.apiBase) setTimeout(poll,2000);
+  async function pollAgentPresence() {
+    try {
+      const response = await fetch(runtime.apiBase + '/presence');
+      if (!response.ok) throw new Error('Presence unavailable');
+      const listening = !!(await response.json()).listening;
+      if (agentListening !== listening) {
+        agentListening = listening;
+        agentStatus.classList.toggle('connected',listening);
+        agentStatus.querySelector('strong').textContent = listening ? 'Agent is listening' : 'Agent is not listening';
+        agentStatus.querySelector('small').textContent = listening ? 'Send feedback directly—no chat prompt needed.' : 'You can queue feedback; start facet poll to deliver it.';
+      }
+    } catch {
+      agentStatus.classList.remove('connected');
+      agentStatus.querySelector('strong').textContent = 'Agent connection unavailable';
+      agentStatus.querySelector('small').textContent = 'Your draft remains stored locally.';
+    }
+    setTimeout(pollAgentPresence,2000);
+  }
+  if (runtime.apiBase) { setTimeout(poll,2000); pollAgentPresence(); }
+  else agentStatus.hidden = true;
 })();
 `;

@@ -40,6 +40,7 @@ async function handleRequest(store: FileSessionStore, sessionId: string, request
     const action = url.pathname.slice(`/api/s/${sessionId}`.length);
     if (request.method === "GET" && action === "") return sendJson(response, 200, await store.load(sessionId));
     if (request.method === "GET" && action === "/inbox") return sendJson(response, 200, await store.inbox(sessionId));
+    if (request.method === "GET" && action === "/presence") return sendJson(response, 200, { listening: await store.agentListening(sessionId) });
     if (request.method === "POST" && action === "/comments") {
       const body = await jsonBody(request);
       const input: { nodeId: string; body: string; anchorRevision?: number; anchor?: ReviewAnchor; parentId?: string } = { nodeId: stringField(body, "nodeId"), body: stringField(body, "body") };
@@ -59,6 +60,12 @@ async function handleRequest(store: FileSessionStore, sessionId: string, request
       const rationale = optionalStringField(body, "rationale"), owner = optionalStringField(body, "owner"), dueDate = optionalStringField(body, "dueDate");
       const session = await store.recordDecision(sessionId, { nodeId: stringField(body, "nodeId"), selection: stringField(body, "selection"), ...(revision === undefined ? {} : { revision }), ...(confidence === undefined ? {} : { confidence }), ...(rationale === undefined ? {} : { rationale }), ...(owner === undefined ? {} : { owner }), ...(dueDate === undefined ? {} : { dueDate }) });
       return sendJson(response, 201, session.decisions.at(-1));
+    }
+    if (request.method === "POST" && action === "/submit") {
+      const body = await jsonBody(request);
+      const end = booleanField(body, "end") ?? false;
+      const session = await store.submitFeedback(sessionId, end);
+      return sendJson(response, 201, session.submissions.at(-1));
     }
     const commentMatch = action.match(/^\/comments\/([0-9a-f-]+)\/resolve$/);
     if (request.method === "POST" && commentMatch?.[1]) {
@@ -117,6 +124,12 @@ function numberField(body: Record<string, unknown> | unknown[], key: string): nu
   const value = Array.isArray(body) ? undefined : body[key];
   if (value === undefined) return undefined;
   if (typeof value !== "number" || !Number.isInteger(value)) throw new Error(`${key} must be an integer`);
+  return value;
+}
+function booleanField(body: Record<string, unknown> | unknown[], key: string): boolean | undefined {
+  const value = Array.isArray(body) ? undefined : body[key];
+  if (value === undefined) return undefined;
+  if (typeof value !== "boolean") throw new Error(`${key} must be a boolean`);
   return value;
 }
 function objectField(body: Record<string, unknown> | unknown[], key: string): Record<string, unknown> | undefined {

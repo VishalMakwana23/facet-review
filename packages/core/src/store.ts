@@ -1,4 +1,4 @@
-import { appendFile, mkdir, readFile, rename, writeFile, rmdir } from "node:fs/promises";
+import { appendFile, mkdir, readFile, rename, writeFile, rmdir, unlink } from "node:fs/promises";
 import { setTimeout as delay } from "node:timers/promises";
 import { createHash, randomBytes, randomUUID } from "node:crypto";
 import { join, resolve } from "node:path";
@@ -48,12 +48,21 @@ export interface RevisionChange {
   details?: Array<{ nodeId: string; before: string; after: string }>;
 }
 
+export interface FeedbackSubmission {
+  id: string;
+  sequence: number;
+  revision: number;
+  end: boolean;
+  createdAt: string;
+}
+
 interface EventBase { id: string; sequence: number; at: string }
 export type ReviewEvent =
   | EventBase & { type: "comment.created"; comment: ReviewComment }
   | EventBase & { type: "comment.resolved"; commentId: string }
   | EventBase & { type: "decision.recorded"; decision: ReviewDecision }
   | EventBase & { type: "artifact.patched"; patch: PatchEnvelope }
+  | EventBase & { type: "feedback.submitted"; submission: FeedbackSubmission }
   | EventBase & { type: "session.resolved" };
 
 export interface ReviewSession {
@@ -64,6 +73,7 @@ export interface ReviewSession {
   comments: ReviewComment[];
   decisions: ReviewDecision[];
   revisionChanges: RevisionChange[];
+  submissions: FeedbackSubmission[];
   sequence: number;
   createdAt: string;
   updatedAt: string;
@@ -80,6 +90,7 @@ export interface FeedbackInbox {
 }
 
 export type CompactFeedbackDigest = ["fd1", string, number, Array<[string, string, string, string | 0]>, Array<[string, string, number]>];
+export type CompactFeedbackSubmission = ["fs1", string, number, number, 0 | 1, Array<[string, string, string, string | 0]>, Array<[string, string, number]>];
 
 export class FileSessionStore {
   readonly root: string;
@@ -90,7 +101,7 @@ export class FileSessionStore {
   async create(artifact: FacetArtifact, now = new Date().toISOString()): Promise<ReviewSession> {
     assertValidArtifact(artifact);
     const id = randomBytes(24).toString("base64url");
-    const session: ReviewSession = { schemaVersion: 1, id, state: "open", artifact: structuredClone(artifact), comments: [], decisions: [], revisionChanges: [], sequence: 0, createdAt: now, updatedAt: now };
+    const session: ReviewSession = { schemaVersion: 1, id, state: "open", artifact: structuredClone(artifact), comments: [], decisions: [], revisionChanges: [], submissions: [], sequence: 0, createdAt: now, updatedAt: now };
     await mkdir(this.sessionDir(id), { recursive: true });
     await this.writeSnapshot(session);
     await writeFile(this.eventsPath(id), "", { encoding: "utf8", flag: "wx" });
@@ -105,6 +116,7 @@ export class FileSessionStore {
     this.assertSessionId(id);
     const snapshot = JSON.parse(await readFile(this.snapshotPath(id), "utf8")) as ReviewSession;
     snapshot.revisionChanges ??= [];
+    snapshot.submissions ??= [];
     assertValidArtifact(snapshot.artifact);
     const events = await this.readEvents(id);
     if (!Number.isSafeInteger(snapshot.sequence) || snapshot.sequence < 0 || snapshot.sequence > events.length) throw new Error("Snapshot is ahead of or inconsistent with the event journal");
@@ -176,6 +188,46 @@ export class FileSessionStore {
       applyPatch(session.artifact, patch);
       return { type: "artifact.patched", id: randomUUID(), sequence, at, patch: structuredClone(patch) };
     });
+  }
+
+  async submitFeedback(id: string, end = false): Promise<ReviewSession> {
+    return this.mutate(id, (session, sequence, at) => {
+      if (session.state !== "open") throw new Error("Cannot submit feedback on a resolved session");
+      const previous = session.submissions.at(-1)?.sequence ?? 0;
+      if (session.sequence <= previous) throw new Error("No new feedback to send");
+      const submission: FeedbackSubmission = { id: randomUUID(), sequence, revision: session.artifact.revision, end, createdAt: at };
+      return { type: "feedback.submitted", id: randomUUID(), sequence, at, submission };
+    });
+  }
+
+  async feedbackSubmission(id: string, afterSequence = 0): Promise<CompactFeedbackSubmission | undefined> {
+    const session = await this.load(id);
+    const submission = session.submissions.find((entry) => entry.sequence > afterSequence);
+    if (!submission) return undefined;
+    return ["fs1", session.artifact.id, submission.revision, submission.sequence, submission.end ? 1 : 0,
+      session.comments.filter((comment) => comment.status === "open" && comment.createdAt <= submission.createdAt).map((comment) => [comment.id, comment.nodeId, comment.body, comment.parentId ?? 0]),
+      session.decisions.filter((decision) => decision.createdAt <= submission.createdAt).map((decision) => [decision.nodeId, decision.selection, decision.revision])];
+  }
+
+  async setAgentPresence(id: string, token: string): Promise<void> {
+    this.assertSessionId(id);
+    await writeFile(this.presencePath(id), JSON.stringify({ token, at: Date.now() }), "utf8");
+  }
+
+  async clearAgentPresence(id: string, token: string): Promise<void> {
+    this.assertSessionId(id);
+    try {
+      const current = JSON.parse(await readFile(this.presencePath(id), "utf8")) as { token?: string };
+      if (current.token === token) await unlink(this.presencePath(id));
+    } catch (error) { if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error; }
+  }
+
+  async agentListening(id: string): Promise<boolean> {
+    this.assertSessionId(id);
+    try {
+      const current = JSON.parse(await readFile(this.presencePath(id), "utf8")) as { at?: number };
+      return typeof current.at === "number" && Date.now() - current.at < 5_000;
+    } catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") return false; throw error; }
   }
 
   async resolveSession(id: string): Promise<ReviewSession> {
@@ -302,6 +354,7 @@ export class FileSessionStore {
   private sessionDir(id: string): string { this.assertSessionId(id); return join(this.root, "sessions", id) }
   private snapshotPath(id: string): string { return join(this.sessionDir(id), "snapshot.json") }
   private eventsPath(id: string): string { return join(this.sessionDir(id), "events.ndjson") }
+  private presencePath(id: string): string { return join(this.sessionDir(id), "agent-presence.json") }
   private assertSessionId(id: string): void { if (!/^[A-Za-z0-9_-]{20,80}$/.test(id)) throw new Error("Invalid session ID") }
 }
 
@@ -326,6 +379,7 @@ function reduceEvent(source: ReviewSession, event: ReviewEvent): ReviewSession {
       details: ids.map(nodeId => ({ nodeId, before: describeNode(before.nodes, nodeId), after: describeNode(session.artifact.nodes, nodeId) })),
     });
   }
+  if (event.type === "feedback.submitted") session.submissions.push(structuredClone(event.submission));
   if (event.type === "session.resolved") session.state = "resolved";
   session.sequence = event.sequence;
   session.updatedAt = event.at;
@@ -383,11 +437,12 @@ function parseEvents(raw: string): ReviewEvent[] {
   if (lines.at(-1) === "") lines.pop();
   return lines.map((line, index) => {
     const event = JSON.parse(line) as ReviewEvent;
-    if (!event || typeof event !== "object" || !["comment.created", "comment.resolved", "decision.recorded", "artifact.patched", "session.resolved"].includes(event.type) || event.sequence !== index + 1 || typeof event.id !== "string" || typeof event.at !== "string") throw new Error("Invalid event journal record or sequence gap");
+    if (!event || typeof event !== "object" || !["comment.created", "comment.resolved", "decision.recorded", "artifact.patched", "feedback.submitted", "session.resolved"].includes(event.type) || event.sequence !== index + 1 || typeof event.id !== "string" || typeof event.at !== "string") throw new Error("Invalid event journal record or sequence gap");
     if (event.type === "comment.created" && (!event.comment || typeof event.comment.id !== "string" || typeof event.comment.body !== "string")) throw new Error("Invalid comment event");
     if (event.type === "comment.resolved" && typeof event.commentId !== "string") throw new Error("Invalid resolution event");
     if (event.type === "decision.recorded" && (!event.decision || typeof event.decision.selection !== "string")) throw new Error("Invalid decision event");
     if (event.type === "artifact.patched" && (!event.patch || !Array.isArray(event.patch.operations))) throw new Error("Invalid patch event");
+    if (event.type === "feedback.submitted" && (!event.submission || event.submission.sequence !== event.sequence || typeof event.submission.end !== "boolean")) throw new Error("Invalid feedback submission event");
     return event;
   });
 }

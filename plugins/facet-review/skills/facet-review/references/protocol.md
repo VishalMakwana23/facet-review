@@ -69,6 +69,7 @@ facet compile intent.fi1.json
 facet lint artifact.facet.json
 facet render artifact.facet.json
 facet resume <session-id>
+facet poll <session-id> [--after <submission-sequence>]
 facet inbox <session-id>
 facet apply <session-id> revision.patch.json
 facet resolve-comment <session-id> <comment-id>
@@ -78,3 +79,11 @@ facet mcp
 ```
 
 Pass the same `--data-dir` to commands when the session uses a non-default data directory.
+
+`facet poll` marks the agent as listening and waits silently until the reviewer presses **Send to Agent**. It returns one compact submission tuple:
+
+```json
+["fs1","artifact-id",1,7,0,[["comment-id","node-id","requested change",0]],[]]
+```
+
+Positions are format marker, artifact ID, artifact revision, submission sequence, end flag (`0` continue, `1` end), open comments, and recorded decisions. Start the next poll with `--after 7` after handling this example.
