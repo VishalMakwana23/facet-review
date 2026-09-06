@@ -125,9 +125,16 @@ Facet opens a private loopback URL in your browser. Keep the terminal process ru
 
 ## Use Facet with Codex
 
-The npm package installs the `facet` runtime and includes the Facet skill source. npm does **not** automatically register a skill with Codex.
+The npm package installs the `facet` runtime and includes the Facet skill source. npm does **not** automatically register a skill with Codex. Install the repository marketplace and plugin once:
 
-For repository-local use, copy the bundled skill into your project only when `.agents/skills/facet-review` does not already exist.
+```bash
+codex plugin marketplace add VishalMakwana23/facet-review --ref master
+codex plugin add facet-review@personal
+```
+
+Restart Codex or start a new task so plugin discovery runs again.
+
+For repository-local use without the plugin marketplace, copy the bundled skill into your project only when `.agents/skills/facet-review` does not already exist.
 
 <details>
 <summary><strong>macOS or Linux</strong></summary>
@@ -150,13 +157,13 @@ Copy-Item -Recurse (Join-Path $facetPackage "plugin/skills/facet-review") ".agen
 
 </details>
 
-Start a new Codex task so skill discovery runs again, then ask:
+Then ask:
 
 ```text
 Use $facet-review to turn this implementation plan into a decision-ready review workspace.
 ```
 
-The repository also contains the complete plugin package at [`plugins/facet-review`](plugins/facet-review). OpenAI recommends packaging reusable skills as plugins when distributing them to other users; universal plugin-directory publication is separate from this npm release. See the official [Build skills](https://learn.chatgpt.com/docs/build-skills) and [Build plugins](https://learn.chatgpt.com/docs/build-plugins) guides.
+The repository contains the complete plugin package at [`plugins/facet-review`](plugins/facet-review). Universal plugin-directory review is separate from repository-marketplace installation and the npm release. See the official [Build skills](https://developers.openai.com/codex/skills) and [Build plugins](https://developers.openai.com/plugins/build/plugins) guides.
 
 ## User manual
 

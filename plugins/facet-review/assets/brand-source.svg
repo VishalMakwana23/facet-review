@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Facet Review logo</title>
+  <desc id="desc">A violet geometric gem divided into six facets on a dark background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#17132f"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a396ff"/>
+      <stop offset="1" stop-color="#6554e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="256" cy="250" r="176" fill="#7c6cff" opacity="0.12"/>
+  <path d="M256 84 400 167v166L256 416 112 333V167Z" fill="url(#gem)"/>
+  <path d="M256 126 364 188v124L256 374 148 312V188Z" fill="#17132f" opacity="0.82"/>
+  <path d="M256 126v248M148 188l216 124M364 188 148 312" fill="none" stroke="#d0caff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

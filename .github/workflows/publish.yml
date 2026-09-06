@@ -1,0 +1,36 @@
+name: Publish verified npm release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Test and publish with provenance
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: npm
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+      - name: Verify release tag matches package version
+        shell: bash
+        run: |
+          expected="v$(node -p "JSON.parse(require('fs').readFileSync('release/package.json','utf8')).version")"
+          test "$GITHUB_REF_NAME" = "$expected"
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run release:pack
+      - run: npm run test:release
+      - name: Publish verified archive
+        shell: bash
+        run: |
+          tarball="$(node -p "JSON.parse(require('fs').readFileSync('.release/latest.json','utf8')).tarball")"
+          npm publish "$tarball"

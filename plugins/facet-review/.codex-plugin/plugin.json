@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "description": "Create token-efficient local review canvases for complex Codex work.",
   "author": {
-    "name": "Facet contributors"
+    "name": "Facet contributors",
+    "url": "https://github.com/VishalMakwana23/facet-review"
   },
+  "homepage": "https://github.com/VishalMakwana23/facet-review#readme",
+  "repository": "https://github.com/VishalMakwana23/facet-review",
   "license": "Apache-2.0",
   "keywords": ["codex", "review", "visualization", "local-first", "token-efficient"],
   "skills": "./skills/",
@@ -15,11 +18,17 @@
     "developerName": "Facet contributors",
     "category": "Productivity",
     "capabilities": ["Interactive", "Local-first", "Write"],
+    "websiteURL": "https://github.com/VishalMakwana23/facet-review#readme",
+    "privacyPolicyURL": "https://github.com/VishalMakwana23/facet-review/blob/master/docs/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/VishalMakwana23/facet-review/blob/master/docs/TERMS.md",
     "defaultPrompt": [
       "Open this implementation plan in Facet for review.",
       "Turn this comparison into a Facet decision canvas.",
       "Read my Facet feedback and apply a compact patch."
     ],
-    "brandColor": "#7C6CFF"
+    "brandColor": "#7C6CFF",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": ["./assets/review-workspace.png"]
   }
 }
