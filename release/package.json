@@ -1,6 +1,6 @@
 {
   "name": "facet-review",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "description": "Local-first visual review skill and CLI for Codex.",
   "type": "module",
   "license": "Apache-2.0",

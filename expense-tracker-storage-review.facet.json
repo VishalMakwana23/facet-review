@@ -1,0 +1,126 @@
+[
+  "ft1",
+  "expense-tracker-storage-review",
+  0,
+  "Personal expense tracker: storage approach review",
+  "p",
+  [
+    "annotate sections",
+    "compare approaches",
+    "record storage decision"
+  ],
+  [
+    [
+      "review-context",
+      0,
+      "Decision context",
+      "Choose the default storage architecture for a personal expense tracker. This review assumes one primary user, sensitive financial data, a desire for reliable backups, and possible use across more than one device. It compares product and operational tradeoffs only; it does not implement the tracker.",
+      0
+    ],
+    [
+      "approach-comparison",
+      10,
+      "At-a-glance comparison",
+      "Local-only minimizes data exposure and infrastructure, while cloud sync improves continuity and multi-device access at the cost of greater security and operational responsibility.",
+      {
+        "headers": [
+          "Criterion",
+          "Local-only storage",
+          "Cloud sync"
+        ],
+        "rows": [
+          [
+            "Privacy",
+            "Data stays on the user's device by default",
+            "Data leaves the device and must be protected in transit and at rest"
+          ],
+          [
+            "Offline use",
+            "Native and dependable",
+            "Requires an offline cache and later reconciliation for a smooth experience"
+          ],
+          [
+            "Multi-device access",
+            "Manual export, transfer, or device-specific records",
+            "Automatic once identity and synchronization are working"
+          ],
+          [
+            "Backup and recovery",
+            "User-managed; device loss can mean data loss",
+            "Central backups can simplify recovery"
+          ],
+          [
+            "Engineering scope",
+            "Smaller: local database, export, and optional device backup integration",
+            "Larger: accounts, backend, sync engine, conflict handling, monitoring, and recovery"
+          ],
+          [
+            "Ongoing cost",
+            "Low infrastructure cost",
+            "Hosting, storage, observability, support, and security maintenance"
+          ],
+          [
+            "Failure modes",
+            "Corruption, accidental deletion, or lost device",
+            "Outage, account lockout, sync conflicts, breach, plus local failure modes"
+          ]
+        ]
+      }
+    ],
+    [
+      "local-benefits",
+      0,
+      "Local-only: benefits",
+      "Keeps sensitive spending data under direct user control. Works without an account or connection. Reduces the initial build, testing, compliance, and support surface. Offers predictable behavior because there is no distributed state to reconcile. Can still support explicit encrypted exports and platform-level device backups.",
+      0
+    ],
+    [
+      "local-risks",
+      16,
+      "Local-only: risks",
+      "The largest risk is unrecoverable loss when a device is lost, damaged, reset, or corrupted. Users must understand and use export or backup features. Moving between devices is inconvenient, and concurrent use across devices is impractical. Local data should still be encrypted where the platform permits, with careful key handling and migration testing.",
+      {
+        "severity": "High if backup is omitted",
+        "mitigation": "Provide encrypted export/import, backup reminders, atomic writes, schema migrations, and recovery testing."
+      }
+    ],
+    [
+      "cloud-benefits",
+      0,
+      "Cloud sync: benefits",
+      "Makes records available across phones, tablets, and the web. Central backup can make device replacement and recovery easier. Enables future shared budgets, receipt processing, or server-side insights. A well-designed offline-first client can preserve day-to-day use during temporary connectivity loss.",
+      0
+    ],
+    [
+      "cloud-risks",
+      16,
+      "Cloud sync: risks",
+      "Financial records become a high-value remote target. The product must handle authentication, authorization, encryption, retention, deletion, incident response, and account recovery. Sync introduces duplicate, stale, and conflicting edits that can silently damage user trust. Availability and recurring infrastructure costs become product concerns.",
+      {
+        "severity": "High",
+        "mitigation": "Use a mature identity provider, least-privilege access, encryption, auditable deletion, conflict-safe data modeling, idempotent sync, monitoring, and tested restore procedures."
+      }
+    ],
+    [
+      "recommendation",
+      1,
+      "Recommendation",
+      "Start with local-only storage, paired with encrypted export/import and clear backup guidance. For a personal tracker, this delivers the core value with the smallest privacy, security, and operational burden. Design stable record identifiers and timestamps now so cloud sync can be added later if validated demand for seamless multi-device use outweighs the added responsibility. Choose cloud sync now only if cross-device continuity is a launch requirement rather than a future convenience.",
+      {
+        "status": "Recommended: local-only first"
+      }
+    ],
+    [
+      "storage-decision",
+      5,
+      "Storage architecture decision",
+      "Select the approach that should define the initial product scope.",
+      {
+        "options": [
+          "Choose local-only storage",
+          "Choose cloud sync"
+        ]
+      }
+    ]
+  ]
+]
