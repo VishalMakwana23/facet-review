@@ -77,7 +77,7 @@ export async function runCli(argv = process.argv.slice(2)): Promise<number> {
     if (!subject) return usage("Missing artifact path");
     const artifact = parseArtifact(JSON.parse(await readFile(resolve(subject), "utf8")));
     const session = await store.create(artifact);
-    const running = await startFacetServer({ store, sessionId: session.id, port: Number(option(rest, "--port") ?? "0") });
+    const running = await startReviewServer(store, session.id, option(rest, "--port"));
     process.stdout.write(`${JSON.stringify({ sessionId: session.id, url: running.url, dataDirectory })}\n`);
     if (!rest.includes("--no-browser")) await openBrowser(running.url);
     await waitForShutdown(running);
@@ -87,7 +87,7 @@ export async function runCli(argv = process.argv.slice(2)): Promise<number> {
   if (command === "resume") {
     if (!subject) return usage("Missing session ID");
     await store.load(subject);
-    const running = await startFacetServer({ store, sessionId: subject, port: Number(option(rest, "--port") ?? "0") });
+    const running = await startReviewServer(store, subject, option(rest, "--port"));
     process.stdout.write(`${JSON.stringify({ sessionId: subject, url: running.url, dataDirectory })}\n`);
     if (!rest.includes("--no-browser")) await openBrowser(running.url);
     await waitForShutdown(running);
@@ -197,6 +197,16 @@ async function openBrowser(url: string): Promise<void> {
   const args = process.platform === "win32" ? ["/c", "start", "", url] : [url];
   const child = spawn(command, args, { detached: true, stdio: "ignore", windowsHide: true });
   child.unref();
+}
+async function startReviewServer(store: FileSessionStore, sessionId: string, requestedPort?: string): Promise<RunningFacetServer> {
+  if (requestedPort !== undefined) return startFacetServer({ store, sessionId, port: Number(requestedPort) });
+  const hash = createHash("sha256").update(sessionId).digest();
+  const preferredPort = 49_152 + (hash.readUInt32BE(0) % 12_000);
+  try { return await startFacetServer({ store, sessionId, port: preferredPort }); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "EADDRINUSE") throw error;
+    return startFacetServer({ store, sessionId, port: 0 });
+  }
 }
 async function waitForShutdown(running: RunningFacetServer): Promise<void> {
   await new Promise<void>((resolveShutdown) => {

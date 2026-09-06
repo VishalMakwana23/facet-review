@@ -1,0 +1,11 @@
+["fp1","nextjs-ping-pong-plan",1,2,[
+  ["d","phased-implementation","items",[
+    {"label":"Phase 1 · Project foundation","detail":"Create the Next.js App Router project, TypeScript configuration, test setup, responsive page shell, and core design tokens."},
+    {"label":"Phase 2 · Deterministic engine","detail":"Define serializable game state and implement the fixed-step loop, paddle movement, serves, scoring, match completion, and deterministic fixtures."},
+    {"label":"Phase 3 · Collision system","detail":"Implement wall and paddle collision response, penetration correction, bounded rebound angles, velocity caps, and edge-case unit tests."},
+    {"label":"Phase 4 · Playable responsive interface","detail":"Add Canvas rendering, coordinate scaling, resize handling, semantic score HUD, keyboard/touch controls, pause/restart, and both local game modes."},
+    {"label":"Phase 5 · CPU, game feel, and accessibility","detail":"Add CPU profiles, speed and rebound tuning, sound controls, reduced motion, high-contrast cues, focus management, status announcements, and mobile resilience."},
+    {"label":"Phase 6 · Verification and release candidate","detail":"Pass engine, component, browser, performance, responsive, accessibility, and real-device gates, then produce the static export candidate."}
+  ]],
+  ["d","recommended-delivery-approach","status","Recommended: local-first six-phase MVP"]
+]]
