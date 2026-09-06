@@ -6,7 +6,7 @@ import { resolve, join, dirname } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const npmCli = process.env.npm_execpath ?? join(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
 const manifest = JSON.parse(await readFile(join(root,'release/package.json'),'utf8'));
-if (manifest.private !== true) throw new Error('Local release staging requires private:true until publication is explicitly configured');
+if (manifest.private === true && process.env.FACET_ALLOW_PRIVATE_RELEASE !== '1') throw new Error('Release staging requires a publishable manifest; set FACET_ALLOW_PRIVATE_RELEASE=1 only for private dry runs');
 await mkdir(join(root,'.release'),{recursive:true});
 const output = await mkdtemp(join(root,'.release','candidate-'));
 const stage = join(output,'package');

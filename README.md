@@ -45,6 +45,51 @@ node packages/cli/dist/index.js open examples/phase3-demo.facet.json
 
 The command prints a private loopback session URL and opens the review UI. See [the Phase 3 workflow](docs/phase3/LOCAL_VERTICAL_SLICE.md) for feedback, patch, resume, resolve, and export commands.
 
+## Usage
+
+Facet plans are authored as compact `fi1` intent files and compiled into canonical `.facet.json` artifacts. The compiled artifact is the file opened by a review session.
+
+```bash
+# Install dependencies and build the local CLI
+npm install
+npm run build
+
+# Validate a compact plan before compiling it
+node packages/cli/dist/index.js lint examples/nextjs-ping-pong-plan.fi1.json
+
+# Compile the plan (PowerShell)
+node packages/cli/dist/index.js compile examples/nextjs-ping-pong-plan.fi1.json |
+  Out-File -Encoding utf8 nextjs-ping-pong-plan.facet.json
+
+# Validate the compiled artifact
+node packages/cli/dist/index.js lint nextjs-ping-pong-plan.facet.json
+
+# Start a local review session
+node packages/cli/dist/index.js open nextjs-ping-pong-plan.facet.json
+```
+
+When the review UI is open:
+
+1. Read the plan and add comments in the feedback inbox.
+2. Choose **Approve** or **Revise** in the decision section.
+3. Send feedback to the listening agent, or save it for later.
+
+Useful session commands are:
+
+```bash
+# Inspect feedback or recorded decisions
+node packages/cli/dist/index.js inbox <session-id>
+node packages/cli/dist/index.js digest <session-id>
+
+# Keep the agent connected and wait for submitted feedback
+node packages/cli/dist/index.js poll <session-id>
+
+# Continue a stopped review session
+node packages/cli/dist/index.js resume <session-id>
+```
+
+For the Sudoku implementation plan, use [sudoku-nextjs-plan.fi1.json](sudoku-nextjs-plan.fi1.json) and [sudoku-nextjs-plan.facet.json](sudoku-nextjs-plan.facet.json). The plan recommends a local-first Next.js MVP with a pure TypeScript Sudoku engine, an accessible DOM board, local persistence, and no backend dependency.
+
 ## Local release candidate
 
 Run `npm run release:pack` followed by `npm run test:release` to build and test an isolated, dependency-free CLI archive. `.release/latest.json` identifies the archive and checksum. No registry publication or Codex installation occurs automatically. See [Phase 5 distribution status](docs/phase5/DISTRIBUTION.md) for installation, CI, cleanup, and remaining release gates.
