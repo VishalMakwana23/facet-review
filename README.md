@@ -307,7 +307,7 @@ The complete suite covers protocol round trips, migrations, deterministic recipe
 
 ## Project status
 
-`facet-review` is publicly available on npm under the `alpha` and `latest` tags. The CLI and local release path are automated and tested across Windows, macOS, and Ubuntu on supported Node versions. A public-registry rollback between alpha.1 and alpha.2 preserved review state and exports. This is still an alpha: hands-on screen-reader acceptance, broader human preference testing, and universal plugin-directory publication remain open release work.
+`facet-review` is publicly available on npm under the `alpha` and `latest` tags. The CLI and local release path are automated and tested across Windows, macOS, and Ubuntu on supported Node versions. A public-registry rollback between alpha.1 and alpha.5 preserved review state and exports. This is still an alpha: hands-on screen-reader acceptance, broader human preference testing, and universal plugin-directory publication remain open release work.
 
 Do not interpret synthetic representation benchmarks as measured full-model token savings. See the [implementation status](docs/beyond-lavish/IMPLEMENTATION_STATUS.md), [distribution status](docs/phase5/DISTRIBUTION.md), and [benchmark methodology](docs/BENCHMARK_METHODOLOGY.md) for the evidence and limits.
 

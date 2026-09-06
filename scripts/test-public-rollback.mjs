@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { createServer } from 'node:net';
 
 const previousVersion = process.env.FACET_PREVIOUS_VERSION ?? '0.1.0-alpha.1';
-const currentVersion = process.env.FACET_CURRENT_VERSION ?? '0.1.0-alpha.2';
+const currentVersion = process.env.FACET_CURRENT_VERSION ?? '0.1.0-alpha.5';
 const npmCli = process.env.npm_execpath ?? join(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js');
 const sandbox = await mkdtemp(join(tmpdir(), 'facet-public-rollback-'));
 const dataDir = join(sandbox, 'review-data');

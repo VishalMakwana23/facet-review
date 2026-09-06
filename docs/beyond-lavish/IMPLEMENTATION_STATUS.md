@@ -18,7 +18,7 @@ Status date: 2026-09-06. The source upgrade and npm distribution are public. Rep
 
 ## Latest machine gate
 
-The 2026-09-06 milestone-path browser run passed with no horizontal overflow at 375, 768, 1024, and 1440 CSS pixels, zero detected axe violations, and no console errors. The complete source suite, isolated archive install, public-registry execution, repository-marketplace plugin install, and alpha.1/alpha.2 rollback rehearsal also passed.
+The 2026-09-06 milestone-path browser run passed with no horizontal overflow at 375, 768, 1024, and 1440 CSS pixels, zero detected axe violations, and no console errors. The complete source suite, isolated archive install, public-registry execution, repository-marketplace plugin install, and alpha.1/alpha.5 rollback rehearsal also passed. Alpha.5 was published by the trusted GitHub Actions workflow with SLSA provenance.
 
 The competitive run `2026-09-05T12-55-28.661Z` correctly reports 0/5 complete captures. Its one historical partial expense-tracker comparison preferred Lavish visually before this redesign and preferred Facet for review workflow. That vote is retained as baseline evidence and is not relabeled as a result for the new UI.
 
