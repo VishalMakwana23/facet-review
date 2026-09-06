@@ -2,6 +2,17 @@
 
 Read this file when creating an artifact, reading feedback, or applying a revision.
 
+## Intent tuple (`fi1`, preferred for new work)
+
+```json
+["fi1", "artifact-id", "Title", ["review", "decide"], [
+  ["section", "Context", "Why this decision matters."],
+  ["decision", "Decision", "Choose one.", {"options":["Approve","Revise"]}]
+]]
+```
+
+Positions are format marker, artifact ID, title, capabilities, and nodes. Intent nodes are type name or type index, title, optional text, and optional data. The local compiler derives stable IDs and canonical defaults; duplicate headings receive deterministic numeric suffixes.
+
 ## Artifact tuple (`ft1`)
 
 ```json
@@ -30,7 +41,7 @@ Node-type indexes are append-only:
 | 9 | legend | 20 | persona |
 | 10 | comparison | 21 | progress |
 
-For decisions, use `{"options":["Approve","Revise"]}` as node data. Tables use `headers` and `rows`; charts use `values` plus a textual `summary`; diagrams require a textual `summary` and navigable `items`.
+For decisions, use `{"options":["Approve","Revise"]}` as node data. Tables use `headers` and `rows`; every chart requires a textual `summary`; diagrams require a textual `summary` and navigable `items`. See `visualizations.md` for specialized chart shapes.
 
 ## Patch tuple (`fp1`)
 
@@ -54,12 +65,16 @@ Operations:
 
 ```text
 facet open artifact.facet.json
+facet compile intent.fi1.json
+facet lint artifact.facet.json
+facet render artifact.facet.json
 facet resume <session-id>
 facet inbox <session-id>
 facet apply <session-id> revision.patch.json
 facet resolve-comment <session-id> <comment-id>
 facet resolve <session-id>
 facet export <session-id> review-bundle
+facet mcp
 ```
 
 Pass the same `--data-dir` to commands when the session uses a non-default data directory.

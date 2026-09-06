@@ -26,6 +26,7 @@ export interface ReviewComment {
   status: "open" | "resolved";
   createdAt: string;
   resolvedAt?: string;
+  parentId?: string;
 }
 
 export interface ReviewDecision {
@@ -34,6 +35,10 @@ export interface ReviewDecision {
   selection: string;
   revision: number;
   createdAt: string;
+  rationale?: string;
+  confidence?: number;
+  owner?: string;
+  dueDate?: string;
 }
 
 export interface RevisionChange {
@@ -74,6 +79,8 @@ export interface FeedbackInbox {
   decisions: ReviewDecision[];
 }
 
+export type CompactFeedbackDigest = ["fd1", string, number, Array<[string, string, string, string | 0]>, Array<[string, string, number]>];
+
 export class FileSessionStore {
   readonly root: string;
   readonly #locks = new Map<string, Promise<unknown>>();
@@ -110,7 +117,7 @@ export class FileSessionStore {
     return structuredClone(recovered);
   }
 
-  async addComment(id: string, input: { nodeId: string; body: string; anchorRevision?: number; anchor?: ReviewAnchor }): Promise<ReviewSession> {
+  async addComment(id: string, input: { nodeId: string; body: string; anchorRevision?: number; anchor?: ReviewAnchor; parentId?: string }): Promise<ReviewSession> {
     return this.mutate(id, (session, sequence, at) => {
       if (session.state !== "open") throw new Error("Cannot comment on a resolved session");
       if (!collectNodeIds(session.artifact).includes(input.nodeId)) throw new Error(`Unknown comment anchor: ${input.nodeId}`);
@@ -121,8 +128,14 @@ export class FileSessionStore {
       if (!Number.isSafeInteger(anchorRevision) || anchorRevision < 0) throw new Error("Invalid anchor revision");
       if (anchorRevision !== session.artifact.revision) throw new Error("Artifact changed: reload and review the selection before commenting");
       const anchor = validateAnchor(input.anchor, findNode(session.artifact.nodes, input.nodeId));
+      if (input.parentId) {
+        const parent = session.comments.find((entry) => entry.id === input.parentId);
+        if (!parent) throw new Error(`Unknown parent comment: ${input.parentId}`);
+        if (parent.nodeId !== input.nodeId) throw new Error("Replies must use the parent comment anchor");
+      }
       const comment: ReviewComment = { id: randomUUID(), nodeId: input.nodeId, body, anchorRevision, status: "open", createdAt: at };
       if (anchor) comment.anchor = anchor;
+      if (input.parentId) comment.parentId = input.parentId;
       return { type: "comment.created", id: randomUUID(), sequence, at, comment };
     });
   }
@@ -136,7 +149,7 @@ export class FileSessionStore {
     });
   }
 
-  async recordDecision(id: string, input: { nodeId: string; selection: string; revision?: number }): Promise<ReviewSession> {
+  async recordDecision(id: string, input: { nodeId: string; selection: string; revision?: number; rationale?: string; confidence?: number; owner?: string; dueDate?: string }): Promise<ReviewSession> {
     return this.mutate(id, (session, sequence, at) => {
       if (session.state !== "open") throw new Error("Cannot decide on a resolved session");
       if (input.revision !== undefined && input.revision !== session.artifact.revision) throw new Error("Artifact changed: reload before recording a decision");
@@ -144,7 +157,15 @@ export class FileSessionStore {
       if (!node || node.type !== "decision") throw new Error(`Unknown decision node: ${input.nodeId}`);
       const options = Array.isArray(node.data?.options) ? node.data.options.map(String) : [];
       if (!options.includes(input.selection)) throw new Error("Decision selection is not an available option");
+      const rationale = optionalText(input.rationale, "Decision rationale", 4_000);
+      const owner = optionalText(input.owner, "Decision owner", 200);
+      const dueDate = optionalText(input.dueDate, "Decision due date", 40);
+      if (input.confidence !== undefined && (!Number.isInteger(input.confidence) || input.confidence < 1 || input.confidence > 5)) throw new Error("Decision confidence must be an integer from 1 to 5");
       const decision: ReviewDecision = { id: randomUUID(), nodeId: input.nodeId, selection: input.selection, revision: session.artifact.revision, createdAt: at };
+      if (rationale) decision.rationale = rationale;
+      if (input.confidence !== undefined) decision.confidence = input.confidence;
+      if (owner) decision.owner = owner;
+      if (dueDate) decision.dueDate = dueDate;
       return { type: "decision.recorded", id: randomUUID(), sequence, at, decision };
     });
   }
@@ -176,6 +197,13 @@ export class FileSessionStore {
       resolvedComments: session.comments.filter((comment) => comment.status === "resolved"),
       decisions: session.decisions,
     };
+  }
+
+  async digest(id: string): Promise<CompactFeedbackDigest> {
+    const session = await this.load(id);
+    return ["fd1", session.artifact.id, session.artifact.revision,
+      session.comments.filter((comment) => comment.status === "open").map((comment) => [comment.id, comment.nodeId, comment.body, comment.parentId ?? 0]),
+      session.decisions.map((decision) => [decision.nodeId, decision.selection, decision.revision])];
   }
 
   async exportBundle(id: string, outputDirectory: string, render?: (session: ReviewSession) => string): Promise<void> {
@@ -343,6 +371,12 @@ function describeNode(nodes: FacetArtifact["nodes"], id: string, parent: string 
 }
 
 function pretty(value: unknown): string { return `${JSON.stringify(value, null, 2)}\n` }
+function optionalText(value: string | undefined, label: string, maximum: number): string | undefined {
+  if (value === undefined || value.trim() === "") return undefined;
+  const result = value.trim();
+  if (result.length > maximum) throw new Error(`${label} exceeds ${maximum} characters`);
+  return result;
+}
 
 function parseEvents(raw: string): ReviewEvent[] {
   const lines = raw.split("\n");

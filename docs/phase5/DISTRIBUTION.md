@@ -1,6 +1,6 @@
 # Phase 5 — distribution engineering
 
-Status: in progress. The first local release candidate and isolated-consumer tests are implemented. Nothing has been published to npm, installed globally, or added to a Codex marketplace. At the user's request, the GitHub repository was renamed from `plan-viewer` to `facet-review`, and `origin` now points to `https://github.com/VishalMakwana23/facet-review.git`. The authenticated API confirmed the repository retained ID `1356915242` and default branch `master`; initial commit `d4ba1a3` is preserved. The new Phase 5 files are still local and uncommitted. Actions results have not been verified.
+Status: in progress. The first local release candidate and isolated-consumer tests are implemented and pushed as commit `dc63dd4`. All six jobs in [GitHub Actions run 33857030587](https://github.com/VishalMakwana23/facet-review/actions/runs/33857030587) passed on 2026-09-04. Nothing has been published to npm, installed globally, or added to a Codex marketplace. The renamed repository is `https://github.com/VishalMakwana23/facet-review.git`, repository ID `1356915242`, default branch `master`; initial commit `d4ba1a3` is preserved.
 
 ## Package architecture
 
@@ -29,10 +29,10 @@ The runtime must be on the agent's PATH or supplied by absolute path. There is n
 
 | Target | Evidence |
 |---|---|
-| Windows, Node 24.12 | Local isolated archive install and review lifecycle passed |
-| Windows, Node 22.14 | CI configured, not yet run |
-| Ubuntu, Node 22.14/24 | CI configured, not yet run |
-| macOS, Node 22.14/24 | CI configured, not yet run |
+| Windows, Node 24 | Remote CI passed; local Node 24.12 isolated install also passed |
+| Windows, Node 22.14 | Remote CI passed |
+| Ubuntu, Node 22.14/24 | Both remote CI jobs passed |
+| macOS, Node 22.14/24 | Both remote CI jobs passed |
 | Registry-based npx install | Not available; candidate is unpublished |
 | Cross-version rollback | Pending a previous released version; same-version reinstall is tested |
 | Codex marketplace install | Source plugin validates; real marketplace installation pending |
@@ -41,7 +41,7 @@ Do not equate configured CI with passing remote runs. The under-three-minute res
 
 ## Publication requirements
 
-The GitHub repository is confirmed above and recorded in the candidate manifest. The npm browser session identifies `vishalmakwanaa`; `npm whoami` currently reports that terminal authorization is missing, and the account dashboard shows 2FA is not enabled. The registry currently returns 404 for `facet-review`, which does not reserve the name or guarantee first-publish acceptance. The user authorized continuing Phase 5 after signing into npm. Complete browser-based terminal authorization and account security setup before publishing. Then:
+The GitHub repository is confirmed above and recorded in the candidate manifest. A previous browser-based terminal login verified `vishalmakwanaa`, but `npm whoami` returned `E401` when rechecked on 2026-09-06. The most recent package lookup returned 404 for `facet-review`, which does not reserve the name or guarantee first-publish acceptance. The user authorized continuing Phase 5. Registry authentication and final account-security review remain owner tasks before publication. Then:
 
 1. Establish repository ownership, package-name rights, license/release review, and public metadata. Keep provenance repository URLs exact.
 2. Run the entire CI matrix on that repository and inspect the packed file list. Validate actual Codex installation from its intended distribution channel.
@@ -49,7 +49,7 @@ The GitHub repository is confirmed above and recorded in the candidate manifest.
 4. Prepare versioned release notes, provenance, and signed release evidence. The current SHA-256 manifest detects changed bytes; it is **not** a signature or proof of publisher identity.
 5. Publish only with explicit owner authorization and an approved alpha tag. Do not change `private:true` as an incidental build step.
 
-Remaining Phase 5 deliverables: actual remote matrix evidence, public/marketplace installation, a version-to-version rollback rehearsal, signed release evidence, and the documentation website and its deployment. Human acceptance remains deferred per the user's Phase 4 decision, not marked passed.
+Remaining Phase 5 deliverables: public/marketplace installation, a version-to-version rollback rehearsal, signed release evidence, and the documentation website and its deployment. Draft alpha notes are in `release/NOTES-0.1.0-alpha.1.md`. Human acceptance remains deferred per the user's Phase 4 decision, not marked passed.
 
 ## Diagnostics, cleanup and rollback
 

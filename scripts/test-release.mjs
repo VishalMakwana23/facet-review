@@ -18,12 +18,12 @@ let child;
 try {
   await writeFile(join(sandbox,'package.json'),'{"name":"isolated-facet-consumer","private":true}\n');
   const npxHelp=npm('exec','--yes',`--package=${candidate.tarball}`,'--','facet','--help');
-  assert.match(npxHelp,/Facet: open/,'npm exec must actually invoke the bin entrypoint');
+  assert.match(npxHelp,/Facet:.*\bopen\b/,'npm exec must actually invoke the bin entrypoint');
   npm('install',candidate.tarball);
   const manifest=JSON.parse(await readFile(join(sandbox,'node_modules/facet-review/package.json'),'utf8'));
   assert.deepEqual(manifest.dependencies??{},{});
   assert.deepEqual(manifest.scripts??{},{});
-  assert.match(execFileSync(process.execPath,[cli,'--help'],{encoding:'utf8'}),/Facet: open/);
+  assert.match(execFileSync(process.execPath,[cli,'--help'],{encoding:'utf8'}),/Facet:.*\bopen\b/);
   const diagnostics=JSON.parse(execFileSync(process.execPath,[cli,'doctor'],{encoding:'utf8'}));
   assert.equal(diagnostics.supportedNode,true);
   assert.equal(diagnostics.telemetry,'disabled — no diagnostic data transmitted');

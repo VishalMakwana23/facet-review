@@ -50,8 +50,16 @@ try {
     assert.equal(commentResponse.status, 201);
     const comment = await commentResponse.json();
 
-    const decisionResponse = await post(`${origin}/api/s/${created.id}/decisions`, origin, { nodeId: "approval", selection: "Revise" });
+    const replyResponse = await post(`${origin}/api/s/${created.id}/comments`, origin, { nodeId: "summary", body: "Agreed — use a 90% completion target", anchorRevision: 0, anchor: { kind: "node" }, parentId: comment.id });
+    assert.equal(replyResponse.status, 201);
+    const reply = await replyResponse.json();
+    assert.equal(reply.parentId, comment.id);
+
+    const decisionResponse = await post(`${origin}/api/s/${created.id}/decisions`, origin, { nodeId: "approval", selection: "Revise", rationale: "The success condition is not measurable yet", confidence: 4, owner: "Product", dueDate: "2026-09-12" });
     assert.equal(decisionResponse.status, 201);
+    const recordedDecision = await decisionResponse.json();
+    assert.equal(recordedDecision.confidence, 4);
+    assert.equal(recordedDecision.owner, "Product");
 
     const patch = encodeCompactPatch({ artifactId: artifact.id, baseRevision: 0, nextRevision: 1, operations: [{ op: "setText", id: "summary", value: "Original plan with a measurable success condition" }] });
     const patchResponse = await post(`${origin}/api/s/${created.id}/patch`, origin, patch);
@@ -62,13 +70,22 @@ try {
 
     const afterPatch = await store.inbox(created.id);
     assert.equal(afterPatch.artifactRevision, 2);
-    assert.equal(afterPatch.openComments.length, 2);
-    assert.equal(afterPatch.openComments[1].nodeId, "summary");
-    assert.equal(afterPatch.openComments[1].anchor.quote, "Original");
+    assert.equal(afterPatch.openComments.length, 3);
+    assert.equal(afterPatch.openComments.find(entry => entry.id === comment.id).anchor.quote, "Original");
+    assert.equal(afterPatch.openComments.find(entry => entry.id === reply.id).parentId, comment.id);
     assert.equal(afterPatch.decisions[0].selection, "Revise");
+    assert.equal(afterPatch.decisions[0].rationale, "The success condition is not measurable yet");
     assert.deepEqual((await store.load(created.id)).revisionChanges.map((change) => change.revision), [1, 2]);
 
+    const intelligentPage = await fetch(running.url);
+    const intelligentHtml = await intelligentPage.text();
+    assert.match(intelligentHtml, /class="annotation-pin"/);
+    assert.match(intelligentHtml, /data-feedback-filter="open"/);
+    assert.match(intelligentHtml, /class="reply-list"/);
+    assert.match(intelligentHtml, /Decision ledger/);
+
     assert.equal((await post(`${origin}/api/s/${created.id}/comments/${comment.id}/resolve`, origin, {})).status, 200);
+    assert.equal((await post(`${origin}/api/s/${created.id}/comments/${reply.id}/resolve`, origin, {})).status, 200);
     await store.resolveComment(created.id, recoveredComment.id);
     assert.equal((await post(`${origin}/api/s/${created.id}/resolve`, origin, {})).status, 200);
   } finally {

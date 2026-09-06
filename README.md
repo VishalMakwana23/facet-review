@@ -4,7 +4,7 @@ Facet is a local-first, token-efficient review canvas for human-agent collaborat
 
 ## Current status
 
-Phases 1–3 are complete. Phase 4 engineering now includes mode isolation, exact selection anchors, semantic revision details, draft recovery, responsive keyboard-accessible review, secure read-only exports, and expanded automated verification. Human acceptance is deferred by the user until skill implementation is ready; it has not passed. See [Phase 4 evidence and limits](docs/phase4/VALIDATION.md). Public packaging and distribution remain Phase 5 work.
+The beyond-Lavish implementation is complete through the local product phases: modular visual foundation, Option Showdown and Milestone Path recipes, answer-first report overviews, layered system flows, explanatory data views, threaded review intelligence, compact intent and feedback formats, honest token receipts, and nine no-regeneration review lenses. The competitive harness is implemented and fails closed; a superiority claim remains ineligible until five equal-content captures and blind human validation are complete. See [implementation status](docs/beyond-lavish/IMPLEMENTATION_STATUS.md). Public npm and marketplace distribution are not yet live.
 
 ## Workspace map
 
@@ -25,7 +25,7 @@ npm install
 npm test
 ```
 
-The test suite checks the foundation, workspace types, protocol round trips, migrations, deterministic revision behavior, and conformance fixtures. Run `npm run benchmark:protocol` to create a timestamped token and fidelity result bundle.
+The test suite checks the foundation, workspace types, protocol round trips, deterministic recipes, threaded review, intent compilation, patch optimization, workspace lenses, migrations, and conformance fixtures. Run `npm run benchmark:protocol` for protocol evidence and `npm run benchmark:competitive` for the fail-closed Facet-versus-Lavish report.
 
 ## Product boundaries
 

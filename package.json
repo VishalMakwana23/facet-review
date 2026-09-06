@@ -21,10 +21,21 @@
     "test:protocol": "node scripts/test-protocol.mjs",
     "test:phase3": "node scripts/test-phase3.mjs",
     "test:phase4": "node scripts/test-phase4.mjs",
+    "test:phase2": "node scripts/test-option-showdown.mjs",
+    "test:token-system": "node scripts/test-token-system.mjs",
+    "test:workspace-lenses": "node scripts/test-workspace-lenses.mjs",
+    "test:adaptive-shell": "node scripts/test-adaptive-shell.mjs",
+    "test:milestone-path": "node scripts/test-milestone-path.mjs",
+    "test:visualizations": "node scripts/test-visualization-intelligence.mjs",
+    "test:agent-bridge": "node scripts/test-agent-bridge.mjs",
+    "test:skill-intelligence": "node scripts/test-skill-intelligence.mjs",
+    "test:product-quality": "node scripts/test-product-quality.mjs",
     "release:pack": "npm run build && node scripts/pack-release.mjs",
     "test:release": "node scripts/test-release.mjs",
     "benchmark:protocol": "npm run build && node benchmarks/scripts/run-protocol-benchmark.mjs",
-    "test": "npm run build && npm run verify:foundation && npm run test:protocol && npm run test:phase3 && npm run test:phase4 && npm run typecheck"
+    "benchmark:competitive": "npm run build && node benchmarks/scripts/run-competitive-benchmark.mjs",
+    "test:competitive": "node scripts/test-competitive-benchmark.mjs",
+    "test": "npm run build && npm run verify:foundation && npm run test:protocol && npm run test:phase2 && npm run test:phase3 && npm run test:phase4 && npm run test:token-system && npm run test:workspace-lenses && npm run test:adaptive-shell && npm run test:milestone-path && npm run test:visualizations && npm run test:agent-bridge && npm run test:skill-intelligence && npm run test:product-quality && npm run test:competitive && npm run typecheck"
   },
   "devDependencies": {
     "@types/node": "24.13.3",

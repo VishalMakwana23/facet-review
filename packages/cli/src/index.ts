@@ -9,12 +9,15 @@ import { FileSessionStore } from "@facet-review/core";
 import {
   decodeCandidate,
   decodeCompactPatch,
+  compileIntent,
+  inspectArtifact,
   migrateEnvelope,
   type ArtifactEnvelope,
   type CompactPatchEnvelope,
   type FacetArtifact,
   type PatchEnvelope,
   type ProtocolCandidate,
+  type CompactIntent,
 } from "@facet-review/protocol";
 import { renderProductArtifact } from "@facet-review/renderer";
 import { startFacetServer, type RunningFacetServer } from "./server.js";
@@ -22,6 +25,7 @@ import { startFacetServer, type RunningFacetServer } from "./server.js";
 export { startFacetServer, type RunningFacetServer } from "./server.js";
 
 export function parseArtifact(input: unknown): FacetArtifact {
+  if (Array.isArray(input) && input[0] === "fi1") return compileIntent(input as CompactIntent);
   if (Array.isArray(input)) return decodeCandidate(input as ProtocolCandidate);
   if (!input || typeof input !== "object") throw new Error("Artifact must be a JSON object or tuple");
   if ("format" in input || "f" in input) return decodeCandidate(input as ProtocolCandidate);
@@ -30,6 +34,10 @@ export function parseArtifact(input: unknown): FacetArtifact {
 
 export async function runCli(argv = process.argv.slice(2)): Promise<number> {
   const [command, subject, ...rest] = argv;
+  if (command === "mcp") {
+    const { runMcpServer } = await import("./mcp.js");
+    return runMcpServer();
+  }
   if (command === "doctor") {
     const [major = 0, minor = 0] = process.versions.node.split(".").map(Number);
     const supported = major > 22 || (major === 22 && minor >= 14);
@@ -37,8 +45,29 @@ export async function runCli(argv = process.argv.slice(2)): Promise<number> {
     return supported ? 0 : 1;
   }
   if (command === "--help" || command === "help" || command === "-h") {
-    process.stdout.write("Facet: open <artifact>, resume <session>, inbox <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <new-directory>, repair-journal <session> --confirm, doctor\nOptions: --data-dir <directory>, open/resume: --no-browser --port <port>\n");
+    process.stdout.write("Facet: compile <fi1|->, lint <artifact|->, render <artifact|->, open <artifact>, resume <session>, inbox <session>, digest <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <new-directory>, repair-journal <session> --confirm, doctor, mcp\nOptions: --data-dir <directory>, open/resume: --no-browser --port <port>\n");
     return 0;
+  }
+  if (command === "compile") {
+    if (!subject) return usage("Missing compact intent path or - for stdin");
+    const intent = JSON.parse(await readInput(subject)) as CompactIntent;
+    process.stdout.write(`${JSON.stringify(compileIntent(intent))}\n`);
+    return 0;
+  }
+  if (command === "render") {
+    if (!subject) return usage("Missing artifact path or - for stdin");
+    const raw: unknown = JSON.parse(await readInput(subject));
+    const artifact = Array.isArray(raw) && raw[0] === "fi1" ? compileIntent(raw as CompactIntent) : parseArtifact(raw);
+    process.stdout.write(renderProductArtifact(artifact));
+    return 0;
+  }
+  if (command === "lint") {
+    if (!subject) return usage("Missing artifact path or - for stdin");
+    const raw: unknown = JSON.parse(await readInput(subject));
+    const artifact = Array.isArray(raw) && raw[0] === "fi1" ? compileIntent(raw as CompactIntent) : parseArtifact(raw);
+    const report = inspectArtifact(artifact);
+    process.stdout.write(`${JSON.stringify(report)}\n`);
+    return report.valid ? 0 : 1;
   }
   const dataDirectory = option(rest, "--data-dir") ?? resolve(homedir(), ".facet-review");
   const store = new FileSessionStore(dataDirectory);
@@ -67,6 +96,12 @@ export async function runCli(argv = process.argv.slice(2)): Promise<number> {
   if (command === "inbox") {
     if (!subject) return usage("Missing session ID");
     process.stdout.write(`${JSON.stringify(await store.inbox(subject), null, 2)}\n`);
+    return 0;
+  }
+
+  if (command === "digest") {
+    if (!subject) return usage("Missing session ID");
+    process.stdout.write(`${JSON.stringify(await store.digest(subject))}\n`);
     return 0;
   }
 
@@ -126,8 +161,14 @@ function positional(args: string[]): string | undefined {
 }
 function usage(error?: string): number {
   if (error) process.stderr.write(`${error}\n`);
-  process.stderr.write("Facet commands: open <artifact>, resume <session>, inbox <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <directory>\n");
+  process.stderr.write("Facet commands: compile <fi1|->, lint <artifact|->, render <artifact|->, open <artifact>, resume <session>, inbox <session>, apply <session> <patch>, resolve-comment <session> <comment>, resolve <session>, export <session> <directory>, mcp\n");
   return 2;
+}
+async function readInput(subject: string): Promise<string> {
+  if (subject !== "-") return readFile(resolve(subject), "utf8");
+  const chunks: Buffer[] = [];
+  for await (const chunk of process.stdin) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+  return Buffer.concat(chunks).toString("utf8");
 }
 async function openBrowser(url: string): Promise<void> {
   const { spawn } = await import("node:child_process");

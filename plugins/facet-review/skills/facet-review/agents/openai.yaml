@@ -1,8 +1,8 @@
 interface:
   display_name: "Facet Review"
-  short_description: "Create compact local review canvases"
+  short_description: "Create decision-ready local review workspaces"
   brand_color: "#7C6CFF"
-  default_prompt: "Use $facet-review to open this structured work in a local review canvas."
+  default_prompt: "Use $facet-review to turn this structured work into a decision-ready local review workspace."
 
 policy:
   allow_implicit_invocation: true

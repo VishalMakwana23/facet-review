@@ -36,6 +36,15 @@ with tempfile.TemporaryDirectory(prefix="facet-phase4-") as data_directory:
             page.wait_for_load_state("networkidle")
 
             assert page.evaluate("matchMedia('(prefers-reduced-motion: reduce)').matches")
+            assert not page.locator('body').evaluate("body => body.classList.contains('section-collapsed')")
+            page.locator('header [data-toggle-sections]').click()
+            assert page.locator('body').evaluate("body => body.classList.contains('section-collapsed')")
+            page.locator('header [data-toggle-sections]').click()
+            page.locator('[data-review-width]').fill('420')
+            assert page.locator('html').evaluate("html => getComputedStyle(html).getPropertyValue('--review-width').trim()") == '420px'
+            for density in ['compact','presentation','comfortable']:
+                page.locator(f'[data-density="{density}"]').click()
+                assert page.locator('body').get_attribute('data-density') == density
             command_button = page.locator("[data-open-commands]")
             command_button.click()
             assert page.locator("#command-palette").evaluate("dialog => dialog.open")
@@ -53,12 +62,19 @@ with tempfile.TemporaryDirectory(prefix="facet-phase4-") as data_directory:
             page.locator('[data-mode="decide"]').click()
             assert page.locator('#comment').is_disabled()
             page.locator('[data-decision-id] input').first.check()
+            page.locator('.decision-context-fields > summary').click()
+            page.locator('[data-decision-rationale]').fill('The evidence supports a reversible first step.')
+            page.locator('[data-decision-confidence]').select_option('4')
+            page.locator('[data-decision-owner]').fill('Review team')
+            page.locator('[data-decision-due]').fill('2026-09-12')
             page.once('dialog', lambda dialog: dialog.dismiss())
             page.locator('[data-action="decision"]').click()
             assert page.locator('.decision-inbox .comment').count() == 0
             page.once('dialog', lambda dialog: dialog.accept())
             page.locator('[data-action="decision"]').click()
             page.locator('.decision-inbox .comment').wait_for()
+            assert '4/5' in page.locator('.decision-inbox').inner_text()
+            assert 'Review team' in page.locator('.decision-inbox').inner_text()
             page.locator('[data-mode="review"]').click()
 
             page.evaluate("""() => {
@@ -97,6 +113,9 @@ with tempfile.TemporaryDirectory(prefix="facet-phase4-") as data_directory:
             assert "before / after" in change_text
             assert "Stale" in page.locator("#feedback-inbox").inner_text()
             assert page.locator("#feedback-inbox blockquote").count() == 2
+            for lens in ['summary','evidence','risk','change','decision','story','board','focus','all']:
+                page.locator(f'[data-lens="{lens}"]').click()
+                assert page.locator('body').get_attribute('data-lens') == lens
 
             # Session-scoped drafts survive reload without silently rebinding old text.
             page.locator('#comment').fill('Recover this draft')
@@ -150,7 +169,7 @@ with tempfile.TemporaryDirectory(prefix="facet-phase4-") as data_directory:
             page.screenshot(path=str(OUTPUT / "desktop-mvp.png"), full_page=True)
 
             responsive = []
-            for width, height in [(375, 812), (812, 375), (768, 1024), (1024, 768)]:
+            for width, height in [(375, 812), (812, 375), (768, 1024), (1024, 768), (1440, 900)]:
                 viewport = browser.new_page(viewport={"width": width, "height": height})
                 viewport.goto(startup["url"])
                 viewport.wait_for_load_state("networkidle")

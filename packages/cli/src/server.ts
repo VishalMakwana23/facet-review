@@ -42,18 +42,22 @@ async function handleRequest(store: FileSessionStore, sessionId: string, request
     if (request.method === "GET" && action === "/inbox") return sendJson(response, 200, await store.inbox(sessionId));
     if (request.method === "POST" && action === "/comments") {
       const body = await jsonBody(request);
-      const input: { nodeId: string; body: string; anchorRevision?: number; anchor?: ReviewAnchor } = { nodeId: stringField(body, "nodeId"), body: stringField(body, "body") };
+      const input: { nodeId: string; body: string; anchorRevision?: number; anchor?: ReviewAnchor; parentId?: string } = { nodeId: stringField(body, "nodeId"), body: stringField(body, "body") };
       const anchorRevision = numberField(body, "anchorRevision");
       if (anchorRevision !== undefined) input.anchorRevision = anchorRevision;
       const anchor = objectField(body, "anchor");
       if (anchor !== undefined) input.anchor = anchor as unknown as ReviewAnchor;
+      const parentId = optionalStringField(body, "parentId");
+      if (parentId !== undefined) input.parentId = parentId;
       const session = await store.addComment(sessionId, input);
       return sendJson(response, 201, session.comments.at(-1));
     }
     if (request.method === "POST" && action === "/decisions") {
       const body = await jsonBody(request);
       const revision = numberField(body, "revision");
-      const session = await store.recordDecision(sessionId, { nodeId: stringField(body, "nodeId"), selection: stringField(body, "selection"), ...(revision === undefined ? {} : { revision }) });
+      const confidence = numberField(body, "confidence");
+      const rationale = optionalStringField(body, "rationale"), owner = optionalStringField(body, "owner"), dueDate = optionalStringField(body, "dueDate");
+      const session = await store.recordDecision(sessionId, { nodeId: stringField(body, "nodeId"), selection: stringField(body, "selection"), ...(revision === undefined ? {} : { revision }), ...(confidence === undefined ? {} : { confidence }), ...(rationale === undefined ? {} : { rationale }), ...(owner === undefined ? {} : { owner }), ...(dueDate === undefined ? {} : { dueDate }) });
       return sendJson(response, 201, session.decisions.at(-1));
     }
     const commentMatch = action.match(/^\/comments\/([0-9a-f-]+)\/resolve$/);
@@ -100,6 +104,12 @@ function sameOrigin(request: IncomingMessage): boolean {
 }
 function stringField(body: Record<string, unknown> | unknown[], key: string): string {
   const value = Array.isArray(body) ? undefined : body[key];
+  if (typeof value !== "string") throw new Error(`${key} must be a string`);
+  return value;
+}
+function optionalStringField(body: Record<string, unknown> | unknown[], key: string): string | undefined {
+  const value = Array.isArray(body) ? undefined : body[key];
+  if (value === undefined) return undefined;
   if (typeof value !== "string") throw new Error(`${key} must be a string`);
   return value;
 }

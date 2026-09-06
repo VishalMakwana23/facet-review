@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "benchmarkId": "facet-vs-lavish-v1",
+  "frozen": true,
+  "purpose": "Compare Facet and Lavish on equal-content review workflows without conflating final representation size with total Codex usage.",
+  "rules": {
+    "sameModelAndEffort": true,
+    "freshChatPerVariant": true,
+    "preserveFailuresAndRetries": true,
+    "requireContentParityBeforeScoring": true,
+    "neverTreatEstimatedTokensAsBillingUsage": true
+  },
+  "gates": {
+    "completedCases": 5,
+    "blindFacetPreferencePercent": 60,
+    "unassistedTaskCompletionPercent": 90,
+    "workflowTokenReductionPercent": 40,
+    "medianFacetPatchPercent": 15,
+    "criticalAccessibilityViolations": 0
+  },
+  "cases": [
+    {
+      "id": "expense-tracker-storage-review",
+      "category": "comparison-decision",
+      "title": "Personal expense tracker storage decision",
+      "prompt": "Create a local interactive review comparing local-only storage and cloud synchronization for a personal expense tracker. Include decision context, an at-a-glance comparison, benefits, risks and mitigations, a reasoned recommendation, and exactly two decision choices. Assume one primary user, sensitive financial data, possible phone-and-laptop use, and reliable recovery. Do not browse, publish, or implement the tracker. Open the review and keep it running for feedback.",
+      "revisionPrompt": "Seamless phone-and-laptop access is now mandatory at launch. Update only what this changes, preserve useful content and feedback, and keep the review running.",
+      "requiredContent": ["decision context", "comparison", "local-only benefits", "cloud benefits", "risks", "mitigations", "recommendation", "two choices"],
+      "requiredInteractions": ["leave feedback", "record decision", "revise without losing context"]
+    },
+    {
+      "id": "api-migration-review",
+      "category": "code-review",
+      "title": "API migration readiness review",
+      "prompt": "Create a local interactive review for migrating a TypeScript client from a deprecated REST endpoint to a versioned replacement. Include executive summary, before-and-after request examples, breaking changes, compatibility risks, rollout checklist, rollback approach, and exactly two readiness choices. Do not change code or publish anything. Open the review and keep it running for feedback.",
+      "revisionPrompt": "A legacy mobile client cannot send the new required header for six weeks. Revise the rollout recommendation and affected risks only, preserving comments and decision history.",
+      "requiredContent": ["summary", "before example", "after example", "breaking changes", "risks", "rollout", "rollback", "two choices"],
+      "requiredInteractions": ["copy code", "comment on code", "record readiness decision", "review revision"]
+    },
+    {
+      "id": "incident-retrospective-review",
+      "category": "operations",
+      "title": "Production incident retrospective",
+      "prompt": "Create a local interactive review of a fictional 47-minute checkout outage caused by an expired service credential and incomplete alert routing. Include impact, timeline, contributing factors, root cause, evidence, corrective actions, owners, and exactly two closure choices. Do not contact anyone or change systems. Open the review and keep it running for feedback.",
+      "revisionPrompt": "New evidence shows the credential warning fired but was routed to an unowned channel. Update the root cause and corrective actions without rewriting unaffected sections.",
+      "requiredContent": ["impact", "timeline", "root cause", "evidence", "contributing factors", "corrective actions", "owners", "two choices"],
+      "requiredInteractions": ["inspect timeline", "comment on evidence", "record closure decision", "review changed sections"]
+    },
+    {
+      "id": "vendor-selection-review",
+      "category": "comparison-decision",
+      "title": "Analytics vendor selection",
+      "prompt": "Create a local interactive review comparing three fictional analytics vendors for a privacy-conscious SaaS product. Include weighted criteria, cost assumptions, security and compliance risks, implementation effort, recommendation, dissenting considerations, and exactly two approval choices. Do not browse, purchase, or contact vendors. Open the review and keep it running for feedback.",
+      "revisionPrompt": "The recommended vendor increases its annual price by 35 percent. Recalculate the recommendation and update only affected evidence, risks, and decision rationale.",
+      "requiredContent": ["three vendors", "weighted criteria", "cost", "security", "implementation", "recommendation", "dissent", "two choices"],
+      "requiredInteractions": ["compare options", "comment on criterion", "record approval", "inspect revision"]
+    },
+    {
+      "id": "product-roadmap-review",
+      "category": "plan",
+      "title": "AI assistant product roadmap",
+      "prompt": "Create a local interactive review for a six-month roadmap for a privacy-first AI assistant. Include goals, phases, dependencies, risks, success metrics, explicit non-goals, and exactly two scope choices. Do not implement or publish anything. Open the review and keep it running for feedback.",
+      "revisionPrompt": "Move offline support from the final phase into the launch milestone. Update dependencies, risks, and sequencing while preserving existing feedback.",
+      "requiredContent": ["goals", "phases", "dependencies", "risks", "metrics", "non-goals", "two choices"],
+      "requiredInteractions": ["navigate phases", "comment on milestone", "record scope decision", "review reordered plan"]
+    }
+  ]
+}

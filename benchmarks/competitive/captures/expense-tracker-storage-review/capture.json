@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "caseId": "expense-tracker-storage-review",
+  "status": "partial",
+  "capturedAt": "2026-09-05",
+  "model": "gpt-5.6-luna",
+  "reasoningEffort": "low",
+  "variants": {
+    "facet": {
+      "format": "ft1-fp1",
+      "initialFile": null,
+      "revisionFiles": [],
+      "initialTurnUsage": null,
+      "revisionTurnUsage": null,
+      "elapsedMilliseconds": null,
+      "retries": null
+    },
+    "lavish": {
+      "format": "self-contained-html",
+      "finalFile": null,
+      "initialFile": null,
+      "revisionFiles": [],
+      "initialTurnUsage": null,
+      "revisionTurnUsage": null,
+      "elapsedMilliseconds": null,
+      "retries": null
+    }
+  },
+  "evaluation": {
+    "contentParity": "pending",
+    "interactionParity": "different",
+    "blindVisualPreference": "lavish",
+    "reviewWorkflowPreference": "facet",
+    "notes": "User found Lavish cleaner and more decision-focused, while Facet had stronger comments, history, modes, anchors, navigation, and revision tracking. The Lavish initial output and per-turn usage were not captured, so this is not a complete workflow comparison."
+  }
+}

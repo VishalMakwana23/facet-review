@@ -55,6 +55,19 @@ export function encodeCompactPatch(patch: PatchEnvelope): CompactPatchEnvelope {
   return ["fp1", patch.artifactId, patch.baseRevision, patch.nextRevision, operations];
 }
 
+/** Remove adjacent superseded writes without changing operation ordering semantics. */
+export function optimizePatch(patch: PatchEnvelope): PatchEnvelope {
+  const optimized: PatchOperation[] = [];
+  for (const operation of patch.operations) {
+    const previous = optimized.at(-1);
+    const sameTextTarget = operation.op === "setText" && previous?.op === "setText" && previous.id === operation.id;
+    const sameDataTarget = operation.op === "setData" && previous?.op === "setData" && previous.id === operation.id && previous.key === operation.key;
+    if (sameTextTarget || sameDataTarget) optimized[optimized.length - 1] = structuredClone(operation);
+    else optimized.push(structuredClone(operation));
+  }
+  return { ...patch, operations: optimized };
+}
+
 export function decodeCompactPatch(patch: CompactPatchEnvelope): PatchEnvelope {
   if (!Array.isArray(patch) || patch.length !== 5 || !Array.isArray(patch[4])) throw new Error("Invalid compact patch envelope");
   if (patch[0] !== "fp1") throw new Error("Unsupported compact patch version");
