@@ -43,6 +43,14 @@ export const productBehavior = String.raw`
     $('#selected-anchor').textContent = nodeId + (selected.kind === 'code' ? ' · lines ' + selected.lineStart + '–' + selected.lineEnd : selected.kind === 'text' ? ' · “' + selected.quote.slice(0,72) + '”' : ' · revision ' + runtime.revision);
     persistDraft();
   }
+  function selectCurrentSection() {
+    if (nodeId || mode !== 'review' || !writable) return;
+    const fromHash = location.hash.startsWith('#node-') ? $(location.hash) : null;
+    const currentLink = $('#section-navigator a[aria-current="location"]');
+    const fromNav = currentLink ? $(currentLink.getAttribute('href')) : null;
+    const visible = all('[data-node-id]').find(node => { const rect = node.getBoundingClientRect(); return rect.bottom > parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bar-height')) && rect.top < innerHeight; });
+    selectNode(fromHash || fromNav || visible || all('[data-node-id]')[0]);
+  }
   function captureSelection() {
     if (mode !== 'review' || !writable) return false;
     const selection = getSelection();
@@ -241,6 +249,7 @@ export const productBehavior = String.raw`
   $('#command-search').addEventListener('input',event => all('[data-command]').forEach(b => b.hidden = !b.textContent.toLowerCase().includes(event.target.value.toLowerCase())));
   palette.addEventListener('close',() => { if (!panel.classList.contains('open')) opener?.focus?.(); });
   comment.addEventListener('input',persistDraft);
+  comment.addEventListener('focus',selectCurrentSection);
   $('#section-navigator').addEventListener('click',event => {
     const link = event.target.closest('a[href^="#node-"]');
     if (!link) return;
