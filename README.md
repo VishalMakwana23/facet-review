@@ -4,6 +4,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/facet-review"><img alt="npm version" src="https://img.shields.io/npm/v/facet-review?color=7c6cff&label=npm" /></a>
+  <a href="https://skills.sh/VishalMakwana23/facet-review"><img alt="skills.sh installs" src="https://skills.sh/b/VishalMakwana23/facet-review" /></a>
   <a href="https://github.com/VishalMakwana23/facet-review/actions/workflows/ci.yml"><img alt="CI status" src="https://github.com/VishalMakwana23/facet-review/actions/workflows/ci.yml/badge.svg" /></a>
   <img alt="Node.js 22.14 or newer" src="https://img.shields.io/badge/node-%3E%3D22.14-22c55e" />
   <a href="LICENSE"><img alt="Apache 2.0 license" src="https://img.shields.io/badge/license-Apache--2.0-334155" /></a>
@@ -133,6 +134,16 @@ codex plugin add facet-review@personal
 ```
 
 Restart Codex or start a new task so plugin discovery runs again.
+
+### Install the skill through skills.sh
+
+The same public skill can be installed from the GitHub repository with the skills.sh CLI:
+
+```bash
+npx skills add https://github.com/VishalMakwana23/facet-review --skill facet-review
+```
+
+This installs the agent instructions only. Install `facet-review@alpha` separately so the `facet` runtime is available on `PATH`.
 
 For repository-local use without the plugin marketplace, copy the bundled skill into your project only when `.agents/skills/facet-review` does not already exist.
 

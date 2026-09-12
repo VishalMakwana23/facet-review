@@ -1,6 +1,6 @@
 # Phase 5 — distribution engineering
 
-Status: public alpha available. `facet-review@0.1.0-alpha.5` was published to npm on 2026-09-06 by the trusted GitHub Actions workflow and verified through a fresh public-registry `npm exec` run. The repository marketplace and `facet-review@personal` installation were also verified. The first local release candidate and isolated-consumer tests were implemented in commit `dc63dd4`; all six jobs in [GitHub Actions run 33857030587](https://github.com/VishalMakwana23/facet-review/actions/runs/33857030587) passed on 2026-09-04. The provenance-backed [alpha.5 publish run](https://github.com/VishalMakwana23/facet-review/actions/runs/34049917251) passed on 2026-09-06. Universal Codex plugin-directory review remains pending. The repository is `https://github.com/VishalMakwana23/facet-review.git`, repository ID `1356915242`, default branch `master`; initial commit `d4ba1a3` is preserved.
+Status: public alpha available. `facet-review@0.1.0-alpha.5` was published to npm on 2026-09-06 by the trusted GitHub Actions workflow and verified through a fresh public-registry `npm exec` run. The repository marketplace and `facet-review@personal` installation were also verified. On 2026-09-12, the public repository was verified with the skills.sh CLI, which discovered the bundled `facet-review` skill. The first local release candidate and isolated-consumer tests were implemented in commit `dc63dd4`; all six jobs in [GitHub Actions run 33857030587](https://github.com/VishalMakwana23/facet-review/actions/runs/33857030587) passed on 2026-09-04. The provenance-backed [alpha.5 publish run](https://github.com/VishalMakwana23/facet-review/actions/runs/34049917251) passed on 2026-09-06. Universal Codex plugin-directory review remains pending. The repository is `https://github.com/VishalMakwana23/facet-review.git`, repository ID `1356915242`, default branch `master`; initial commit `d4ba1a3` is preserved.
 
 ## Package architecture
 
@@ -23,6 +23,14 @@ Install the public alpha with `npm install --global facet-review@alpha`, or run 
 
 The runtime must be on the agent's PATH or supplied by absolute path. The verified npm package is [facet-review](https://www.npmjs.com/package/facet-review) and the expected repository metadata points to `VishalMakwana23/facet-review`. The repository now exposes a `personal` marketplace with `facet-review@personal`; universal plugin-directory review remains separate.
 
+The public skill is also discoverable through the skills.sh CLI:
+
+```text
+npx skills add https://github.com/VishalMakwana23/facet-review --skill facet-review
+```
+
+skills.sh has no separate publish command: it indexes public GitHub skills through CLI discovery and anonymous install telemetry. This route installs the skill instructions, not the npm runtime.
+
 ## Automation and compatibility
 
 `.github/workflows/ci.yml` is a read-only validation/candidate-build workflow. It pins external actions to commit SHAs and tests Node 22.14/24 on Ubuntu, Windows, and macOS. It uploads candidate archives/checksums/results only, not session data. It has no npm credentials, OIDC permission, publish step, or production environment access.
@@ -36,6 +44,7 @@ The runtime must be on the agent's PATH or supplied by absolute path. The verifi
 | Registry-based npm exec | Passed on Windows with `facet-review@alpha` after publication |
 | Cross-version rollback | Alpha.1 → alpha.5 → alpha.1 preserved the open comment, resumable session, and standalone export |
 | Codex marketplace install | `facet-review@personal` installed and enabled from the GitHub repository marketplace |
+| skills.sh discovery | Public GitHub source resolved and the CLI found `facet-review` |
 
 Do not equate configured CI with passing remote runs. The under-three-minute result measures local archive installation through first artifact, not a network download or first-time Node installation.
 
